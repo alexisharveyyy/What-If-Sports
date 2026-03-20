@@ -1,0 +1,33 @@
+data:
+  sample_path: "data/sample/sample_players.csv"
+  processed_path: "data/processed/feature_matrix.csv"
+  window_size: 8
+
+model:
+  hidden_dim: 128
+  num_layers: 2
+  dropout: 0.3
+  nhead: 4
+  dim_feedforward: 256
+  num_tiers: 5
+
+training:
+  epochs: 100
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.01
+  patience: 10
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+
+multitask:
+  alpha: 0.5  # weight for classification loss vs regression loss
+
+nil_tiers:
+  thresholds: [50000, 200000, 500000, 1000000]
+  # Tier 1: < 50k, Tier 2: 50k-200k, Tier 3: 200k-500k, Tier 4: 500k-1M, Tier 5: > 1M
+
+simulator:
+  default_weeks_ahead: 4
+  cohort_size: 10

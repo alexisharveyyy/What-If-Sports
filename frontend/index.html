@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What-If Sports NIL Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>What-If Sports NIL Simulator</h1>
+        <p class="subtitle">Forecast collegiate athlete NIL valuations with hypothetical scenarios</p>
+    </header>
+
+    <main>
+        <!-- Scenario Case Studies -->
+        <section id="scenarios" class="panel">
+            <h2>Quick Scenarios</h2>
+            <div class="scenario-buttons">
+                <button onclick="loadScenario('breakout')">Breakout Freshman</button>
+                <button onclick="loadScenario('injury')">Injury Recovery</button>
+                <button onclick="loadScenario('transfer')">Transfer Portal</button>
+            </div>
+        </section>
+
+        <!-- Player Builder -->
+        <section id="player-builder" class="panel">
+            <h2>Player Builder</h2>
+            <form id="player-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="sport">Sport</label>
+                        <select id="sport">
+                            <option value="basketball">Basketball</option>
+                            <option value="football">Football</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="school">School</label>
+                        <input type="text" id="school" value="Duke" placeholder="School name">
+                    </div>
+                    <div class="form-group">
+                        <label for="conference">Conference</label>
+                        <select id="conference">
+                            <option value="ACC">ACC</option>
+                            <option value="SEC">SEC</option>
+                            <option value="Big Ten">Big Ten</option>
+                            <option value="Big 12">Big 12</option>
+                            <option value="Pac-12">Pac-12</option>
+                            <option value="Independent">Independent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="program-tier">Program Tier: <span id="tier-display">2</span></label>
+                        <input type="range" id="program-tier" min="1" max="4" value="2">
+                    </div>
+                    <div class="form-group">
+                        <label for="ppg">PPG</label>
+                        <div class="num-input">
+                            <button type="button" onclick="adjustStat('ppg', -0.5)">-</button>
+                            <input type="number" id="ppg" value="15.0" step="0.5" min="0">
+                            <button type="button" onclick="adjustStat('ppg', 0.5)">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="apg">APG</label>
+                        <div class="num-input">
+                            <button type="button" onclick="adjustStat('apg', -0.5)">-</button>
+                            <input type="number" id="apg" value="4.0" step="0.5" min="0">
+                            <button type="button" onclick="adjustStat('apg', 0.5)">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rpg">RPG</label>
+                        <div class="num-input">
+                            <button type="button" onclick="adjustStat('rpg', -0.5)">-</button>
+                            <input type="number" id="rpg" value="6.0" step="0.5" min="0">
+                            <button type="button" onclick="adjustStat('rpg', 0.5)">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="games-played">Games Played: <span id="games-display">8</span></label>
+                        <input type="range" id="games-played" min="0" max="40" value="8">
+                    </div>
+                    <div class="form-group">
+                        <label for="injury-flag">
+                            <input type="checkbox" id="injury-flag"> Currently Injured
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="add-week-btn" onclick="addWeek()">Add Week</button>
+                    <button type="button" id="simulate-btn" onclick="runSimulation()">Simulate</button>
+                    <button type="button" id="clear-btn" onclick="clearHistory()">Clear History</button>
+                </div>
+                <div id="history-display">
+                    <span id="week-count">Weeks added: 0</span>
+                </div>
+            </form>
+        </section>
+
+        <!-- Results -->
+        <div id="results" style="display: none;">
+            <!-- NIL Forecast -->
+            <section id="nil-forecast" class="panel">
+                <h2>NIL Forecast</h2>
+                <div class="forecast-grid">
+                    <div id="tier-gauge"></div>
+                    <div class="forecast-details">
+                        <div class="big-number">
+                            <span class="label">Estimated NIL Value</span>
+                            <span id="nil-value" class="value">$0</span>
+                        </div>
+                        <div class="direction-indicator">
+                            <span class="label">Trend</span>
+                            <span id="direction" class="value">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section id="timeline-section" class="panel">
+                <h2>Probability Timeline</h2>
+                <div id="timeline-chart"></div>
+            </section>
+
+            <!-- Cohort Comparison -->
+            <section id="cohort-section" class="panel">
+                <h2>Cohort Comparison</h2>
+                <div class="cohort-summary">
+                    <div class="big-number">
+                        <span class="label">Cohort Median NIL</span>
+                        <span id="cohort-median" class="value">$0</span>
+                    </div>
+                    <div class="big-number">
+                        <span class="label">Percentile Rank</span>
+                        <span id="percentile" class="value">-</span>
+                    </div>
+                    <div class="big-number">
+                        <span class="label">Residual</span>
+                        <span id="residual" class="value">$0</span>
+                    </div>
+                </div>
+                <table id="cohort-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>School</th>
+                            <th>NIL Value</th>
+                            <th>PPG</th>
+                            <th>Similarity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cohort-body"></tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>What-If Sports NIL Simulator &mdash; Educational / Research Use</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
