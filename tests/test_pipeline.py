@@ -37,9 +37,7 @@ class TestPreprocess:
 
     def test_encode_categoricals(self, sample_df):
         df, encoders = encode_categoricals(sample_df.copy())
-        assert "sport_encoded" in df.columns
         assert "conference_encoded" in df.columns
-        assert "sport" in encoders
         assert "conference" in encoders
 
     def test_expected_columns(self, sample_df):

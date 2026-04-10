@@ -1,7 +1,10 @@
 data:
   sample_path: "data/sample/sample_players.csv"
+  dataset_path: "data/raw/college_basketball_nil_dataset.csv"
   processed_path: "data/processed/feature_matrix.csv"
   window_size: 8
+  sport: "basketball"
+  conferences: ["ACC", "SEC", "Big Ten", "Big 12", "Pac-12", "Independent"]
 
 model:
   hidden_dim: 128

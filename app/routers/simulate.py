@@ -11,10 +11,9 @@ simulator = None
 comparator = None
 
 
-SUPPORTED_SPORTS = ["basketball", "football"]
+SUPPORTED_SPORTS = ["basketball"]
 CONFERENCES = [
-    "SEC", "Big Ten", "Big 12", "ACC", "Pac-12", "Independent",
-    "AAC", "Mountain West", "Sun Belt", "MAC", "Conference USA",
+    "ACC", "SEC", "Big Ten", "Big 12", "Pac-12", "Independent",
 ]
 
 

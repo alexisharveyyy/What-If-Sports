@@ -32,7 +32,10 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.sort_values(["player_id", "snapshot_week"]).reset_index(drop=True)
 
     # Forward-fill within each player's timeline
-    numeric_cols = ["ppg", "apg", "rpg", "nil_valuation"]
+    numeric_cols = [
+        "ppg", "apg", "rpg", "spg", "bpg", "mpg",
+        "fg_pct", "three_pt_pct", "ft_pct", "nil_valuation",
+    ]
     for col in numeric_cols:
         df[col] = df.groupby("player_id")[col].transform(
             lambda s: s.ffill().fillna(s.median())
@@ -52,7 +55,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 def encode_categoricals(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     """Label-encode categorical columns."""
     encoders = {}
-    for col in ["sport", "conference"]:
+    for col in ["conference"]:
         le = LabelEncoder()
         df[col + "_encoded"] = le.fit_transform(df[col].astype(str))
         encoders[col] = le
@@ -72,7 +75,11 @@ def preprocess(sample_path: str = "data/sample/sample_players.csv") -> pd.DataFr
     df = clean_data(df)
     df, encoders = encode_categoricals(df)
 
-    feature_cols = ["ppg", "apg", "rpg", "games_played", "program_tier"]
+    feature_cols = [
+        "ppg", "apg", "rpg", "spg", "bpg", "mpg",
+        "fg_pct", "three_pt_pct", "ft_pct",
+        "games_played", "program_tier",
+    ]
     df, scaler = scale_features(df, feature_cols)
 
     # Save scaler

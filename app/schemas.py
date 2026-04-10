@@ -11,6 +11,12 @@ class PlayerSnapshot(BaseModel):
     ppg: float = Field(default=0.0, ge=0)
     apg: float = Field(default=0.0, ge=0)
     rpg: float = Field(default=0.0, ge=0)
+    spg: float = Field(default=0.0, ge=0)
+    bpg: float = Field(default=0.0, ge=0)
+    mpg: float = Field(default=0.0, ge=0)
+    fg_pct: float = Field(default=0.0, ge=0, le=1.0)
+    three_pt_pct: float = Field(default=0.0, ge=0, le=1.0)
+    ft_pct: float = Field(default=0.0, ge=0, le=1.0)
     injury_flag: bool = False
     games_played: int = Field(default=1, ge=0)
     snapshot_week: int = Field(default=1, ge=1)
