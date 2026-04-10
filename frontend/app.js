@@ -11,13 +11,19 @@ function formatCurrency(val) {
 
 function getFormValues() {
     return {
-        sport: $('sport').value,
+        sport: 'basketball',
         school: $('school').value,
         conference: $('conference').value,
         program_tier: parseInt($('program-tier').value),
         ppg: parseFloat($('ppg').value),
         apg: parseFloat($('apg').value),
         rpg: parseFloat($('rpg').value),
+        spg: parseFloat($('spg').value),
+        bpg: parseFloat($('bpg').value),
+        mpg: parseFloat($('mpg').value),
+        fg_pct: parseFloat($('fg-pct').value),
+        three_pt_pct: parseFloat($('three-pt-pct').value),
+        ft_pct: parseFloat($('ft-pct').value),
         injury_flag: $('injury-flag').checked,
         games_played: parseInt($('games-played').value),
         snapshot_week: playerHistory.length + 1,
@@ -54,18 +60,24 @@ function clearHistory() {
 // --- Scenarios ---
 const SCENARIOS = {
     breakout: {
-        sport: 'basketball', school: 'Duke', conference: 'ACC',
+        school: 'Duke', conference: 'ACC',
         program_tier: 1, ppg: 22.5, apg: 5.2, rpg: 7.8,
+        spg: 1.5, bpg: 1.0, mpg: 34.0,
+        fg_pct: 0.48, three_pt_pct: 0.40, ft_pct: 0.85,
         injury_flag: false, games_played: 12,
     },
     injury: {
-        sport: 'football', school: 'Alabama', conference: 'SEC',
-        program_tier: 1, ppg: 12.0, apg: 1.0, rpg: 2.0,
+        school: 'Alabama', conference: 'SEC',
+        program_tier: 1, ppg: 12.0, apg: 3.0, rpg: 4.0,
+        spg: 0.8, bpg: 0.5, mpg: 22.0,
+        fg_pct: 0.40, three_pt_pct: 0.30, ft_pct: 0.70,
         injury_flag: true, games_played: 4,
     },
     transfer: {
-        sport: 'basketball', school: 'Oregon', conference: 'Big Ten',
+        school: 'Oregon', conference: 'Pac-12',
         program_tier: 2, ppg: 16.0, apg: 3.5, rpg: 5.0,
+        spg: 1.2, bpg: 0.6, mpg: 30.0,
+        fg_pct: 0.44, three_pt_pct: 0.36, ft_pct: 0.80,
         injury_flag: false, games_played: 8,
     },
 };
@@ -74,7 +86,6 @@ function loadScenario(name) {
     const s = SCENARIOS[name];
     if (!s) return;
     clearHistory();
-    $('sport').value = s.sport;
     $('school').value = s.school;
     $('conference').value = s.conference;
     $('program-tier').value = s.program_tier;
@@ -82,6 +93,12 @@ function loadScenario(name) {
     $('ppg').value = s.ppg;
     $('apg').value = s.apg;
     $('rpg').value = s.rpg;
+    $('spg').value = s.spg;
+    $('bpg').value = s.bpg;
+    $('mpg').value = s.mpg;
+    $('fg-pct').value = s.fg_pct;
+    $('three-pt-pct').value = s.three_pt_pct;
+    $('ft-pct').value = s.ft_pct;
     $('injury-flag').checked = s.injury_flag;
     $('games-played').value = s.games_played;
     $('games-display').textContent = s.games_played;

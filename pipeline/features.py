@@ -70,7 +70,7 @@ def engineer_features(
 ) -> pd.DataFrame:
     """Run the full feature engineering pipeline."""
     df = pd.read_csv(input_path)
-    stat_cols = ["ppg", "apg", "rpg"]
+    stat_cols = ["ppg", "apg", "rpg", "spg", "bpg", "mpg"]
 
     df = add_lag_features(df, stat_cols)
     df = add_rolling_features(df, stat_cols, window=3)

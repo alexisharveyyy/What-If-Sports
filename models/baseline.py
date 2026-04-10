@@ -2,6 +2,8 @@
 
 import os
 import pickle
+import sys
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -16,7 +18,14 @@ from sklearn.metrics import (
 )
 from xgboost import XGBClassifier, XGBRegressor
 
-from pipeline.dataset import FEATURE_COLS, split_by_player
+try:
+    from pipeline.dataset import FEATURE_COLS, split_by_player
+except ModuleNotFoundError:
+    # Allow running this file directly: `python models/baseline.py`
+    repo_root = Path(__file__).resolve().parents[1]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+    from pipeline.dataset import FEATURE_COLS, split_by_player
 
 
 def train_baselines(feature_matrix_path: str = "data/processed/feature_matrix.csv"):
@@ -41,7 +50,8 @@ def train_baselines(feature_matrix_path: str = "data/processed/feature_matrix.cs
 
     # --- Logistic Regression ---
     print("Training Logistic Regression...")
-    lr = LogisticRegression(max_iter=1000, multi_class="multinomial")
+    # `multi_class` was removed in newer scikit-learn; lbfgs uses multinomial for multiclass.
+    lr = LogisticRegression(max_iter=1000, solver="lbfgs")
     lr.fit(X_train, y_tier_train)
     lr_preds = lr.predict(X_test)
     results["logistic_regression"] = {

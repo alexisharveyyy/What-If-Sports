@@ -12,7 +12,9 @@ class CohortComparator:
     """Find similar historical players and compare NIL valuations."""
 
     COMPARISON_FEATURES = [
-        "ppg", "apg", "rpg", "games_played", "program_tier", "injury_flag",
+        "ppg", "apg", "rpg", "spg", "bpg", "mpg",
+        "fg_pct", "three_pt_pct", "ft_pct",
+        "games_played", "program_tier", "injury_flag",
     ]
 
     def __init__(self, data_path: str = "data/processed/feature_matrix.csv"):

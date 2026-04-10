@@ -1,15 +1,17 @@
 """
-On3 Sports NIL valuation scraper.
+On3 Sports NIL valuation scraper for college basketball players.
+
+Scrapes NIL valuations from On3's NIL rankings page. The school is matched
+later by player name in the dataset builder.
 
 Usage:
-    python scraper/on3_scraper.py [--headless] [--pages N] [--output PATH]
-
-NOTE: This is a stub for educational purposes. Actual scraping should
-respect robots.txt and the site's terms of service.
+    python scraper/on3_scraper.py [--pages 5] [--output data/raw/on3_valuations.csv]
 """
 
 import argparse
 import csv
+import os
+import re
 import time
 from datetime import date
 
@@ -17,111 +19,190 @@ import requests
 from bs4 import BeautifulSoup
 
 
-BASE_URL = "https://www.on3.com/nil/rankings/player/"
+BASE_URL = "https://www.on3.com/nil/rankings/player/college/basketball/"
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    )
+    ),
+    "Accept": "text/html,application/xhtml+xml",
+    "Accept-Language": "en-US,en;q=0.9",
 }
 DEFAULT_OUTPUT = "data/raw/on3_valuations.csv"
 
 
-def scrape_page_bs4(url: str) -> list[dict]:
-    """Scrape a single page using requests + BeautifulSoup."""
-    resp = requests.get(url, headers=HEADERS, timeout=15)
+def _parse_valuation(text: str) -> int | None:
+    """Parse NIL valuation string like '$1.2M' or '$450K' to integer dollars."""
+    if not text:
+        return None
+    text = text.strip().replace("$", "").replace(",", "").upper()
+    try:
+        if "M" in text:
+            return int(float(text.replace("M", "")) * 1_000_000)
+        elif "K" in text:
+            return int(float(text.replace("K", "")) * 1_000)
+        else:
+            return int(float(text))
+    except (ValueError, TypeError):
+        return None
+
+
+def scrape_page(url: str) -> list[dict]:
+    """Scrape a single On3 NIL rankings page using requests + BeautifulSoup.
+
+    On3 serves the data server-side rendered, so JavaScript is not required.
+    """
+    resp = requests.get(url, headers=HEADERS, timeout=20)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
 
     players = []
-    # NOTE: Actual CSS selectors depend on On3's current markup.
-    # These are illustrative and would need updating.
-    for row in soup.select(".rankingsPage_listItem"):
+
+    # Each player is wrapped in a div with class containing "NilPlayerRankingItem_itemContainer"
+    items = soup.select('[class*="NilPlayerRankingItem_itemContainer"]')
+
+    for item in items:
         try:
-            name = row.select_one(".rankingsPage_playerName").get_text(strip=True)
-            school = row.select_one(".rankingsPage_school").get_text(strip=True)
-            sport = row.select_one(".rankingsPage_sport").get_text(strip=True)
-            valuation_text = row.select_one(".rankingsPage_nil").get_text(strip=True)
-            valuation = int(valuation_text.replace("$", "").replace(",", ""))
-            ranking_text = row.select_one(".rankingsPage_rank").get_text(strip=True)
-            ranking = int(ranking_text)
+            # Rank
+            rank_el = item.select_one('[class*="NilPlayerRankingItem_playerRank"]')
+            ranking = None
+            if rank_el:
+                rank_text = rank_el.get_text(strip=True)
+                try:
+                    ranking = int(re.sub(r"[^\d]", "", rank_text))
+                except ValueError:
+                    pass
+
+            # Position
+            pos_el = item.select_one('[class*="NilPlayerRankingItem_position"]')
+            position = pos_el.get_text(strip=True) if pos_el else None
+
+            # Name (in an anchor tag)
+            name_el = item.select_one('[class*="NilPlayerRankingItem_name"] a')
+            if not name_el:
+                name_el = item.select_one('[class*="NilPlayerRankingItem_name"]')
+            if not name_el:
+                continue
+            name = name_el.get_text(strip=True)
+            if not name:
+                continue
+
+            # Player profile link (useful for fetching school later if needed)
+            profile_link = None
+            if name_el.name == "a":
+                profile_link = name_el.get("href")
+
+            # Class year, height, weight (combined as e.g. "JR/6-7/205")
+            details_el = item.select_one('[class*="NilPlayerRankingItem_details"]')
+            class_year, height, weight = None, None, None
+            if details_el:
+                detail_text = details_el.get_text(strip=True)
+                parts = [p.strip() for p in detail_text.split("/")]
+                if len(parts) >= 1:
+                    class_year = parts[0]
+                if len(parts) >= 2:
+                    height = parts[1]
+                if len(parts) >= 3:
+                    weight = parts[2]
+
+            # On3 rating (talent score)
+            rating_el = item.select_one('[class*="StarRating_overallRating"]')
+            on3_rating = None
+            if rating_el:
+                try:
+                    on3_rating = float(rating_el.get_text(strip=True))
+                except ValueError:
+                    pass
+
+            # NIL valuation
+            val_el = item.select_one('[class*="NilPlayerRankingItem_valuationCurrency"]')
+            if not val_el:
+                val_el = item.select_one('[class*="valuationContainer"]')
+            valuation = _parse_valuation(val_el.get_text(strip=True)) if val_el else None
+
+            if valuation is None:
+                continue
 
             players.append({
                 "player_name": name,
-                "sport": sport,
-                "school": school,
+                "position": position,
+                "class_year": class_year,
+                "height": height,
+                "weight": weight,
+                "on3_rating": on3_rating,
                 "nil_valuation": valuation,
                 "nil_ranking": ranking,
+                "profile_url": profile_link,
+                "sport": "basketball",
                 "date_scraped": date.today().isoformat(),
             })
-        except (AttributeError, ValueError):
+        except Exception:
             continue
 
     return players
 
 
-def scrape_page_selenium(url: str) -> list[dict]:
-    """Scrape a JS-rendered page using Selenium."""
-    from selenium import webdriver
-    from selenium.webdriver.chrome.options import Options
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.support.ui import WebDriverWait
+def scrape(
+    pages: int = 5,
+    output: str = DEFAULT_OUTPUT,
+) -> list[dict]:
+    """Scrape On3 NIL rankings for basketball players.
 
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(options=options)
+    Args:
+        pages: Number of pages to scrape (each page has ~100 players).
+        output: Path to save the CSV.
 
-    try:
-        driver.get(url)
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".rankingsPage_listItem"))
-        )
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-    finally:
-        driver.quit()
-
-    # Reuse the same parsing logic
-    return scrape_page_bs4.__wrapped__(soup) if hasattr(scrape_page_bs4, "__wrapped__") else []
-
-
-def scrape(pages: int = 1, headless: bool = False, output: str = DEFAULT_OUTPUT):
-    """Main scraping entrypoint."""
+    Returns:
+        List of all scraped player dicts.
+    """
     all_players = []
-    scrape_fn = scrape_page_selenium if headless else scrape_page_bs4
+    seen_names = set()  # Dedupe across pages
 
     for page in range(1, pages + 1):
-        url = f"{BASE_URL}?page={page}"
+        url = BASE_URL if page == 1 else f"{BASE_URL}?page={page}"
         print(f"Scraping page {page}: {url}")
 
         try:
-            players = scrape_fn(url)
-            all_players.extend(players)
-            print(f"  Found {len(players)} players")
+            players = scrape_page(url)
+            new_count = 0
+            for p in players:
+                key = p["player_name"].lower()
+                if key not in seen_names:
+                    seen_names.add(key)
+                    all_players.append(p)
+                    new_count += 1
+            print(f"  Found {len(players)} players ({new_count} new)")
+
+            if len(players) == 0:
+                print("  No players found, stopping pagination")
+                break
         except Exception as e:
             print(f"  Error on page {page}: {e}")
 
-        # Rate limiting
-        time.sleep(1.5)
+        time.sleep(3)
 
     if all_players:
+        os.makedirs(os.path.dirname(output) or ".", exist_ok=True)
+        fieldnames = [
+            "player_name", "position", "class_year", "height", "weight",
+            "on3_rating", "nil_valuation", "nil_ranking", "profile_url",
+            "sport", "date_scraped",
+        ]
         with open(output, "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=all_players[0].keys())
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
             writer.writeheader()
             writer.writerows(all_players)
-        print(f"Saved {len(all_players)} players to {output}")
+        print(f"\nSaved {len(all_players)} players to {output}")
     else:
-        print("No players scraped.")
+        print("\nNo players scraped.")
 
     return all_players
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Scrape On3 NIL valuations")
-    parser.add_argument("--headless", action="store_true", help="Use Selenium for JS-rendered pages")
-    parser.add_argument("--pages", type=int, default=1, help="Number of pages to scrape")
+    parser = argparse.ArgumentParser(description="Scrape On3 NIL valuations for basketball")
+    parser.add_argument("--pages", type=int, default=5, help="Number of pages to scrape")
     parser.add_argument("--output", type=str, default=DEFAULT_OUTPUT, help="Output CSV path")
     args = parser.parse_args()
 
-    scrape(pages=args.pages, headless=args.headless, output=args.output)
+    scrape(pages=args.pages, output=args.output)

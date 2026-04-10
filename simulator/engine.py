@@ -90,6 +90,12 @@ class WhatIfSimulator:
             "ppg": user_inputs.get("ppg", 0),
             "apg": user_inputs.get("apg", 0),
             "rpg": user_inputs.get("rpg", 0),
+            "spg": user_inputs.get("spg", 0),
+            "bpg": user_inputs.get("bpg", 0),
+            "mpg": user_inputs.get("mpg", 0),
+            "fg_pct": user_inputs.get("fg_pct", 0),
+            "three_pt_pct": user_inputs.get("three_pt_pct", 0),
+            "ft_pct": user_inputs.get("ft_pct", 0),
             "injury_flag": int(user_inputs.get("injury_flag", False)),
             "games_played": user_inputs.get("games_played", 1),
             "program_tier": user_inputs.get("program_tier", 3),
@@ -106,7 +112,6 @@ class WhatIfSimulator:
                 else:
                     row[col + "_encoded"] = 0
         else:
-            row["sport_encoded"] = 0
             row["conference_encoded"] = 0
 
         return pd.DataFrame([row])
@@ -115,7 +120,7 @@ class WhatIfSimulator:
         """Prepare a feature sequence tensor from player history."""
         # Engineer features
         df = history_df.copy()
-        stat_cols = ["ppg", "apg", "rpg"]
+        stat_cols = ["ppg", "apg", "rpg", "spg", "bpg", "mpg"]
         df = add_lag_features(df, stat_cols)
         df = add_rolling_features(df, stat_cols)
         df = add_trend_slope(df, stat_cols)
@@ -191,7 +196,7 @@ class WhatIfSimulator:
 
             # Add small random drift to stats for future weeks
             if week > 1:
-                for stat in ["ppg", "apg", "rpg"]:
+                for stat in ["ppg", "apg", "rpg", "spg", "bpg", "mpg"]:
                     drift = np.random.normal(0, 0.5)
                     snapshot[stat] = max(0, snapshot.get(stat, 0) + drift)
 

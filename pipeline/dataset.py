@@ -8,13 +8,20 @@ from torch.utils.data import Dataset
 
 # Feature columns used as model input
 FEATURE_COLS = [
-    "ppg", "apg", "rpg", "games_played", "program_tier",
-    "sport_encoded", "conference_encoded", "injury_flag",
+    "ppg", "apg", "rpg", "spg", "bpg", "mpg",
+    "fg_pct", "three_pt_pct", "ft_pct",
+    "games_played", "program_tier",
+    "conference_encoded", "injury_flag",
     "ppg_lag1", "ppg_lag2", "ppg_lag3",
     "apg_lag1", "apg_lag2", "apg_lag3",
     "rpg_lag1", "rpg_lag2", "rpg_lag3",
+    "spg_lag1", "spg_lag2", "spg_lag3",
+    "bpg_lag1", "bpg_lag2", "bpg_lag3",
+    "mpg_lag1", "mpg_lag2", "mpg_lag3",
     "ppg_roll3", "apg_roll3", "rpg_roll3",
+    "spg_roll3", "bpg_roll3", "mpg_roll3",
     "ppg_trend", "apg_trend", "rpg_trend",
+    "spg_trend", "bpg_trend", "mpg_trend",
     "injury_penalty", "momentum_score",
 ]
 
