@@ -20,7 +20,7 @@ Data Layer → Feature Engineering → ML Models → Simulator Engine → FastAP
 pip install -r requirements.txt
 
 # 2. Generate sample data
-cd whatif-sports
+cd what-if-sports
 python data/sample/generate_sample.py
 
 # 3. Run preprocessing + feature engineering
