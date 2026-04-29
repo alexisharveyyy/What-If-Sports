@@ -142,26 +142,79 @@ async function runSimulation() {
 }
 
 // --- Rendering ---
+const TIER_LABELS = ['developmental', 'low', 'mid', 'high', 'elite'];
+const TIER_DISPLAY = ['Developmental', 'Low', 'Mid', 'High', 'Elite'];
+
 function renderResults(data) {
     $('results').style.display = 'block';
 
-    // NIL Value
-    $('nil-value').textContent = formatCurrency(data.nil_valuation_estimate);
+    const probs = data.nil_tier_probs || [];
+    const topIdx = probs.length
+        ? probs.indexOf(Math.max(...probs))
+        : 2;
+    const tierKey = TIER_LABELS[topIdx] || 'mid';
+    const tierLabel = TIER_DISPLAY[topIdx] || 'Mid';
+
+    // Tier badge
+    const badge = $('tier-badge');
+    badge.className = `tier-badge tier-${tierKey}`;
+    badge.textContent = `${tierLabel} Tier \u00b7 ${(probs[topIdx] * 100 || 0).toFixed(0)}% confidence`;
+
+    // Animated count-up for NIL value
+    animateCount($('nil-value'), data.nil_valuation_estimate, formatCurrency);
 
     // Direction
+    const wrap = $('direction-wrap');
+    const arrowEl = $('direction-arrow');
     const dirEl = $('direction');
-    const arrows = { up: '\u2191 Up', down: '\u2193 Down', stable: '\u2192 Stable' };
-    dirEl.textContent = arrows[data.direction] || data.direction;
-    dirEl.className = `value direction-${data.direction}`;
+    const arrows = { up: '\u2191', down: '\u2193', stable: '\u2192' };
+    const dirLabel = { up: 'Up', down: 'Down', stable: 'Stable' };
+    arrowEl.textContent = arrows[data.direction] || '-';
+    dirEl.textContent = dirLabel[data.direction] || data.direction;
+    wrap.className = `direction-${data.direction}`;
+    wrap.style.cssText = 'display:inline-flex;align-items:center;gap:0.55rem;';
 
-    // Tier gauge
-    renderTierGauge(data.nil_tier_probs);
+    // Tier strip
+    renderTierStrip(probs, topIdx);
+
+    // Tier gauge (Plotly bar)
+    renderTierGauge(probs);
 
     // Timeline
     renderTimeline(data.timeline);
 
     // Cohort
     renderCohort(data.cohort_comparison);
+}
+
+function animateCount(el, target, formatter, duration = 900) {
+    const startVal = parseFloat((el.dataset.value || '0')) || 0;
+    const startTime = performance.now();
+    function frame(now) {
+        const t = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const current = startVal + (target - startVal) * eased;
+        el.textContent = formatter(current);
+        if (t < 1) requestAnimationFrame(frame);
+        else el.dataset.value = String(target);
+    }
+    requestAnimationFrame(frame);
+}
+
+function renderTierStrip(probs, activeIdx) {
+    const strip = $('tier-strip');
+    if (!strip) return;
+    strip.innerHTML = '';
+    TIER_LABELS.forEach((tier, i) => {
+        const seg = document.createElement('div');
+        seg.className = `seg tier-${tier}` + (i === activeIdx ? ' active' : '');
+        const pct = ((probs[i] || 0) * 100).toFixed(1);
+        seg.innerHTML = `
+            <div class="seg-label">${TIER_DISPLAY[i]}</div>
+            <div class="seg-pct">${pct}%</div>
+        `;
+        strip.appendChild(seg);
+    });
 }
 
 function renderTierGauge(probs) {
@@ -239,24 +292,54 @@ function renderTimeline(timeline) {
 }
 
 function renderCohort(cohort) {
-    $('cohort-median').textContent = formatCurrency(cohort.cohort_median_nil || 0);
-    $('percentile').textContent = (cohort.percentile_rank || 0).toFixed(0) + 'th';
+    animateCount($('cohort-median'), cohort.cohort_median_nil || 0, formatCurrency);
+
+    const pct = (cohort.percentile_rank || 0);
+    animateCount($('percentile'), pct, v => Math.round(v) + ordinalSuffix(Math.round(v)));
+
     const residual = cohort.residual || 0;
     const resEl = $('residual');
-    resEl.textContent = (residual >= 0 ? '+' : '') + formatCurrency(residual);
-    resEl.style.color = residual >= 0 ? '#22c55e' : '#ef4444';
+    animateCount(resEl, residual, v => (v >= 0 ? '+' : '') + formatCurrency(v));
+    resEl.style.color = residual >= 0 ? 'var(--accent-green)' : 'var(--accent-red)';
+
+    const resCard = resEl.closest('.big-number');
+    if (resCard) {
+        resCard.classList.toggle('is-positive', residual > 0);
+        resCard.classList.toggle('is-negative', residual < 0);
+    }
 
     const tbody = $('cohort-body');
     tbody.innerHTML = '';
     (cohort.similar_players || []).forEach(p => {
+        const sim = (p.similarity || 0) * 100;
+        const simClass = sim >= 80 ? '' : sim >= 60 ? 'mid' : 'low';
+        const nilValue = p.nil_valuation_usd ?? p.nil_valuation ?? 0;
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${p.player_id || '-'}</td>
+            <td class="player-id" title="${p.player_id || ''}">${formatPlayerId(p.player_id)}</td>
             <td>${p.school || '-'}</td>
-            <td>${formatCurrency(p.nil_valuation || 0)}</td>
-            <td>${(p.ppg || 0).toFixed(1)}</td>
-            <td>${((p.similarity || 0) * 100).toFixed(0)}%</td>
+            <td class="numeric">${formatCurrency(nilValue)}</td>
+            <td class="numeric">${(p.ppg || 0).toFixed(1)}</td>
+            <td><span class="similarity-pill ${simClass}">${sim.toFixed(0)}%</span></td>
         `;
         tbody.appendChild(tr);
     });
+}
+
+function formatPlayerId(id) {
+    if (!id) return '-';
+    if (typeof id !== 'string') return String(id);
+    if (id.length <= 12) return id;
+    return id.slice(0, 8) + '…' + id.slice(-4);
+}
+
+function ordinalSuffix(n) {
+    const v = n % 100;
+    if (v >= 11 && v <= 13) return 'th';
+    switch (n % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+    }
 }

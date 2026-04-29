@@ -3,11 +3,14 @@ uvicorn
 pydantic
 pandas
 numpy
+scipy
 scikit-learn
 torch
 torchmetrics
 xgboost
 lightgbm
+faker
+tqdm
 requests
 beautifulsoup4
 selenium
@@ -15,6 +18,8 @@ plotly
 matplotlib
 seaborn
 pytest
+pytest-asyncio
+anyio
 httpx
 joblib
 pyyaml
