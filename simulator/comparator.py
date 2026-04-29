@@ -1,74 +1,128 @@
-"""Compare user profile vs. historical cohort."""
+"""Side-by-side comparison of two simulated players' tier + valuation predictions."""
+
+from __future__ import annotations
 
 import os
+import sys
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from pipeline.features import NUMERIC_FEATURE_COLS, TIER_INT_TO_LABEL
+from simulator.engine import WhatIfSimulator
+
+
+class PlayerComparator:
+    """Compare two simulated players' multi-task model outputs."""
+
+    def __init__(self, simulator: WhatIfSimulator | None = None) -> None:
+        self.simulator = simulator or WhatIfSimulator()
+
+    def compare(
+        self,
+        player_a: dict,
+        player_b: dict,
+        history_a: list[dict] | None = None,
+        history_b: list[dict] | None = None,
+    ) -> dict:
+        sim_a = self.simulator.simulate(history_a or [], player_a)
+        sim_b = self.simulator.simulate(history_b or [], player_b)
+
+        delta_val = sim_a["nil_valuation_usd"] - sim_b["nil_valuation_usd"]
+        if sim_a["nil_tier_index"] > sim_b["nil_tier_index"]:
+            tier_winner = "a"
+        elif sim_b["nil_tier_index"] > sim_a["nil_tier_index"]:
+            tier_winner = "b"
+        else:
+            tier_winner = "tie"
+
+        valuation_winner = (
+            "a" if delta_val > 0 else "b" if delta_val < 0 else "tie"
+        )
+
+        return {
+            "player_a": {
+                "label": player_a.get("label", "Player A"),
+                "result": sim_a,
+            },
+            "player_b": {
+                "label": player_b.get("label", "Player B"),
+                "result": sim_b,
+            },
+            "delta_valuation_usd": round(delta_val, 2),
+            "tier_winner": tier_winner,
+            "valuation_winner": valuation_winner,
+        }
+
 
 class CohortComparator:
-    """Find similar historical players and compare NIL valuations."""
+    """Find similar historical players for a given user-built profile."""
 
     COMPARISON_FEATURES = [
         "ppg", "apg", "rpg", "spg", "bpg", "mpg",
         "fg_pct", "three_pt_pct", "ft_pct",
-        "games_played", "program_tier", "injury_flag",
+        "games_played", "program_tier", "market_size_score",
+        "social_media_followers", "engagement_rate",
     ]
 
-    def __init__(self, data_path: str = "data/processed/feature_matrix.csv"):
-        if os.path.exists(data_path):
-            self.df = pd.read_csv(data_path)
-        elif os.path.exists("data/sample/sample_players.csv"):
-            self.df = pd.read_csv("data/sample/sample_players.csv")
-        else:
-            self.df = pd.DataFrame()
+    def __init__(self, data_path: str | os.PathLike | None = None) -> None:
+        candidates = [
+            Path(data_path) if data_path else None,
+            _REPO_ROOT / "data" / "raw" / "nil_evaluations_2025.csv",
+            _REPO_ROOT / "data" / "sample" / "nil_evaluations_sample.csv",
+            _REPO_ROOT / "data" / "processed" / "player_snapshots.csv",
+        ]
+
+        self.df = pd.DataFrame()
+        for path in candidates:
+            if path is not None and Path(path).exists():
+                self.df = pd.read_csv(path)
+                break
 
         self.scaler = StandardScaler()
-        if len(self.df) > 0:
-            available = [c for c in self.COMPARISON_FEATURES if c in self.df.columns]
-            self.comparison_cols = available
-            # Get latest snapshot per player for comparison
-            self.latest = (
-                self.df.sort_values("snapshot_week")
-                .groupby("player_id")
-                .last()
-                .reset_index()
-            )
-            if len(self.latest) > 0 and available:
-                self.scaler.fit(self.latest[available].fillna(0))
-        else:
-            self.comparison_cols = []
+        if self.df.empty:
+            self.comparison_cols: list[str] = []
             self.latest = pd.DataFrame()
+            return
 
-    def find_similar(self, player_profile: dict, n: int = 10) -> pd.DataFrame:
-        """Find the n most similar historical players."""
-        if len(self.latest) == 0:
+        sort_col = "week_number" if "week_number" in self.df.columns else "snapshot_week"
+        self.latest = (
+            self.df.sort_values(sort_col)
+            .groupby("player_id")
+            .tail(1)
+            .reset_index(drop=True)
+        )
+        self.comparison_cols = [
+            c for c in self.COMPARISON_FEATURES if c in self.latest.columns
+        ]
+        if self.comparison_cols:
+            self.scaler.fit(self.latest[self.comparison_cols].fillna(0))
+
+    def find_similar(self, profile: dict, n: int = 10) -> pd.DataFrame:
+        if self.latest.empty or not self.comparison_cols:
             return pd.DataFrame()
 
-        # Build user vector
-        user_vec = np.array([[player_profile.get(c, 0) for c in self.comparison_cols]])
+        user_vec = np.array([[profile.get(c, 0) for c in self.comparison_cols]])
         user_scaled = self.scaler.transform(user_vec)
-
-        # Scale historical data
         hist_scaled = self.scaler.transform(
             self.latest[self.comparison_cols].fillna(0).values
         )
-
-        # Compute cosine similarity
         sims = cosine_similarity(user_scaled, hist_scaled)[0]
         top_idx = np.argsort(sims)[::-1][:n]
-
         result = self.latest.iloc[top_idx].copy()
         result["similarity"] = sims[top_idx]
         return result
 
-    def compare(self, player_profile: dict, n: int = 10) -> dict:
-        """Compare a user profile against the historical cohort."""
-        similar = self.find_similar(player_profile, n=n)
-
-        if len(similar) == 0:
+    def compare(self, profile: dict, n: int = 10) -> dict:
+        similar = self.find_similar(profile, n=n)
+        if similar.empty:
             return {
                 "cohort_median_nil": 0,
                 "percentile_rank": 50,
@@ -76,24 +130,19 @@ class CohortComparator:
                 "residual": 0,
             }
 
-        cohort_nil = similar["nil_valuation"].values
-        user_val = player_profile.get("nil_valuation", 0)
+        nil_col = "nil_valuation_usd" if "nil_valuation_usd" in similar.columns else "nil_valuation"
+        cohort_nil = similar[nil_col].values
+        user_val = profile.get("nil_valuation_usd", profile.get("nil_valuation", 0))
 
-        # Percentile rank within cohort
-        percentile = (cohort_nil < user_val).mean() * 100
-
-        # Residual: user vs expected
+        percentile = (cohort_nil < user_val).mean() * 100 if len(cohort_nil) else 50
         median_nil = float(np.median(cohort_nil))
         residual = user_val - median_nil
 
-        # Build player list
-        display_cols = ["player_id", "school", "nil_valuation", "ppg", "apg", "rpg", "similarity"]
-        available_display = [c for c in display_cols if c in similar.columns]
-        player_list = similar[available_display].head(5).to_dict("records")
-
+        display_cols = ["player_id", "school", nil_col, "ppg", "apg", "rpg", "similarity"]
+        cols = [c for c in display_cols if c in similar.columns]
         return {
             "cohort_median_nil": round(median_nil, 2),
             "percentile_rank": round(percentile, 1),
-            "similar_players": player_list,
+            "similar_players": similar[cols].head(5).to_dict("records"),
             "residual": round(residual, 2),
         }

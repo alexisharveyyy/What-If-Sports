@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What-If Sports NIL Simulator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 <body>
     <header>
+        <span class="eyebrow">Live multi-task transformer</span>
         <h1>What-If Sports NIL Simulator</h1>
-        <p class="subtitle">Forecast collegiate athlete NIL valuations with hypothetical scenarios</p>
+        <p class="subtitle">Forecast collegiate athlete NIL valuations with hypothetical scenarios &mdash; tier classification and dollar regression in one shot.</p>
     </header>
 
     <main>
@@ -149,15 +153,22 @@
             <section id="nil-forecast" class="panel">
                 <h2>NIL Forecast</h2>
                 <div class="forecast-grid">
-                    <div id="tier-gauge"></div>
+                    <div>
+                        <div id="tier-gauge"></div>
+                        <div id="tier-strip" class="tier-strip"></div>
+                    </div>
                     <div class="forecast-details">
-                        <div class="big-number">
-                            <span class="label">Estimated NIL Value</span>
-                            <span id="nil-value" class="value">$0</span>
-                        </div>
-                        <div class="direction-indicator">
-                            <span class="label">Trend</span>
-                            <span id="direction" class="value">-</span>
+                        <div class="hero-card">
+                            <span id="tier-badge" class="tier-badge tier-mid">Awaiting prediction</span>
+                            <div class="hero-label">Estimated NIL Value</div>
+                            <div id="nil-value" class="hero-value">$0</div>
+                            <div class="hero-meta">
+                                <span class="hero-label">Trend</span>
+                                <span id="direction-wrap" class="direction-stable" style="display:inline-flex;align-items:center;gap:0.55rem;">
+                                    <span class="trend-arrow" id="direction-arrow">&rarr;</span>
+                                    <span id="direction">Stable</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,18 +197,20 @@
                         <span id="residual" class="value">$0</span>
                     </div>
                 </div>
-                <table id="cohort-table">
-                    <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>School</th>
-                            <th>NIL Value</th>
-                            <th>PPG</th>
-                            <th>Similarity</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cohort-body"></tbody>
-                </table>
+                <div class="cohort-table-wrap">
+                    <table id="cohort-table">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>School</th>
+                                <th>NIL Value</th>
+                                <th>PPG</th>
+                                <th>Similarity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cohort-body"></tbody>
+                    </table>
+                </div>
             </section>
         </div>
     </main>
@@ -206,6 +219,6 @@
         <p>What-If Sports NIL Simulator &mdash; Educational / Research Use</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>

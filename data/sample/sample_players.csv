@@ -1,501 +1,501 @@
-player_id,snapshot_week,sport,school,conference,ppg,apg,rpg,injury_flag,games_played,program_tier,nil_valuation,nil_tier
-P001,1,football,Ohio State,Big Ten,26.6,2.0,1.2,0,1,2,84490.26,2
-P001,2,football,Ohio State,Big Ten,26.8,0.6,1.2,0,2,2,151519.34,2
-P001,3,football,Ohio State,Big Ten,24.5,0.4,1.2,0,3,2,289136.8,3
-P001,4,football,Ohio State,Big Ten,23.3,0.9,2.2,1,3,2,236442.74,3
-P001,5,football,Ohio State,Big Ten,35.8,1.9,2.1,0,4,2,346740.55,3
-P001,6,football,Ohio State,Big Ten,27.9,1.9,0.6,0,5,2,492041.1,3
-P001,7,football,Ohio State,Big Ten,31.3,1.9,0.8,0,6,2,733578.25,4
-P001,8,football,Ohio State,Big Ten,22.9,1.6,0.0,0,7,2,729825.76,4
-P001,9,football,Ohio State,Big Ten,18.3,1.9,2.7,1,7,2,365328.91,3
-P001,10,football,Ohio State,Big Ten,19.0,1.6,2.8,0,8,2,494218.35,3
-P002,1,basketball,Georgia,SEC,16.6,7.6,7.0,0,1,3,28249.44,1
-P002,2,basketball,Georgia,SEC,15.0,7.6,6.3,0,2,3,47462.97,1
-P002,3,basketball,Georgia,SEC,23.1,6.9,4.7,0,3,3,70640.17,2
-P002,4,basketball,Georgia,SEC,14.9,6.9,7.1,0,4,3,77404.47,2
-P002,5,basketball,Georgia,SEC,26.8,7.8,6.4,0,5,3,133625.88,2
-P002,6,basketball,Georgia,SEC,14.7,6.4,6.5,1,5,3,82582.27,2
-P002,7,basketball,Georgia,SEC,20.8,7.0,5.9,0,6,3,200412.22,3
-P002,8,basketball,Georgia,SEC,22.2,7.2,6.5,0,7,3,164563.2,2
-P002,9,basketball,Georgia,SEC,22.1,6.6,5.2,1,7,3,142435.52,2
-P002,10,basketball,Georgia,SEC,22.3,7.3,6.2,0,8,3,187272.6,2
-P003,1,football,Michigan,Big Ten,25.3,1.2,1.3,0,1,3,31258.87,1
-P003,2,football,Michigan,Big Ten,21.5,0.5,1.7,0,2,3,46975.37,1
-P003,3,football,Michigan,Big Ten,24.9,0.0,2.7,0,3,3,129738.01,2
-P003,4,football,Michigan,Big Ten,17.8,0.1,1.9,0,4,3,146412.63,2
-P003,5,football,Michigan,Big Ten,22.8,0.7,3.5,0,5,3,127529.9,2
-P003,6,football,Michigan,Big Ten,36.6,0.6,3.0,0,6,3,230051.09,3
-P003,7,football,Michigan,Big Ten,30.7,1.1,2.4,1,6,3,124131.6,2
-P003,8,football,Michigan,Big Ten,30.7,1.4,2.7,0,7,3,225669.88,3
-P003,9,football,Michigan,Big Ten,29.6,0.0,3.0,0,8,3,327683.09,3
-P003,10,football,Michigan,Big Ten,30.4,0.4,1.4,0,9,3,292518.71,3
-P004,1,basketball,USC,Big 12,20.7,5.8,6.5,0,1,4,7758.93,1
-P004,2,basketball,USC,Big 12,15.5,6.7,6.3,1,1,4,6944.98,1
-P004,3,basketball,USC,Big 12,21.3,6.2,7.3,0,2,4,21547.49,1
-P004,4,basketball,USC,Big 12,19.3,5.8,6.7,0,3,4,19907.52,1
-P004,5,basketball,USC,Big 12,23.2,7.0,6.6,0,4,4,41439.87,1
-P004,6,basketball,USC,Big 12,21.6,6.0,7.0,0,5,4,55811.22,2
-P004,7,basketball,USC,Big 12,22.8,7.2,6.5,0,6,4,61831.75,2
-P004,8,basketball,USC,Big 12,27.2,6.8,5.8,0,7,4,51517.26,2
-P004,9,basketball,USC,Big 12,20.9,5.6,6.9,0,8,4,52133.47,2
-P004,10,basketball,USC,Big 12,9.8,7.0,6.6,0,9,4,52455.31,2
-P005,1,football,Texas,SEC,9.8,0.5,1.6,0,1,3,29326.32,1
-P005,2,football,Texas,SEC,7.6,0.0,1.5,1,1,3,20988.23,1
-P005,3,football,Texas,SEC,6.6,0.9,1.3,0,2,3,47471.6,1
-P005,4,football,Texas,SEC,7.5,0.0,2.5,0,3,3,80557.22,2
-P005,5,football,Texas,SEC,5.1,1.0,0.9,0,4,3,63866.64,2
-P005,6,football,Texas,SEC,2.9,0.3,2.4,0,5,3,79927.09,2
-P005,7,football,Texas,SEC,5.1,0.1,0.0,0,6,3,142721.13,2
-P005,8,football,Texas,SEC,1.9,0.8,0.2,0,7,3,169365.59,2
-P005,9,football,Texas,SEC,8.8,0.1,2.2,0,8,3,183012.77,2
-P005,10,football,Texas,SEC,9.6,1.2,0.0,0,9,3,209688.76,3
-P006,1,basketball,Oregon,Big Ten,11.8,6.5,0.9,0,1,1,125604.81,2
-P006,2,basketball,Oregon,Big Ten,15.5,7.2,0.4,0,2,1,299758.08,3
-P006,3,basketball,Oregon,Big Ten,14.1,5.9,0.0,0,3,1,336979.08,3
-P006,4,basketball,Oregon,Big Ten,15.4,7.4,2.1,0,4,1,625508.45,4
-P006,5,basketball,Oregon,Big Ten,14.9,6.6,2.2,0,5,1,589205.26,4
-P006,6,basketball,Oregon,Big Ten,9.4,6.8,1.4,0,6,1,642226.41,4
-P006,7,basketball,Oregon,Big Ten,12.5,7.4,0.1,0,7,1,971806.05,4
-P006,8,basketball,Oregon,Big Ten,17.5,6.4,1.3,0,8,1,1299945.5,5
-P006,9,basketball,Oregon,Big Ten,10.5,7.1,2.6,0,9,1,777968.43,4
-P006,10,basketball,Oregon,Big Ten,16.5,7.0,0.0,0,10,1,1633622.52,5
-P007,1,football,LSU,SEC,19.4,1.5,0.0,0,1,4,7742.65,1
-P007,2,football,LSU,SEC,20.8,0.9,0.0,0,2,4,22341.68,1
-P007,3,football,LSU,SEC,24.5,0.3,0.0,0,3,4,24747.9,1
-P007,4,football,LSU,SEC,30.0,0.9,0.3,1,3,4,27291.64,1
-P007,5,football,LSU,SEC,35.4,1.0,0.0,0,4,4,57551.79,2
-P007,6,football,LSU,SEC,35.0,1.8,0.0,0,5,4,56124.29,2
-P007,7,football,LSU,SEC,26.0,0.0,0.0,0,6,4,78007.98,2
-P007,8,football,LSU,SEC,17.9,0.1,2.1,0,7,4,85137.8,2
-P007,9,football,LSU,SEC,13.3,0.6,0.5,0,8,4,92307.83,2
-P007,10,football,LSU,SEC,33.4,0.7,1.5,0,9,4,104331.31,2
-P008,1,basketball,Clemson,ACC,27.1,6.2,4.3,0,1,3,31974.51,1
-P008,2,basketball,Clemson,ACC,27.2,6.5,5.3,0,2,3,72159.99,2
-P008,3,basketball,Clemson,ACC,28.7,7.4,3.9,0,3,3,73123.63,2
-P008,4,basketball,Clemson,ACC,23.1,7.6,2.8,0,4,3,80538.1,2
-P008,5,basketball,Clemson,ACC,27.5,6.0,5.2,0,5,3,185830.14,2
-P008,6,basketball,Clemson,ACC,29.0,6.9,5.3,0,6,3,233495.08,3
-P008,7,basketball,Clemson,ACC,18.2,6.9,4.5,0,7,3,172968.04,2
-P008,8,basketball,Clemson,ACC,39.1,6.8,2.4,1,7,3,140156.94,2
-P008,9,basketball,Clemson,ACC,20.0,6.3,4.2,0,8,3,257846.94,3
-P008,10,basketball,Clemson,ACC,27.9,7.1,3.2,0,9,3,209144.94,3
-P009,1,football,Penn State,Big Ten,15.6,0.4,1.6,0,1,1,186065.9,2
-P009,2,football,Penn State,Big Ten,20.2,0.4,0.9,0,2,1,385062.01,3
-P009,3,football,Penn State,Big Ten,13.3,0.0,3.5,0,3,1,426983.15,3
-P009,4,football,Penn State,Big Ten,17.9,0.7,1.4,0,4,1,655857.27,4
-P009,5,football,Penn State,Big Ten,15.8,0.0,0.3,0,5,1,558822.23,4
-P009,6,football,Penn State,Big Ten,13.0,0.1,0.0,0,6,1,1061021.77,5
-P009,7,football,Penn State,Big Ten,20.7,0.7,0.2,0,7,1,1251016.49,5
-P009,8,football,Penn State,Big Ten,21.4,0.0,0.9,0,8,1,1274638.64,5
-P009,9,football,Penn State,Big Ten,16.5,0.9,1.1,0,9,1,1087095.23,5
-P009,10,football,Penn State,Big Ten,11.2,0.1,0.6,0,10,1,1212943.93,5
-P010,1,basketball,Florida State,ACC,28.0,1.5,5.6,0,1,2,65964.27,2
-P010,2,basketball,Florida State,ACC,29.8,1.7,3.7,0,2,2,137568.0,2
-P010,3,basketball,Florida State,ACC,28.0,1.5,2.6,0,3,2,190069.26,2
-P010,4,basketball,Florida State,ACC,32.1,0.5,5.3,0,4,2,258760.4,3
-P010,5,basketball,Florida State,ACC,24.3,1.0,6.1,0,5,2,436714.14,3
-P010,6,basketball,Florida State,ACC,27.2,0.9,6.0,0,6,2,608088.24,4
-P010,7,basketball,Florida State,ACC,20.7,1.4,5.5,0,7,2,373423.68,3
-P010,8,basketball,Florida State,ACC,40.2,1.5,5.7,0,8,2,634778.45,4
-P010,9,basketball,Florida State,ACC,19.7,1.6,6.4,0,9,2,575203.37,4
-P010,10,basketball,Florida State,ACC,47.7,1.1,3.3,0,10,2,963935.64,4
-P011,1,football,Oklahoma,SEC,18.3,0.5,1.8,0,1,3,32680.57,1
-P011,2,football,Oklahoma,SEC,16.9,0.6,2.3,0,2,3,60252.66,2
-P011,3,football,Oklahoma,SEC,18.9,0.7,1.6,0,3,3,67754.59,2
-P011,4,football,Oklahoma,SEC,16.5,0.7,3.0,0,4,3,138763.71,2
-P011,5,football,Oklahoma,SEC,16.2,0.2,2.3,0,5,3,163781.79,2
-P011,6,football,Oklahoma,SEC,18.8,0.7,4.6,0,6,3,168100.43,2
-P011,7,football,Oklahoma,SEC,13.8,0.9,1.8,0,7,3,155051.52,2
-P011,8,football,Oklahoma,SEC,15.4,1.7,2.8,1,7,3,169898.98,2
-P011,9,football,Oklahoma,SEC,30.7,0.8,2.9,0,8,3,319456.51,3
-P011,10,football,Oklahoma,SEC,22.2,1.3,2.2,0,9,3,368153.3,3
-P012,1,basketball,Tennessee,SEC,25.6,2.7,11.7,0,1,4,7251.31,1
-P012,2,basketball,Tennessee,SEC,22.0,0.6,12.0,0,2,4,16594.99,1
-P012,3,basketball,Tennessee,SEC,27.8,0.7,10.9,0,3,4,24111.14,1
-P012,4,basketball,Tennessee,SEC,16.3,1.4,10.9,0,4,4,34837.16,1
-P012,5,basketball,Tennessee,SEC,19.8,0.9,11.6,0,5,4,34840.82,1
-P012,6,basketball,Tennessee,SEC,30.0,1.5,11.1,0,6,4,77342.89,2
-P012,7,basketball,Tennessee,SEC,20.3,2.7,10.0,1,6,4,42773.03,1
-P012,8,basketball,Tennessee,SEC,20.7,2.0,12.4,0,7,4,50847.04,2
-P012,9,basketball,Tennessee,SEC,33.7,1.4,11.7,0,8,4,96535.37,2
-P012,10,basketball,Tennessee,SEC,26.9,2.1,11.9,1,8,4,43168.36,1
-P013,1,football,Notre Dame,Independent,10.4,0.8,0.9,0,1,3,27894.32,1
-P013,2,football,Notre Dame,Independent,9.2,1.6,0.4,1,1,3,13188.22,1
-P013,3,football,Notre Dame,Independent,5.1,2.2,0.0,0,2,3,46560.02,1
-P013,4,football,Notre Dame,Independent,6.9,0.7,2.5,0,3,3,67235.57,2
-P013,5,football,Notre Dame,Independent,10.5,1.3,0.4,1,3,3,46517.87,1
-P013,6,football,Notre Dame,Independent,12.9,0.6,1.5,0,4,3,128840.49,2
-P013,7,football,Notre Dame,Independent,11.5,1.4,0.0,0,5,3,142036.2,2
-P013,8,football,Notre Dame,Independent,14.4,1.4,1.7,0,6,3,183767.03,2
-P013,9,football,Notre Dame,Independent,6.6,1.7,1.1,1,6,3,78292.27,2
-P013,10,football,Notre Dame,Independent,8.6,1.4,0.0,0,7,3,159255.23,2
-P014,1,basketball,Miami,ACC,9.6,4.8,6.4,0,1,3,15204.98,1
-P014,2,basketball,Miami,ACC,10.3,4.8,8.8,0,2,3,48873.02,1
-P014,3,basketball,Miami,ACC,10.4,4.8,5.9,0,3,3,70408.05,2
-P014,4,basketball,Miami,ACC,13.6,4.5,6.9,0,4,3,96188.75,2
-P014,5,basketball,Miami,ACC,13.6,4.1,6.0,0,5,3,138831.29,2
-P014,6,basketball,Miami,ACC,16.2,5.3,7.1,0,6,3,144531.42,2
-P014,7,basketball,Miami,ACC,11.0,5.2,6.4,1,6,3,100585.28,2
-P014,8,basketball,Miami,ACC,10.7,5.1,6.3,0,7,3,177600.6,2
-P014,9,basketball,Miami,ACC,7.1,4.0,6.7,0,8,3,118089.79,2
-P014,10,basketball,Miami,ACC,19.1,4.3,6.0,0,9,3,270759.49,3
-P015,1,football,UCLA,Big Ten,20.4,1.8,3.1,0,1,2,83764.59,2
-P015,2,football,UCLA,Big Ten,19.3,1.5,3.3,0,2,2,187959.11,2
-P015,3,football,UCLA,Big Ten,17.7,1.4,0.8,0,3,2,177471.43,2
-P015,4,football,UCLA,Big Ten,13.6,1.8,2.1,0,4,2,323031.09,3
-P015,5,football,UCLA,Big Ten,17.0,1.4,4.2,0,5,2,505249.67,4
-P015,6,football,UCLA,Big Ten,15.8,1.9,2.3,0,6,2,464543.28,3
-P015,7,football,UCLA,Big Ten,15.6,1.5,2.4,0,7,2,401145.48,3
-P015,8,football,UCLA,Big Ten,29.9,2.5,1.3,0,8,2,646264.45,4
-P015,9,football,UCLA,Big Ten,27.8,1.4,4.2,0,9,2,669586.93,4
-P015,10,football,UCLA,Big Ten,33.7,1.5,1.5,0,10,2,1348754.67,5
-P016,1,basketball,Washington,Big Ten,18.3,1.6,4.5,0,1,3,19291.35,1
-P016,2,basketball,Washington,Big Ten,15.9,1.3,5.5,0,2,3,50716.78,2
-P016,3,basketball,Washington,Big Ten,23.1,1.8,4.4,0,3,3,72470.22,2
-P016,4,basketball,Washington,Big Ten,23.4,1.7,6.3,0,4,3,123660.63,2
-P016,5,basketball,Washington,Big Ten,21.4,0.8,6.0,0,5,3,163504.34,2
-P016,6,basketball,Washington,Big Ten,12.4,1.2,6.7,0,6,3,157967.44,2
-P016,7,basketball,Washington,Big Ten,23.2,1.0,5.5,0,7,3,208697.36,3
-P016,8,basketball,Washington,Big Ten,25.9,1.5,6.1,0,8,3,182094.52,2
-P016,9,basketball,Washington,Big Ten,29.8,1.4,5.5,0,9,3,303856.41,3
-P016,10,basketball,Washington,Big Ten,29.4,1.2,6.6,1,9,3,205521.71,3
-P017,1,football,Duke,ACC,21.5,0.0,2.5,0,1,2,95565.97,2
-P017,2,football,Duke,ACC,15.5,0.0,0.4,0,2,2,178704.5,2
-P017,3,football,Duke,ACC,23.8,0.7,2.4,0,3,2,258949.02,3
-P017,4,football,Duke,ACC,19.5,0.0,1.9,0,4,2,315615.75,3
-P017,5,football,Duke,ACC,24.2,0.0,2.7,0,5,2,550523.21,4
-P017,6,football,Duke,ACC,20.2,0.3,3.1,0,6,2,605163.5,4
-P017,7,football,Duke,ACC,24.0,0.3,3.9,0,7,2,496138.43,3
-P017,8,football,Duke,ACC,15.1,0.0,4.4,0,8,2,602720.42,4
-P017,9,football,Duke,ACC,8.9,0.4,2.0,0,9,2,423701.34,3
-P017,10,football,Duke,ACC,13.4,0.0,0.2,0,10,2,643027.83,4
-P018,1,basketball,Kentucky,SEC,6.7,5.3,2.1,0,1,3,19898.49,1
-P018,2,basketball,Kentucky,SEC,5.8,3.1,1.9,1,1,3,9974.83,1
-P018,3,basketball,Kentucky,SEC,4.6,4.2,1.1,0,2,3,42540.21,1
-P018,4,basketball,Kentucky,SEC,8.1,4.6,2.2,0,3,3,72809.97,2
-P018,5,basketball,Kentucky,SEC,5.9,3.8,3.2,0,4,3,57274.67,2
-P018,6,basketball,Kentucky,SEC,10.9,4.2,4.2,0,5,3,121565.87,2
-P018,7,basketball,Kentucky,SEC,2.9,3.6,1.6,0,6,3,113044.09,2
-P018,8,basketball,Kentucky,SEC,10.1,4.3,2.2,0,7,3,162400.93,2
-P018,9,basketball,Kentucky,SEC,4.0,4.6,2.0,0,8,3,162559.78,2
-P018,10,basketball,Kentucky,SEC,3.8,3.4,2.4,0,9,3,180122.46,2
-P019,1,football,Kansas,Big 12,26.3,1.9,1.8,0,1,3,40220.99,1
-P019,2,football,Kansas,Big 12,20.9,2.0,1.5,0,2,3,54548.12,2
-P019,3,football,Kansas,Big 12,31.5,1.7,0.0,0,3,3,112561.42,2
-P019,4,football,Kansas,Big 12,26.7,2.4,0.0,0,4,3,133959.18,2
-P019,5,football,Kansas,Big 12,36.2,1.2,2.4,0,5,3,264673.7,3
-P019,6,football,Kansas,Big 12,25.0,1.8,0.0,0,6,3,247089.26,3
-P019,7,football,Kansas,Big 12,27.4,1.1,0.4,0,7,3,186253.91,2
-P019,8,football,Kansas,Big 12,35.3,1.6,3.3,0,8,3,386650.72,3
-P019,9,football,Kansas,Big 12,30.4,2.0,0.9,1,8,3,216795.3,3
-P019,10,football,Kansas,Big 12,42.0,2.2,1.2,0,9,3,409871.93,3
-P020,1,basketball,Alabama,SEC,17.0,3.7,9.0,0,1,3,31310.63,1
-P020,2,basketball,Alabama,SEC,14.3,5.1,8.1,0,2,3,55548.32,2
-P020,3,basketball,Alabama,SEC,21.0,4.2,10.3,0,3,3,97211.03,2
-P020,4,basketball,Alabama,SEC,20.7,4.8,9.0,0,4,3,115671.67,2
-P020,5,basketball,Alabama,SEC,11.5,4.7,8.1,0,5,3,113180.36,2
-P020,6,basketball,Alabama,SEC,21.0,4.6,9.5,0,6,3,184811.94,2
-P020,7,basketball,Alabama,SEC,20.7,4.8,8.1,0,7,3,191219.58,2
-P020,8,basketball,Alabama,SEC,8.0,3.4,9.9,0,8,3,155017.24,2
-P020,9,basketball,Alabama,SEC,12.3,3.5,7.7,1,8,3,131600.91,2
-P020,10,basketball,Alabama,SEC,21.7,5.3,9.3,0,9,3,241366.32,3
-P021,1,football,Ohio State,Big Ten,17.8,1.1,1.9,0,1,1,202552.12,3
-P021,2,football,Ohio State,Big Ten,12.8,1.1,1.5,0,2,1,357596.64,3
-P021,3,football,Ohio State,Big Ten,10.8,1.0,1.2,0,3,1,361110.56,3
-P021,4,football,Ohio State,Big Ten,10.4,0.9,2.6,0,4,1,577657.64,4
-P021,5,football,Ohio State,Big Ten,14.4,0.0,1.1,0,5,1,610286.36,4
-P021,6,football,Ohio State,Big Ten,13.9,0.5,1.5,0,6,1,762584.77,4
-P021,7,football,Ohio State,Big Ten,22.4,0.7,0.6,0,7,1,1550509.23,5
-P021,8,football,Ohio State,Big Ten,15.9,0.8,1.2,0,8,1,1030231.53,5
-P021,9,football,Ohio State,Big Ten,18.6,0.6,0.9,0,9,1,1703514.35,5
-P021,10,football,Ohio State,Big Ten,12.5,0.6,2.4,0,10,1,1098403.04,5
-P022,1,basketball,Georgia,SEC,13.0,6.6,12.1,0,1,3,19099.86,1
-P022,2,basketball,Georgia,SEC,8.7,7.3,9.7,0,2,3,45690.29,1
-P022,3,basketball,Georgia,SEC,13.2,6.2,10.0,0,3,3,59268.59,2
-P022,4,basketball,Georgia,SEC,6.3,5.5,9.8,1,3,3,40450.14,1
-P022,5,basketball,Georgia,SEC,4.6,5.7,11.2,0,4,3,88415.16,2
-P022,6,basketball,Georgia,SEC,6.7,6.2,11.7,0,5,3,105297.9,2
-P022,7,basketball,Georgia,SEC,7.8,5.9,12.2,1,5,3,72009.81,2
-P022,8,basketball,Georgia,SEC,15.2,5.6,10.7,0,6,3,138416.74,2
-P022,9,basketball,Georgia,SEC,9.9,6.7,9.3,0,7,3,182381.47,2
-P022,10,basketball,Georgia,SEC,5.0,5.9,11.7,0,8,3,157162.96,2
-P023,1,football,Michigan,Big Ten,21.4,0.0,1.8,0,1,1,177964.49,2
-P023,2,football,Michigan,Big Ten,21.4,0.0,0.3,0,2,1,348729.36,3
-P023,3,football,Michigan,Big Ten,27.5,0.3,2.1,0,3,1,452852.5,3
-P023,4,football,Michigan,Big Ten,28.3,0.7,2.2,0,4,1,921070.49,4
-P023,5,football,Michigan,Big Ten,27.3,0.1,1.3,0,5,1,877250.62,4
-P023,6,football,Michigan,Big Ten,32.0,0.8,3.0,0,6,1,1507944.65,5
-P023,7,football,Michigan,Big Ten,38.3,0.1,1.8,0,7,1,1512426.63,5
-P023,8,football,Michigan,Big Ten,17.9,0.0,2.3,1,7,1,624055.03,4
-P023,9,football,Michigan,Big Ten,38.5,0.3,0.7,0,8,1,1778378.19,5
-P023,10,football,Michigan,Big Ten,13.0,0.0,3.1,0,9,1,1410794.34,5
-P024,1,basketball,USC,Big 12,33.0,0.7,8.2,0,1,1,156656.56,2
-P024,2,basketball,USC,Big 12,25.0,1.0,8.8,0,2,1,328576.4,3
-P024,3,basketball,USC,Big 12,27.0,1.2,10.9,0,3,1,378000.38,3
-P024,4,basketball,USC,Big 12,32.4,0.8,7.5,0,4,1,792510.17,4
-P024,5,basketball,USC,Big 12,31.2,0.9,8.5,0,5,1,621902.07,4
-P024,6,basketball,USC,Big 12,24.1,1.1,7.2,1,5,1,451567.72,3
-P024,7,basketball,USC,Big 12,43.3,0.4,8.6,0,6,1,1198524.34,5
-P024,8,basketball,USC,Big 12,41.2,0.5,8.2,0,7,1,1375594.4,5
-P024,9,basketball,USC,Big 12,25.8,0.5,6.4,0,8,1,1530720.03,5
-P024,10,basketball,USC,Big 12,47.2,1.5,8.0,0,9,1,2325294.17,5
-P025,1,football,Texas,SEC,27.2,1.3,1.3,0,1,1,153807.01,2
-P025,2,football,Texas,SEC,28.4,1.9,2.0,1,1,1,104836.48,2
-P025,3,football,Texas,SEC,27.5,1.6,0.9,0,2,1,421777.36,3
-P025,4,football,Texas,SEC,20.4,1.5,2.6,0,3,1,369073.44,3
-P025,5,football,Texas,SEC,21.9,1.6,0.7,0,4,1,743300.45,4
-P025,6,football,Texas,SEC,32.6,1.2,4.1,1,4,1,746202.22,4
-P025,7,football,Texas,SEC,38.4,1.8,2.7,0,5,1,904271.99,4
-P025,8,football,Texas,SEC,25.7,0.4,0.0,0,6,1,1195094.64,5
-P025,9,football,Texas,SEC,41.6,0.8,2.1,0,7,1,1477838.54,5
-P025,10,football,Texas,SEC,39.8,0.8,2.2,0,8,1,1835097.28,5
-P026,1,basketball,Oregon,Big Ten,23.1,1.8,6.9,0,1,3,32957.67,1
-P026,2,basketball,Oregon,Big Ten,21.7,1.8,7.3,0,2,3,54517.41,2
-P026,3,basketball,Oregon,Big Ten,22.8,2.7,7.6,0,3,3,89660.19,2
-P026,4,basketball,Oregon,Big Ten,23.7,1.2,6.8,0,4,3,93782.56,2
-P026,5,basketball,Oregon,Big Ten,20.6,2.2,8.4,0,5,3,121889.5,2
-P026,6,basketball,Oregon,Big Ten,26.1,1.8,6.2,0,6,3,163319.66,2
-P026,7,basketball,Oregon,Big Ten,20.3,1.6,6.2,0,7,3,237438.91,3
-P026,8,basketball,Oregon,Big Ten,23.2,1.6,7.2,0,8,3,212303.24,3
-P026,9,basketball,Oregon,Big Ten,29.3,2.4,6.4,0,9,3,294154.47,3
-P026,10,basketball,Oregon,Big Ten,21.5,1.9,8.5,0,10,3,286252.7,3
-P027,1,football,LSU,SEC,26.1,0.2,3.4,0,1,3,34131.57,1
-P027,2,football,LSU,SEC,23.4,0.2,0.6,0,2,3,56572.63,2
-P027,3,football,LSU,SEC,25.9,0.8,4.3,0,3,3,82540.34,2
-P027,4,football,LSU,SEC,21.7,0.4,3.6,0,4,3,136740.45,2
-P027,5,football,LSU,SEC,17.6,0.0,1.9,0,5,3,132789.74,2
-P027,6,football,LSU,SEC,35.3,0.3,0.9,0,6,3,294867.26,3
-P027,7,football,LSU,SEC,18.9,1.2,1.4,0,7,3,243650.97,3
-P027,8,football,LSU,SEC,26.1,1.4,2.0,0,8,3,227823.9,3
-P027,9,football,LSU,SEC,30.5,0.3,2.8,1,8,3,159451.52,2
-P027,10,football,LSU,SEC,20.6,0.1,1.6,0,9,3,245970.88,3
-P028,1,basketball,Clemson,ACC,20.2,1.0,5.2,0,1,2,64168.07,2
-P028,2,basketball,Clemson,ACC,26.1,1.2,4.8,0,2,2,200142.55,3
-P028,3,basketball,Clemson,ACC,20.7,0.4,6.9,0,3,2,208403.59,3
-P028,4,basketball,Clemson,ACC,26.6,1.6,5.6,0,4,2,328152.0,3
-P028,5,basketball,Clemson,ACC,23.3,0.8,6.5,0,5,2,382427.51,3
-P028,6,basketball,Clemson,ACC,15.3,0.0,6.8,0,6,2,361480.01,3
-P028,7,basketball,Clemson,ACC,30.2,0.6,6.4,0,7,2,693418.38,4
-P028,8,basketball,Clemson,ACC,23.3,0.6,5.9,0,8,2,604104.05,4
-P028,9,basketball,Clemson,ACC,16.1,0.8,6.9,0,9,2,742635.41,4
-P028,10,basketball,Clemson,ACC,36.1,1.0,6.2,0,10,2,1008998.11,5
-P029,1,football,Penn State,Big Ten,9.8,1.7,3.3,0,1,4,9772.2,1
-P029,2,football,Penn State,Big Ten,16.5,1.6,3.7,0,2,4,21728.89,1
-P029,3,football,Penn State,Big Ten,17.6,1.3,2.6,0,3,4,23835.53,1
-P029,4,football,Penn State,Big Ten,13.4,1.1,3.3,0,4,4,38867.7,1
-P029,5,football,Penn State,Big Ten,11.4,1.7,3.4,0,5,4,55550.57,2
-P029,6,football,Penn State,Big Ten,16.8,1.0,3.3,0,6,4,56524.27,2
-P029,7,football,Penn State,Big Ten,11.0,1.4,4.7,0,7,4,45821.19,1
-P029,8,football,Penn State,Big Ten,19.2,1.7,2.6,0,8,4,84510.3,2
-P029,9,football,Penn State,Big Ten,18.4,0.6,2.7,0,9,4,91137.19,2
-P029,10,football,Penn State,Big Ten,24.3,1.1,2.4,0,10,4,135249.22,2
-P030,1,basketball,Florida State,ACC,12.7,3.1,10.5,0,1,1,117652.14,2
-P030,2,basketball,Florida State,ACC,13.2,4.0,8.1,0,2,1,182448.45,2
-P030,3,basketball,Florida State,ACC,14.3,3.7,9.8,0,3,1,325291.29,3
-P030,4,basketball,Florida State,ACC,15.0,4.8,8.2,1,3,1,234965.31,3
-P030,5,basketball,Florida State,ACC,13.9,4.2,9.9,0,4,1,424493.08,3
-P030,6,basketball,Florida State,ACC,19.6,4.8,9.1,0,5,1,839868.1,4
-P030,7,basketball,Florida State,ACC,13.0,4.0,9.2,0,6,1,689959.68,4
-P030,8,basketball,Florida State,ACC,9.0,4.0,9.9,0,7,1,944643.4,4
-P030,9,basketball,Florida State,ACC,17.8,4.3,8.7,0,8,1,1297443.08,5
-P030,10,basketball,Florida State,ACC,9.1,4.8,9.0,1,8,1,602745.32,4
-P031,1,football,Oklahoma,SEC,20.5,1.0,1.8,0,1,2,64420.07,2
-P031,2,football,Oklahoma,SEC,18.5,0.6,2.1,1,1,2,67812.73,2
-P031,3,football,Oklahoma,SEC,20.9,0.9,1.6,0,2,2,153017.48,2
-P031,4,football,Oklahoma,SEC,24.6,0.9,2.3,0,3,2,266402.15,3
-P031,5,football,Oklahoma,SEC,23.9,1.5,0.0,0,4,2,280390.81,3
-P031,6,football,Oklahoma,SEC,20.3,1.7,0.7,0,5,2,447056.06,3
-P031,7,football,Oklahoma,SEC,29.5,0.6,0.8,0,6,2,590065.57,4
-P031,8,football,Oklahoma,SEC,11.8,0.4,0.2,0,7,2,443974.62,3
-P031,9,football,Oklahoma,SEC,21.8,0.0,0.0,0,8,2,499518.14,3
-P031,10,football,Oklahoma,SEC,8.2,0.4,0.1,0,9,2,601823.56,4
-P032,1,basketball,Tennessee,SEC,13.9,1.2,5.6,0,1,4,7647.89,1
-P032,2,basketball,Tennessee,SEC,13.9,0.4,6.0,0,2,4,17236.98,1
-P032,3,basketball,Tennessee,SEC,12.2,1.6,7.2,0,3,4,26217.44,1
-P032,4,basketball,Tennessee,SEC,10.4,1.2,9.4,0,4,4,26370.46,1
-P032,5,basketball,Tennessee,SEC,16.6,0.7,7.5,0,5,4,46610.33,1
-P032,6,basketball,Tennessee,SEC,10.2,0.8,8.0,0,6,4,38903.6,1
-P032,7,basketball,Tennessee,SEC,17.7,1.3,8.5,0,7,4,65915.73,2
-P032,8,basketball,Tennessee,SEC,8.0,1.2,7.8,0,8,4,52723.24,2
-P032,9,basketball,Tennessee,SEC,16.9,0.2,8.5,0,9,4,80294.43,2
-P032,10,basketball,Tennessee,SEC,21.3,2.0,6.6,0,10,4,104615.44,2
-P033,1,football,Notre Dame,Independent,21.3,1.3,0.7,0,1,2,96383.71,2
-P033,2,football,Notre Dame,Independent,27.6,1.1,2.2,0,2,2,153877.56,2
-P033,3,football,Notre Dame,Independent,26.0,1.4,2.6,0,3,2,256714.14,3
-P033,4,football,Notre Dame,Independent,19.2,0.8,1.8,0,4,2,350884.52,3
-P033,5,football,Notre Dame,Independent,26.8,1.4,2.5,1,4,2,268215.8,3
-P033,6,football,Notre Dame,Independent,31.6,1.4,2.5,1,4,2,271341.68,3
-P033,7,football,Notre Dame,Independent,15.0,1.5,2.5,0,5,2,400061.07,3
-P033,8,football,Notre Dame,Independent,34.6,1.6,3.0,0,6,2,591431.65,4
-P033,9,football,Notre Dame,Independent,28.0,1.1,4.1,0,7,2,659038.77,4
-P033,10,football,Notre Dame,Independent,21.4,1.3,2.0,1,7,2,384765.92,3
-P034,1,basketball,Miami,ACC,9.8,4.0,8.8,0,1,3,22340.47,1
-P034,2,basketball,Miami,ACC,6.9,3.8,10.5,0,2,3,48992.07,1
-P034,3,basketball,Miami,ACC,6.9,4.0,9.7,0,3,3,45819.57,1
-P034,4,basketball,Miami,ACC,10.5,3.7,8.5,0,4,3,67932.53,2
-P034,5,basketball,Miami,ACC,7.9,3.8,8.3,0,5,3,104472.43,2
-P034,6,basketball,Miami,ACC,6.3,3.5,7.3,0,6,3,113939.7,2
-P034,7,basketball,Miami,ACC,12.4,4.4,7.6,0,7,3,162322.3,2
-P034,8,basketball,Miami,ACC,12.7,3.8,7.7,0,8,3,219525.76,3
-P034,9,basketball,Miami,ACC,7.4,3.8,8.9,0,9,3,189385.36,2
-P034,10,basketball,Miami,ACC,13.9,3.6,9.0,0,10,3,182497.98,2
-P035,1,football,UCLA,Big Ten,11.9,2.0,1.4,0,1,2,80546.76,2
-P035,2,football,UCLA,Big Ten,16.0,2.2,1.5,0,2,2,164614.12,2
-P035,3,football,UCLA,Big Ten,10.1,1.6,0.0,1,2,2,86125.11,2
-P035,4,football,UCLA,Big Ten,8.1,0.7,1.0,1,2,2,89643.29,2
-P035,5,football,UCLA,Big Ten,16.4,1.7,0.7,0,3,2,198189.71,2
-P035,6,football,UCLA,Big Ten,10.8,2.0,0.6,0,4,2,270222.18,3
-P035,7,football,UCLA,Big Ten,11.5,1.6,0.0,0,5,2,273459.62,3
-P035,8,football,UCLA,Big Ten,22.6,0.1,1.0,0,6,2,568043.07,4
-P035,9,football,UCLA,Big Ten,6.2,2.0,1.7,0,7,2,438359.89,3
-P035,10,football,UCLA,Big Ten,16.7,1.8,0.3,0,8,2,626521.31,4
-P036,1,basketball,Washington,Big Ten,5.1,5.8,4.5,0,1,3,20617.94,1
-P036,2,basketball,Washington,Big Ten,7.4,5.7,3.8,0,2,3,34096.4,1
-P036,3,basketball,Washington,Big Ten,6.8,6.6,3.8,0,3,3,55705.49,2
-P036,4,basketball,Washington,Big Ten,8.7,6.1,4.8,0,4,3,76126.66,2
-P036,5,basketball,Washington,Big Ten,6.1,6.4,3.7,0,5,3,119972.22,2
-P036,6,basketball,Washington,Big Ten,8.3,6.2,3.9,0,6,3,130452.76,2
-P036,7,basketball,Washington,Big Ten,3.7,6.3,4.4,0,7,3,119101.44,2
-P036,8,basketball,Washington,Big Ten,5.6,5.5,4.0,0,8,3,142480.46,2
-P036,9,basketball,Washington,Big Ten,9.2,5.9,5.0,0,9,3,182070.45,2
-P036,10,basketball,Washington,Big Ten,11.6,5.6,2.9,0,10,3,237419.56,3
-P037,1,football,Duke,ACC,13.2,1.2,0.3,1,1,3,14810.88,1
-P037,2,football,Duke,ACC,9.9,1.7,0.7,1,1,3,16360.8,1
-P037,3,football,Duke,ACC,11.6,0.0,2.0,0,1,3,18867.42,1
-P037,4,football,Duke,ACC,7.9,1.3,1.7,0,2,3,42672.24,1
-P037,5,football,Duke,ACC,15.6,2.1,0.9,0,3,3,62429.53,2
-P037,6,football,Duke,ACC,11.8,1.3,2.7,0,4,3,97547.52,2
-P037,7,football,Duke,ACC,10.0,0.6,1.9,0,5,3,118540.89,2
-P037,8,football,Duke,ACC,12.6,1.2,0.0,0,6,3,158512.74,2
-P037,9,football,Duke,ACC,8.6,1.3,1.0,0,7,3,140808.72,2
-P037,10,football,Duke,ACC,7.1,1.9,1.7,0,8,3,149156.84,2
-P038,1,basketball,Kentucky,SEC,24.2,2.3,3.0,0,1,2,84895.79,2
-P038,2,basketball,Kentucky,SEC,17.1,3.5,3.2,0,2,2,145465.08,2
-P038,3,basketball,Kentucky,SEC,18.4,2.9,4.2,0,3,2,208726.66,3
-P038,4,basketball,Kentucky,SEC,18.2,2.3,4.4,0,4,2,223039.67,3
-P038,5,basketball,Kentucky,SEC,29.2,2.5,5.1,0,5,2,399728.59,3
-P038,6,basketball,Kentucky,SEC,24.2,2.1,5.2,0,6,2,367438.4,3
-P038,7,basketball,Kentucky,SEC,22.3,2.0,5.6,0,7,2,560961.34,4
-P038,8,basketball,Kentucky,SEC,18.7,2.6,4.5,1,7,2,307045.57,3
-P038,9,basketball,Kentucky,SEC,33.5,2.8,3.5,0,8,2,638691.58,4
-P038,10,basketball,Kentucky,SEC,31.9,2.6,4.4,0,9,2,852584.81,4
-P039,1,football,Kansas,Big 12,9.9,0.0,3.0,0,1,1,139893.14,2
-P039,2,football,Kansas,Big 12,11.9,0.5,3.5,0,2,1,258578.65,3
-P039,3,football,Kansas,Big 12,11.5,0.5,1.2,1,2,1,143317.95,2
-P039,4,football,Kansas,Big 12,10.4,0.6,3.4,0,3,1,426664.86,3
-P039,5,football,Kansas,Big 12,13.1,2.1,2.0,0,4,1,710311.51,4
-P039,6,football,Kansas,Big 12,18.7,0.7,3.7,0,5,1,806484.84,4
-P039,7,football,Kansas,Big 12,13.7,0.1,2.2,0,6,1,732838.7,4
-P039,8,football,Kansas,Big 12,5.8,0.0,3.0,0,7,1,1003484.63,5
-P039,9,football,Kansas,Big 12,13.0,1.2,1.8,0,8,1,1181777.26,5
-P039,10,football,Kansas,Big 12,10.9,0.5,2.7,0,9,1,1426005.29,5
-P040,1,basketball,Alabama,SEC,10.1,3.4,5.2,0,1,4,6701.34,1
-P040,2,basketball,Alabama,SEC,12.4,2.3,3.9,0,2,4,18236.6,1
-P040,3,basketball,Alabama,SEC,12.8,3.5,2.6,0,3,4,17059.04,1
-P040,4,basketball,Alabama,SEC,9.4,3.0,4.8,0,4,4,20362.41,1
-P040,5,basketball,Alabama,SEC,12.2,2.0,5.1,0,5,4,42403.19,1
-P040,6,basketball,Alabama,SEC,11.9,4.3,5.0,0,6,4,49008.5,1
-P040,7,basketball,Alabama,SEC,12.9,3.2,4.3,0,7,4,59422.06,2
-P040,8,basketball,Alabama,SEC,16.9,2.5,3.8,0,8,4,83685.62,2
-P040,9,basketball,Alabama,SEC,13.6,3.3,5.3,0,9,4,86279.05,2
-P040,10,basketball,Alabama,SEC,9.5,2.6,5.0,0,10,4,50367.59,2
-P041,1,football,Ohio State,Big Ten,6.8,0.9,3.1,0,1,4,5755.54,1
-P041,2,football,Ohio State,Big Ten,8.1,1.8,3.3,0,2,4,18728.67,1
-P041,3,football,Ohio State,Big Ten,3.6,1.3,1.8,0,3,4,23267.28,1
-P041,4,football,Ohio State,Big Ten,4.4,1.7,1.5,0,4,4,34357.77,1
-P041,5,football,Ohio State,Big Ten,7.2,1.1,1.9,0,5,4,41751.42,1
-P041,6,football,Ohio State,Big Ten,2.9,1.1,4.4,1,5,4,28061.04,1
-P041,7,football,Ohio State,Big Ten,8.4,1.1,2.5,0,6,4,60697.2,2
-P041,8,football,Ohio State,Big Ten,6.3,2.0,4.4,0,7,4,50931.4,2
-P041,9,football,Ohio State,Big Ten,6.9,1.1,2.4,0,8,4,46708.7,1
-P041,10,football,Ohio State,Big Ten,2.8,1.3,2.0,0,9,4,69329.0,2
-P042,1,basketball,Georgia,SEC,9.1,2.5,5.0,0,1,2,57910.82,2
-P042,2,basketball,Georgia,SEC,9.1,1.9,8.0,0,2,2,94925.97,2
-P042,3,basketball,Georgia,SEC,12.2,2.6,7.3,0,3,2,158151.76,2
-P042,4,basketball,Georgia,SEC,12.5,2.2,6.9,0,4,2,249674.83,3
-P042,5,basketball,Georgia,SEC,14.0,1.6,8.0,1,4,2,180812.5,2
-P042,6,basketball,Georgia,SEC,11.1,2.0,7.4,0,5,2,315945.18,3
-P042,7,basketball,Georgia,SEC,16.4,1.6,6.2,0,6,2,481904.15,3
-P042,8,basketball,Georgia,SEC,10.8,1.2,8.1,0,7,2,340680.4,3
-P042,9,basketball,Georgia,SEC,18.1,2.2,6.9,1,7,2,282588.34,3
-P042,10,basketball,Georgia,SEC,6.8,1.6,6.2,0,8,2,437233.83,3
-P043,1,football,Michigan,Big Ten,4.4,2.0,3.9,0,1,3,21963.72,1
-P043,2,football,Michigan,Big Ten,7.7,2.2,2.3,0,2,3,48497.01,1
-P043,3,football,Michigan,Big Ten,8.2,1.8,3.6,0,3,3,77525.02,2
-P043,4,football,Michigan,Big Ten,7.7,1.6,4.2,0,4,3,103007.53,2
-P043,5,football,Michigan,Big Ten,8.4,1.0,1.8,0,5,3,150366.32,2
-P043,6,football,Michigan,Big Ten,5.4,1.7,4.0,0,6,3,115410.73,2
-P043,7,football,Michigan,Big Ten,6.5,1.4,2.7,0,7,3,125287.37,2
-P043,8,football,Michigan,Big Ten,6.5,1.4,1.7,0,8,3,187773.48,2
-P043,9,football,Michigan,Big Ten,8.7,1.7,1.8,0,9,3,276503.48,3
-P043,10,football,Michigan,Big Ten,8.4,1.9,0.3,0,10,3,293643.16,3
-P044,1,basketball,USC,Big 12,15.5,2.0,10.6,0,1,3,23057.22,1
-P044,2,basketball,USC,Big 12,18.5,1.5,11.0,0,2,3,39789.83,1
-P044,3,basketball,USC,Big 12,13.3,2.0,12.2,0,3,3,51989.16,2
-P044,4,basketball,USC,Big 12,12.0,1.3,10.2,0,4,3,93638.14,2
-P044,5,basketball,USC,Big 12,14.5,1.9,9.9,0,5,3,97993.45,2
-P044,6,basketball,USC,Big 12,26.1,3.0,8.9,0,6,3,196377.32,2
-P044,7,basketball,USC,Big 12,17.6,2.0,9.1,0,7,3,211971.17,3
-P044,8,basketball,USC,Big 12,18.8,2.0,9.5,0,8,3,163122.62,2
-P044,9,basketball,USC,Big 12,23.0,1.7,9.2,0,9,3,208286.28,3
-P044,10,basketball,USC,Big 12,18.6,1.9,13.1,0,10,3,282807.49,3
-P045,1,football,Texas,SEC,6.3,1.6,0.0,0,1,2,59220.3,2
-P045,2,football,Texas,SEC,4.6,1.0,1.5,0,2,2,136350.6,2
-P045,3,football,Texas,SEC,5.7,1.9,2.1,1,2,2,91166.65,2
-P045,4,football,Texas,SEC,4.5,2.0,1.1,0,3,2,223109.59,3
-P045,5,football,Texas,SEC,3.7,1.1,0.4,1,3,2,109923.96,2
-P045,6,football,Texas,SEC,2.6,1.9,2.9,0,4,2,157587.3,2
-P045,7,football,Texas,SEC,4.0,2.5,1.9,1,4,2,184386.15,2
-P045,8,football,Texas,SEC,9.3,1.8,2.4,0,5,2,333842.62,3
-P045,9,football,Texas,SEC,5.9,2.2,0.9,0,6,2,442396.62,3
-P045,10,football,Texas,SEC,8.8,1.5,1.9,0,7,2,496105.41,3
-P046,1,basketball,Oregon,Big Ten,10.4,3.7,7.9,0,1,3,17734.75,1
-P046,2,basketball,Oregon,Big Ten,8.7,4.5,8.0,0,2,3,44361.93,1
-P046,3,basketball,Oregon,Big Ten,13.0,4.5,7.8,0,3,3,84752.33,2
-P046,4,basketball,Oregon,Big Ten,7.4,3.6,9.5,0,4,3,82758.54,2
-P046,5,basketball,Oregon,Big Ten,6.0,4.6,9.4,0,5,3,108681.46,2
-P046,6,basketball,Oregon,Big Ten,7.8,3.8,7.9,1,5,3,59913.9,2
-P046,7,basketball,Oregon,Big Ten,1.9,3.9,9.4,0,6,3,74077.22,2
-P046,8,basketball,Oregon,Big Ten,12.5,3.9,8.6,0,7,3,200381.03,3
-P046,9,basketball,Oregon,Big Ten,14.5,3.8,9.5,0,8,3,140675.04,2
-P046,10,basketball,Oregon,Big Ten,6.9,4.4,7.9,1,8,3,99763.55,2
-P047,1,football,LSU,SEC,20.3,0.9,3.0,0,1,3,38314.38,1
-P047,2,football,LSU,SEC,23.0,0.7,2.0,0,2,3,64590.46,2
-P047,3,football,LSU,SEC,17.6,0.3,2.7,0,3,3,81807.16,2
-P047,4,football,LSU,SEC,19.7,0.9,2.8,0,4,3,93242.69,2
-P047,5,football,LSU,SEC,21.2,1.2,2.5,0,5,3,161385.4,2
-P047,6,football,LSU,SEC,22.0,1.1,3.3,0,6,3,157965.53,2
-P047,7,football,LSU,SEC,19.7,0.8,1.6,0,7,3,261598.13,3
-P047,8,football,LSU,SEC,17.6,1.4,2.8,0,8,3,281619.23,3
-P047,9,football,LSU,SEC,28.2,2.2,0.9,0,9,3,288012.74,3
-P047,10,football,LSU,SEC,30.0,1.5,3.5,0,10,3,281094.36,3
-P048,1,basketball,Clemson,ACC,18.7,7.3,10.4,0,1,1,112793.81,2
-P048,2,basketball,Clemson,ACC,22.5,6.8,11.0,0,2,1,288051.22,3
-P048,3,basketball,Clemson,ACC,24.0,7.0,10.2,1,2,1,269275.4,3
-P048,4,basketball,Clemson,ACC,22.8,6.7,10.5,0,3,1,342443.14,3
-P048,5,basketball,Clemson,ACC,13.2,6.3,10.2,0,4,1,435648.93,3
-P048,6,basketball,Clemson,ACC,16.7,6.9,9.9,0,5,1,490613.24,3
-P048,7,basketball,Clemson,ACC,13.4,6.9,11.0,0,6,1,880272.93,4
-P048,8,basketball,Clemson,ACC,14.4,6.7,11.3,0,7,1,689274.26,4
-P048,9,basketball,Clemson,ACC,19.7,6.5,10.7,0,8,1,969960.37,4
-P048,10,basketball,Clemson,ACC,21.3,6.7,11.6,1,8,1,767571.26,4
-P049,1,football,Penn State,Big Ten,22.0,1.6,3.2,0,1,3,40015.36,1
-P049,2,football,Penn State,Big Ten,21.9,1.1,0.6,0,2,3,65084.56,2
-P049,3,football,Penn State,Big Ten,21.7,1.7,1.7,0,3,3,95069.35,2
-P049,4,football,Penn State,Big Ten,28.0,1.0,1.7,0,4,3,119144.44,2
-P049,5,football,Penn State,Big Ten,23.6,2.5,0.8,0,5,3,156368.82,2
-P049,6,football,Penn State,Big Ten,27.7,1.3,0.9,0,6,3,190453.77,2
-P049,7,football,Penn State,Big Ten,19.3,0.9,2.4,0,7,3,226205.2,3
-P049,8,football,Penn State,Big Ten,15.8,1.8,1.5,0,8,3,176538.72,2
-P049,9,football,Penn State,Big Ten,26.8,1.4,2.5,0,9,3,270408.69,3
-P049,10,football,Penn State,Big Ten,33.5,0.7,1.1,1,9,3,305468.44,3
-P050,1,basketball,Florida State,ACC,10.6,4.4,4.8,1,1,3,13153.44,1
-P050,2,basketball,Florida State,ACC,8.7,3.8,2.6,0,1,3,16302.07,1
-P050,3,basketball,Florida State,ACC,4.6,4.9,3.5,0,2,3,41918.77,1
-P050,4,basketball,Florida State,ACC,7.8,4.1,5.0,0,3,3,73475.84,2
-P050,5,basketball,Florida State,ACC,4.9,3.6,4.9,1,3,3,39633.53,1
-P050,6,basketball,Florida State,ACC,8.3,4.1,4.8,0,4,3,59694.76,2
-P050,7,basketball,Florida State,ACC,10.3,4.1,4.0,0,5,3,86002.34,2
-P050,8,basketball,Florida State,ACC,7.6,4.6,4.3,0,6,3,100512.82,2
-P050,9,basketball,Florida State,ACC,12.1,4.3,5.0,0,7,3,116430.47,2
-P050,10,basketball,Florida State,ACC,4.7,4.6,4.1,0,8,3,106472.76,2
+player_id,snapshot_week,sport,school,conference,ppg,apg,rpg,spg,bpg,mpg,fg_pct,three_pt_pct,ft_pct,injury_flag,games_played,program_tier,nil_valuation,nil_tier
+P001,1,basketball,Ohio State,Big Ten,24.4,5.7,7.0,0.3,0.0,15.2,0.536,0.383,0.771,0,1,2,74293.54,2
+P001,2,basketball,Ohio State,Big Ten,26.8,6.0,6.2,0.6,0.4,15.1,0.595,0.382,0.779,0,2,2,153708.81,2
+P001,3,basketball,Ohio State,Big Ten,23.0,6.0,7.4,0.7,0.6,12.4,0.527,0.378,0.82,0,3,2,170410.03,2
+P001,4,basketball,Ohio State,Big Ten,24.6,5.9,7.3,0.8,0.4,13.6,0.54,0.325,0.802,0,4,2,358388.24,3
+P001,5,basketball,Ohio State,Big Ten,22.6,6.4,8.5,0.8,0.3,15.7,0.576,0.409,0.783,1,4,2,183976.98,2
+P001,6,basketball,Ohio State,Big Ten,25.2,6.4,8.9,0.2,0.5,18.3,0.59,0.43,0.808,0,5,2,385376.48,3
+P001,7,basketball,Ohio State,Big Ten,29.4,6.0,6.2,0.9,0.5,17.1,0.611,0.349,0.774,0,6,2,621955.73,4
+P001,8,basketball,Ohio State,Big Ten,37.7,6.4,7.9,1.0,0.6,15.7,0.587,0.36,0.787,0,7,2,635788.52,4
+P001,9,basketball,Ohio State,Big Ten,35.2,6.2,7.2,0.5,0.5,17.1,0.623,0.377,0.806,0,8,2,922918.78,4
+P001,10,basketball,Ohio State,Big Ten,22.1,5.0,7.6,0.6,0.4,15.0,0.567,0.389,0.79,0,9,2,558530.24,4
+P002,1,basketball,Georgia,SEC,7.8,5.3,10.3,0.8,2.1,20.4,0.51,0.334,0.752,0,1,4,7341.71,1
+P002,2,basketball,Georgia,SEC,9.0,5.4,10.2,0.4,2.6,28.5,0.498,0.368,0.694,0,2,4,12475.94,1
+P002,3,basketball,Georgia,SEC,14.4,5.8,10.6,0.8,2.0,27.2,0.522,0.329,0.757,0,3,4,26110.01,1
+P002,4,basketball,Georgia,SEC,12.1,5.1,10.3,0.9,2.0,23.8,0.467,0.346,0.764,0,4,4,31659.33,1
+P002,5,basketball,Georgia,SEC,12.9,6.9,9.5,0.9,2.0,21.3,0.523,0.368,0.759,0,5,4,27147.59,1
+P002,6,basketball,Georgia,SEC,16.0,5.5,8.5,0.3,1.9,22.4,0.529,0.38,0.756,0,6,4,37178.19,1
+P002,7,basketball,Georgia,SEC,16.3,6.1,9.4,1.1,2.5,20.7,0.48,0.397,0.753,0,7,4,68627.12,2
+P002,8,basketball,Georgia,SEC,17.4,7.5,9.9,1.1,2.3,23.8,0.473,0.317,0.742,0,8,4,48770.07,1
+P002,9,basketball,Georgia,SEC,9.9,4.6,9.7,0.6,2.5,23.6,0.476,0.348,0.758,0,9,4,67182.44,2
+P002,10,basketball,Georgia,SEC,6.5,5.2,11.5,0.9,2.2,24.3,0.54,0.352,0.724,0,10,4,48551.41,1
+P003,1,basketball,Michigan,Big Ten,28.9,7.6,7.3,1.7,1.0,17.2,0.426,0.391,0.772,0,1,1,164040.28,2
+P003,2,basketball,Michigan,Big Ten,27.6,6.6,7.4,1.6,1.0,18.3,0.399,0.362,0.871,0,2,1,388597.76,3
+P003,3,basketball,Michigan,Big Ten,29.6,6.8,9.3,1.2,1.1,16.1,0.477,0.282,0.796,0,3,1,632971.22,4
+P003,4,basketball,Michigan,Big Ten,35.7,6.9,8.0,1.4,0.5,17.4,0.402,0.398,0.844,1,3,1,469406.58,3
+P003,5,basketball,Michigan,Big Ten,32.1,7.2,9.2,0.9,0.6,18.8,0.451,0.336,0.817,0,4,1,837483.25,4
+P003,6,basketball,Michigan,Big Ten,27.7,7.2,9.5,1.1,0.9,17.6,0.441,0.35,0.826,0,5,1,581760.78,4
+P003,7,basketball,Michigan,Big Ten,39.5,6.5,10.6,1.5,0.3,16.2,0.447,0.392,0.819,0,6,1,894348.59,4
+P003,8,basketball,Michigan,Big Ten,31.5,6.8,8.0,1.0,0.8,19.8,0.453,0.343,0.806,0,7,1,1427028.03,5
+P003,9,basketball,Michigan,Big Ten,39.7,6.5,8.0,1.5,0.7,21.5,0.438,0.353,0.8,0,8,1,1124729.31,5
+P003,10,basketball,Michigan,Big Ten,28.1,6.9,7.8,1.3,0.6,15.7,0.387,0.346,0.814,0,9,1,1851710.01,5
+P004,1,basketball,USC,Big 12,17.0,7.7,7.7,1.4,1.9,21.2,0.491,0.336,0.87,0,1,1,167209.36,2
+P004,2,basketball,USC,Big 12,21.2,8.7,7.7,1.5,2.3,28.4,0.528,0.362,0.863,0,2,1,337579.61,3
+P004,3,basketball,USC,Big 12,21.3,7.9,5.7,1.6,2.5,22.3,0.489,0.367,0.867,0,3,1,497576.61,3
+P004,4,basketball,USC,Big 12,22.0,8.1,5.7,1.6,1.7,26.5,0.539,0.429,0.841,0,4,1,639565.95,4
+P004,5,basketball,USC,Big 12,18.7,7.8,8.3,2.3,2.6,25.0,0.536,0.393,0.906,0,5,1,761238.64,4
+P004,6,basketball,USC,Big 12,17.5,6.9,5.6,1.0,2.2,21.1,0.492,0.42,0.895,0,6,1,1002569.78,5
+P004,7,basketball,USC,Big 12,14.6,7.8,7.6,1.8,2.1,21.3,0.504,0.315,0.885,0,7,1,661784.54,4
+P004,8,basketball,USC,Big 12,13.8,7.3,6.2,1.3,2.7,24.8,0.493,0.348,0.841,0,8,1,749741.68,4
+P004,9,basketball,USC,Big 12,11.1,7.1,6.6,2.2,2.1,24.1,0.513,0.362,0.859,0,9,1,1218183.06,5
+P004,10,basketball,USC,Big 12,25.1,7.5,6.5,1.0,1.9,21.1,0.532,0.327,0.866,0,10,1,1570066.85,5
+P005,1,basketball,Texas,SEC,15.2,4.9,4.7,1.0,1.2,13.7,0.476,0.314,0.634,0,1,1,110923.81,2
+P005,2,basketball,Texas,SEC,14.8,5.0,5.6,0.8,1.2,14.7,0.423,0.274,0.646,0,2,1,202344.53,3
+P005,3,basketball,Texas,SEC,12.5,4.2,1.2,1.0,1.1,13.6,0.413,0.323,0.68,0,3,1,444093.68,3
+P005,4,basketball,Texas,SEC,14.7,3.7,4.2,0.6,0.9,16.0,0.348,0.274,0.655,0,4,1,532335.33,4
+P005,5,basketball,Texas,SEC,12.1,4.6,6.5,0.3,0.9,14.7,0.461,0.269,0.69,1,4,1,378768.84,3
+P005,6,basketball,Texas,SEC,15.5,3.3,2.9,0.9,1.2,16.4,0.478,0.287,0.668,0,5,1,745260.35,4
+P005,7,basketball,Texas,SEC,12.1,4.3,4.2,1.1,1.5,14.8,0.467,0.276,0.603,0,6,1,692317.82,4
+P005,8,basketball,Texas,SEC,12.0,4.5,5.3,0.7,1.4,17.2,0.433,0.257,0.673,0,7,1,1028886.92,5
+P005,9,basketball,Texas,SEC,17.9,4.3,4.2,1.2,1.2,16.0,0.417,0.258,0.69,0,8,1,786791.28,4
+P005,10,basketball,Texas,SEC,17.3,4.7,4.0,1.2,1.1,14.6,0.414,0.331,0.694,0,9,1,1287039.97,5
+P006,1,basketball,Oregon,Big Ten,16.9,1.8,11.0,1.6,1.5,26.6,0.594,0.249,0.769,0,1,2,68535.17,2
+P006,2,basketball,Oregon,Big Ten,16.9,1.6,10.0,1.5,2.0,26.7,0.569,0.275,0.787,0,2,2,94117.98,2
+P006,3,basketball,Oregon,Big Ten,11.5,2.3,8.7,1.2,0.9,25.0,0.637,0.27,0.71,0,3,2,138620.23,2
+P006,4,basketball,Oregon,Big Ten,6.2,1.8,10.8,1.8,1.0,26.7,0.563,0.274,0.755,0,4,2,213503.17,3
+P006,5,basketball,Oregon,Big Ten,10.6,1.5,11.7,1.4,1.1,25.6,0.571,0.252,0.758,0,5,2,328900.54,3
+P006,6,basketball,Oregon,Big Ten,8.3,2.4,12.2,0.9,1.3,25.1,0.582,0.302,0.78,0,6,2,305282.4,3
+P006,7,basketball,Oregon,Big Ten,6.1,2.1,10.2,1.8,0.9,24.6,0.602,0.232,0.777,0,7,2,272533.03,3
+P006,8,basketball,Oregon,Big Ten,12.5,2.1,10.6,1.9,1.1,23.8,0.537,0.351,0.718,0,8,2,442940.72,3
+P006,9,basketball,Oregon,Big Ten,14.4,2.2,9.6,0.9,1.8,26.0,0.584,0.259,0.767,0,9,2,677765.6,4
+P006,10,basketball,Oregon,Big Ten,14.9,1.9,10.6,1.5,1.9,27.0,0.568,0.264,0.717,0,10,2,546940.69,4
+P007,1,basketball,LSU,SEC,28.4,2.2,6.3,1.0,1.2,27.4,0.539,0.292,0.569,0,1,1,124604.27,2
+P007,2,basketball,LSU,SEC,26.1,1.1,5.9,1.2,1.4,31.1,0.505,0.375,0.545,0,2,1,392274.1,3
+P007,3,basketball,LSU,SEC,30.8,0.6,7.3,0.6,2.1,28.6,0.556,0.362,0.535,0,3,1,436539.06,3
+P007,4,basketball,LSU,SEC,35.5,1.7,8.3,0.3,2.1,27.3,0.551,0.334,0.557,0,4,1,831387.06,4
+P007,5,basketball,LSU,SEC,35.7,1.9,6.9,1.0,1.8,30.4,0.566,0.24,0.521,0,5,1,1143562.13,5
+P007,6,basketball,LSU,SEC,40.0,1.4,8.0,0.7,2.0,27.2,0.572,0.25,0.592,0,6,1,1327829.0,5
+P007,7,basketball,LSU,SEC,19.3,0.4,6.7,1.1,1.8,31.8,0.56,0.334,0.538,0,7,1,955012.28,4
+P007,8,basketball,LSU,SEC,35.4,1.2,8.8,0.6,1.9,29.4,0.533,0.251,0.522,0,8,1,1242387.06,5
+P007,9,basketball,LSU,SEC,11.7,0.8,6.3,1.0,2.0,29.6,0.556,0.318,0.52,0,9,1,1346758.68,5
+P007,10,basketball,LSU,SEC,21.6,1.5,7.8,0.4,1.7,28.9,0.539,0.313,0.535,0,10,1,1321535.9,5
+P008,1,basketball,Clemson,ACC,7.3,6.9,4.6,0.7,1.4,25.9,0.473,0.267,0.911,0,1,3,14880.83,1
+P008,2,basketball,Clemson,ACC,7.1,6.7,3.5,1.1,2.0,29.3,0.535,0.223,0.808,0,2,3,47433.49,1
+P008,3,basketball,Clemson,ACC,10.8,7.1,3.9,1.0,1.8,30.8,0.53,0.324,0.877,0,3,3,51774.11,2
+P008,4,basketball,Clemson,ACC,10.4,6.7,4.7,0.5,1.8,29.4,0.488,0.268,0.882,0,4,3,108192.11,2
+P008,5,basketball,Clemson,ACC,6.9,7.0,2.1,0.6,1.7,29.1,0.542,0.264,0.865,0,5,3,104296.18,2
+P008,6,basketball,Clemson,ACC,11.3,6.7,4.5,0.4,1.1,30.6,0.481,0.273,0.868,1,5,3,55263.09,2
+P008,7,basketball,Clemson,ACC,4.7,6.6,1.4,0.5,2.2,25.7,0.429,0.286,0.842,0,6,3,121301.13,2
+P008,8,basketball,Clemson,ACC,7.6,6.3,2.2,1.0,1.6,26.3,0.492,0.294,0.82,0,7,3,120262.61,2
+P008,9,basketball,Clemson,ACC,17.8,7.1,3.3,0.3,2.1,28.5,0.529,0.282,0.871,0,8,3,232074.47,3
+P008,10,basketball,Clemson,ACC,14.9,7.3,3.7,0.9,1.3,28.5,0.506,0.238,0.816,0,9,3,211291.5,3
+P009,1,basketball,Penn State,Big Ten,20.9,2.0,10.1,1.1,1.1,15.2,0.368,0.282,0.763,1,1,1,103260.17,2
+P009,2,basketball,Penn State,Big Ten,18.3,2.6,7.7,0.8,1.4,14.9,0.346,0.336,0.686,0,1,1,150031.55,2
+P009,3,basketball,Penn State,Big Ten,20.4,2.3,10.0,0.7,1.4,14.0,0.389,0.344,0.745,0,2,1,256250.14,3
+P009,4,basketball,Penn State,Big Ten,23.8,3.2,10.0,1.0,2.1,14.5,0.374,0.287,0.702,0,3,1,526424.84,4
+P009,5,basketball,Penn State,Big Ten,27.6,2.5,8.8,1.1,1.4,15.5,0.387,0.288,0.71,0,4,1,780756.56,4
+P009,6,basketball,Penn State,Big Ten,20.0,2.3,11.3,0.4,2.0,15.1,0.422,0.263,0.701,0,5,1,736359.25,4
+P009,7,basketball,Penn State,Big Ten,28.3,1.9,11.1,1.1,1.6,15.8,0.352,0.302,0.717,0,6,1,837691.94,4
+P009,8,basketball,Penn State,Big Ten,30.0,2.9,6.9,0.6,1.5,16.0,0.366,0.361,0.681,0,7,1,1058987.47,5
+P009,9,basketball,Penn State,Big Ten,23.6,2.4,7.7,1.0,1.0,14.4,0.413,0.363,0.708,0,8,1,883388.76,4
+P009,10,basketball,Penn State,Big Ten,26.1,2.4,11.8,1.0,1.8,14.7,0.38,0.315,0.701,0,9,1,1055820.3,5
+P010,1,basketball,Florida State,ACC,7.5,4.0,11.7,1.2,0.7,20.1,0.383,0.492,0.857,0,1,1,87173.95,2
+P010,2,basketball,Florida State,ACC,7.1,4.8,11.1,1.0,1.6,20.0,0.416,0.46,0.874,0,2,1,259252.7,3
+P010,3,basketball,Florida State,ACC,8.9,3.4,11.9,1.4,1.2,16.6,0.364,0.445,0.898,0,3,1,395702.87,3
+P010,4,basketball,Florida State,ACC,12.7,4.1,11.0,1.2,1.9,17.1,0.409,0.473,0.926,0,4,1,374021.65,3
+P010,5,basketball,Florida State,ACC,8.1,3.3,9.6,0.6,0.9,14.7,0.347,0.513,0.918,0,5,1,569778.39,4
+P010,6,basketball,Florida State,ACC,10.3,3.7,8.8,1.6,1.2,12.9,0.43,0.374,0.958,1,5,1,454182.69,3
+P010,7,basketball,Florida State,ACC,12.3,3.8,11.7,0.7,1.5,12.6,0.384,0.408,0.855,0,6,1,833746.52,4
+P010,8,basketball,Florida State,ACC,10.9,3.1,10.3,1.2,1.5,15.6,0.358,0.469,0.943,0,7,1,621561.34,4
+P010,9,basketball,Florida State,ACC,9.9,4.6,11.2,1.0,1.4,16.2,0.403,0.449,0.889,0,8,1,755305.06,4
+P010,10,basketball,Florida State,ACC,3.3,4.8,10.0,0.7,1.8,14.8,0.442,0.414,0.895,0,9,1,814844.08,4
+P011,1,basketball,Oklahoma,SEC,11.6,5.2,10.8,0.7,0.1,18.8,0.561,0.349,0.758,0,1,3,19024.9,1
+P011,2,basketball,Oklahoma,SEC,11.4,5.7,9.5,0.5,0.3,14.0,0.511,0.347,0.762,0,2,3,44482.94,1
+P011,3,basketball,Oklahoma,SEC,11.5,7.1,9.3,0.3,0.9,16.4,0.489,0.369,0.758,0,3,3,53238.2,2
+P011,4,basketball,Oklahoma,SEC,10.4,6.1,9.1,1.2,0.3,18.2,0.474,0.35,0.699,0,4,3,68029.54,2
+P011,5,basketball,Oklahoma,SEC,12.5,6.4,10.6,1.1,0.4,14.9,0.514,0.365,0.763,0,5,3,82017.31,2
+P011,6,basketball,Oklahoma,SEC,10.2,5.6,9.2,0.7,0.6,13.8,0.462,0.458,0.707,0,6,3,127810.06,2
+P011,7,basketball,Oklahoma,SEC,13.7,6.0,10.1,0.8,0.4,15.3,0.538,0.36,0.749,0,7,3,187131.05,2
+P011,8,basketball,Oklahoma,SEC,8.8,5.9,9.7,0.4,0.8,15.6,0.516,0.362,0.747,0,8,3,196522.77,2
+P011,9,basketball,Oklahoma,SEC,19.4,5.9,9.8,0.9,0.1,14.9,0.492,0.364,0.743,0,9,3,295398.54,3
+P011,10,basketball,Oklahoma,SEC,10.5,6.1,8.5,0.8,0.1,16.6,0.472,0.333,0.754,0,10,3,159232.56,2
+P012,1,basketball,Tennessee,SEC,32.0,0.9,7.9,2.6,1.2,20.2,0.336,0.208,0.613,0,1,1,136918.14,2
+P012,2,basketball,Tennessee,SEC,28.8,0.8,7.5,1.9,1.1,19.8,0.379,0.304,0.574,0,2,1,284024.78,3
+P012,3,basketball,Tennessee,SEC,31.9,1.0,7.5,2.5,1.0,18.5,0.351,0.359,0.581,0,3,1,400779.16,3
+P012,4,basketball,Tennessee,SEC,28.5,0.5,8.5,3.0,0.5,13.7,0.389,0.319,0.62,0,4,1,631814.73,4
+P012,5,basketball,Tennessee,SEC,23.3,0.9,9.6,2.7,0.9,20.9,0.427,0.312,0.563,0,5,1,596866.94,4
+P012,6,basketball,Tennessee,SEC,39.6,1.0,8.3,2.5,0.6,20.9,0.351,0.258,0.606,1,5,1,559235.22,4
+P012,7,basketball,Tennessee,SEC,24.9,1.1,7.9,2.8,0.6,15.4,0.425,0.298,0.578,0,6,1,982157.23,4
+P012,8,basketball,Tennessee,SEC,40.1,2.0,8.0,2.7,1.2,21.9,0.403,0.334,0.56,0,7,1,1247036.5,5
+P012,9,basketball,Tennessee,SEC,46.3,0.6,7.4,3.1,0.5,17.8,0.372,0.323,0.61,0,8,1,1500603.75,5
+P012,10,basketball,Tennessee,SEC,43.2,1.1,8.4,2.9,1.1,19.7,0.349,0.331,0.595,0,9,1,2305113.22,5
+P013,1,basketball,Notre Dame,Independent,5.2,1.5,10.8,2.3,1.1,28.0,0.556,0.348,0.734,0,1,1,115550.19,2
+P013,2,basketball,Notre Dame,Independent,6.7,2.3,9.4,1.9,0.4,27.2,0.604,0.339,0.707,0,2,1,164182.31,2
+P013,3,basketball,Notre Dame,Independent,6.9,0.4,9.6,2.2,0.3,23.1,0.514,0.447,0.723,0,3,1,335036.89,3
+P013,4,basketball,Notre Dame,Independent,12.4,2.3,11.0,2.6,1.0,25.4,0.585,0.396,0.779,0,4,1,360496.54,3
+P013,5,basketball,Notre Dame,Independent,9.2,1.2,9.9,2.3,0.4,26.2,0.539,0.322,0.737,0,5,1,579003.42,4
+P013,6,basketball,Notre Dame,Independent,11.0,1.0,10.8,2.0,0.8,28.9,0.551,0.445,0.682,0,6,1,722539.79,4
+P013,7,basketball,Notre Dame,Independent,4.4,0.9,8.5,2.3,0.8,26.3,0.546,0.333,0.755,0,7,1,657519.25,4
+P013,8,basketball,Notre Dame,Independent,8.6,1.5,10.8,2.4,1.0,27.3,0.527,0.412,0.723,0,8,1,942786.99,4
+P013,9,basketball,Notre Dame,Independent,12.7,1.0,9.3,2.0,1.0,25.0,0.605,0.386,0.739,0,9,1,789658.3,4
+P013,10,basketball,Notre Dame,Independent,3.6,0.3,9.9,2.2,0.7,28.0,0.563,0.392,0.722,0,10,1,812270.27,4
+P014,1,basketball,Miami,ACC,16.6,4.5,14.4,1.7,1.3,18.0,0.377,0.262,0.64,0,1,2,63664.42,2
+P014,2,basketball,Miami,ACC,19.3,4.4,9.3,1.3,0.9,17.8,0.43,0.297,0.618,0,2,2,160765.5,2
+P014,3,basketball,Miami,ACC,16.6,3.6,11.2,1.6,1.6,18.3,0.38,0.283,0.591,0,3,2,249951.7,3
+P014,4,basketball,Miami,ACC,23.4,3.9,11.5,2.6,1.4,18.6,0.427,0.272,0.583,0,4,2,349052.73,3
+P014,5,basketball,Miami,ACC,20.7,4.6,12.2,1.6,1.4,18.6,0.362,0.269,0.669,0,5,2,427016.23,3
+P014,6,basketball,Miami,ACC,24.7,3.8,10.7,1.7,0.9,18.0,0.394,0.305,0.653,0,6,2,437537.91,3
+P014,7,basketball,Miami,ACC,27.8,4.6,13.1,1.5,1.4,20.0,0.465,0.318,0.648,0,7,2,430565.57,3
+P014,8,basketball,Miami,ACC,25.2,3.8,11.9,2.0,1.0,13.7,0.383,0.347,0.635,0,8,2,733859.6,4
+P014,9,basketball,Miami,ACC,12.5,4.3,10.9,1.5,1.0,16.8,0.36,0.36,0.628,0,9,2,581502.41,4
+P014,10,basketball,Miami,ACC,25.5,3.8,12.1,1.6,1.2,16.0,0.424,0.25,0.626,0,10,2,927142.87,4
+P015,1,basketball,UCLA,Big Ten,22.5,6.0,5.4,1.2,0.9,19.6,0.422,0.342,0.912,0,1,2,75437.83,2
+P015,2,basketball,UCLA,Big Ten,19.5,5.4,6.5,0.8,0.8,14.9,0.449,0.388,0.888,0,2,2,162826.99,2
+P015,3,basketball,UCLA,Big Ten,18.7,5.4,7.3,0.8,0.8,19.4,0.419,0.367,0.878,0,3,2,181440.76,2
+P015,4,basketball,UCLA,Big Ten,21.4,5.2,5.6,1.0,1.0,17.6,0.432,0.41,0.859,0,4,2,211216.6,3
+P015,5,basketball,UCLA,Big Ten,20.9,5.7,7.0,1.3,1.0,16.8,0.432,0.421,0.797,0,5,2,318827.66,3
+P015,6,basketball,UCLA,Big Ten,21.9,6.0,8.0,1.5,0.4,18.2,0.478,0.34,0.902,0,6,2,439153.42,3
+P015,7,basketball,UCLA,Big Ten,14.2,4.5,7.1,0.9,0.7,19.2,0.407,0.388,0.856,0,7,2,426588.17,3
+P015,8,basketball,UCLA,Big Ten,10.2,5.5,5.9,0.8,0.1,16.7,0.389,0.345,0.858,0,8,2,454176.76,3
+P015,9,basketball,UCLA,Big Ten,13.2,5.4,7.1,1.7,0.7,17.1,0.432,0.351,0.869,0,9,2,546358.1,4
+P015,10,basketball,UCLA,Big Ten,30.8,6.7,6.6,0.8,0.5,13.0,0.37,0.414,0.873,0,10,2,955116.77,4
+P016,1,basketball,Washington,Big Ten,27.8,6.2,0.0,1.6,0.0,20.7,0.367,0.362,0.771,0,1,4,12670.26,1
+P016,2,basketball,Washington,Big Ten,26.8,7.4,0.9,1.7,0.3,22.4,0.376,0.396,0.792,0,2,4,15808.13,1
+P016,3,basketball,Washington,Big Ten,21.6,5.8,0.4,1.5,0.3,21.2,0.334,0.421,0.764,0,3,4,29421.78,1
+P016,4,basketball,Washington,Big Ten,32.1,7.5,0.0,1.9,0.2,23.8,0.381,0.39,0.736,0,4,4,45539.79,1
+P016,5,basketball,Washington,Big Ten,25.3,7.5,1.8,1.3,0.1,18.7,0.358,0.358,0.814,0,5,4,38864.48,1
+P016,6,basketball,Washington,Big Ten,22.0,7.4,0.5,1.6,0.6,18.6,0.316,0.422,0.847,0,6,4,43412.25,1
+P016,7,basketball,Washington,Big Ten,28.5,6.7,0.5,1.5,0.2,20.7,0.354,0.36,0.838,0,7,4,63053.68,2
+P016,8,basketball,Washington,Big Ten,42.8,6.5,2.2,1.8,0.0,18.0,0.381,0.289,0.796,0,8,4,104372.71,2
+P016,9,basketball,Washington,Big Ten,36.5,6.5,2.2,1.4,0.1,20.6,0.351,0.292,0.813,0,9,4,109569.05,2
+P016,10,basketball,Washington,Big Ten,22.5,6.2,0.0,1.6,0.3,22.7,0.424,0.416,0.777,0,10,4,67710.92,2
+P017,1,basketball,Duke,ACC,15.6,2.6,11.5,1.9,2.5,27.2,0.514,0.327,0.8,0,1,3,27502.03,1
+P017,2,basketball,Duke,ACC,16.2,1.1,14.7,2.6,2.1,28.1,0.612,0.323,0.821,0,2,3,59394.61,2
+P017,3,basketball,Duke,ACC,15.0,2.7,13.9,2.3,2.2,26.5,0.601,0.314,0.803,0,3,3,62780.7,2
+P017,4,basketball,Duke,ACC,18.1,1.9,12.5,2.1,2.5,28.3,0.589,0.293,0.809,0,4,3,116454.99,2
+P017,5,basketball,Duke,ACC,21.8,2.4,10.8,2.4,2.1,25.8,0.547,0.27,0.803,0,5,3,159840.32,2
+P017,6,basketball,Duke,ACC,24.6,1.3,11.8,2.7,2.2,26.9,0.57,0.27,0.805,1,5,3,88518.49,2
+P017,7,basketball,Duke,ACC,16.8,1.9,11.4,2.5,2.1,23.3,0.587,0.227,0.828,0,6,3,135478.64,2
+P017,8,basketball,Duke,ACC,22.8,0.7,11.8,2.1,2.3,25.1,0.591,0.31,0.843,0,7,3,227879.83,3
+P017,9,basketball,Duke,ACC,18.6,2.2,10.9,2.6,2.0,26.4,0.552,0.282,0.802,0,8,3,145856.88,2
+P017,10,basketball,Duke,ACC,22.6,2.0,11.8,2.0,2.5,26.7,0.544,0.305,0.812,0,9,3,222060.86,3
+P018,1,basketball,Kentucky,SEC,25.0,3.6,10.8,0.4,2.2,25.1,0.437,0.401,0.832,0,1,2,57155.65,2
+P018,2,basketball,Kentucky,SEC,25.8,3.6,10.2,0.0,1.7,23.5,0.484,0.364,0.784,0,2,2,170179.1,2
+P018,3,basketball,Kentucky,SEC,27.8,3.2,12.0,0.0,2.3,27.1,0.42,0.342,0.83,0,3,2,262761.32,3
+P018,4,basketball,Kentucky,SEC,24.3,3.6,11.3,0.6,1.6,26.6,0.401,0.331,0.79,0,4,2,287286.5,3
+P018,5,basketball,Kentucky,SEC,23.1,3.3,11.6,0.4,2.3,24.0,0.48,0.405,0.818,0,5,2,376344.72,3
+P018,6,basketball,Kentucky,SEC,39.2,3.6,11.3,0.2,2.4,24.9,0.382,0.387,0.826,1,5,2,431178.39,3
+P018,7,basketball,Kentucky,SEC,34.1,3.7,12.3,0.0,1.8,26.2,0.398,0.37,0.846,0,6,2,402631.43,3
+P018,8,basketball,Kentucky,SEC,41.4,3.4,10.3,0.2,2.2,24.4,0.459,0.433,0.806,0,7,2,754361.01,4
+P018,9,basketball,Kentucky,SEC,25.3,2.7,12.5,0.3,2.2,28.3,0.445,0.364,0.801,0,8,2,494508.68,3
+P018,10,basketball,Kentucky,SEC,11.6,4.4,10.0,0.5,1.9,26.8,0.472,0.352,0.862,0,9,2,503532.76,4
+P019,1,basketball,Kansas,Big 12,9.6,4.0,2.9,0.0,2.6,36.2,0.561,0.422,0.615,0,1,1,109328.09,2
+P019,2,basketball,Kansas,Big 12,10.6,4.2,2.0,0.4,2.2,37.6,0.595,0.445,0.628,0,2,1,191885.37,2
+P019,3,basketball,Kansas,Big 12,8.3,3.3,3.8,0.5,2.4,37.4,0.611,0.411,0.624,0,3,1,302774.01,3
+P019,4,basketball,Kansas,Big 12,10.0,3.5,4.6,0.4,2.6,37.8,0.566,0.468,0.617,0,4,1,383952.23,3
+P019,5,basketball,Kansas,Big 12,12.6,3.2,2.6,0.1,2.6,35.7,0.536,0.448,0.638,0,5,1,574765.68,4
+P019,6,basketball,Kansas,Big 12,11.3,4.7,3.4,0.5,2.5,40.4,0.536,0.406,0.531,0,6,1,577096.05,4
+P019,7,basketball,Kansas,Big 12,9.4,3.3,2.9,0.4,1.8,38.0,0.561,0.437,0.672,1,6,1,534678.75,4
+P019,8,basketball,Kansas,Big 12,9.1,3.0,3.6,0.5,1.8,36.1,0.518,0.38,0.612,0,7,1,548675.31,4
+P019,9,basketball,Kansas,Big 12,14.8,4.3,3.0,0.7,2.9,35.6,0.534,0.439,0.658,0,8,1,1179423.63,5
+P019,10,basketball,Kansas,Big 12,15.2,3.5,4.7,0.1,2.6,41.2,0.56,0.44,0.618,0,9,1,1193183.19,5
+P020,1,basketball,Alabama,SEC,19.3,6.6,2.1,1.6,1.7,25.2,0.565,0.393,0.761,0,1,2,62592.56,2
+P020,2,basketball,Alabama,SEC,25.6,6.6,2.6,1.9,0.9,23.3,0.597,0.394,0.773,0,2,2,113482.37,2
+P020,3,basketball,Alabama,SEC,28.1,6.2,2.6,1.6,1.7,24.5,0.585,0.416,0.774,0,3,2,274568.6,3
+P020,4,basketball,Alabama,SEC,27.7,5.9,0.0,1.7,1.2,21.5,0.595,0.448,0.775,0,4,2,346435.64,3
+P020,5,basketball,Alabama,SEC,25.6,6.2,1.5,1.1,1.2,20.4,0.617,0.39,0.84,0,5,2,293111.02,3
+P020,6,basketball,Alabama,SEC,27.0,5.3,1.0,1.8,1.7,23.2,0.625,0.461,0.758,1,5,2,266418.18,3
+P020,7,basketball,Alabama,SEC,29.6,6.0,1.6,1.5,1.6,23.6,0.56,0.406,0.766,0,6,2,568866.65,4
+P020,8,basketball,Alabama,SEC,24.9,5.7,0.6,1.2,1.1,23.2,0.612,0.364,0.797,0,7,2,407747.42,3
+P020,9,basketball,Alabama,SEC,14.5,6.2,2.3,1.9,2.0,20.9,0.608,0.448,0.76,0,8,2,556930.21,4
+P020,10,basketball,Alabama,SEC,25.5,5.7,3.1,1.5,1.5,24.0,0.633,0.444,0.768,0,9,2,505345.47,4
+P021,1,basketball,Ohio State,Big Ten,8.6,3.8,11.8,1.2,2.4,16.1,0.571,0.501,0.547,0,1,3,22722.04,1
+P021,2,basketball,Ohio State,Big Ten,11.4,4.0,11.3,0.9,2.3,22.7,0.509,0.51,0.616,0,2,3,33046.38,1
+P021,3,basketball,Ohio State,Big Ten,14.0,4.1,10.1,1.2,2.8,21.1,0.495,0.447,0.606,0,3,3,72692.86,2
+P021,4,basketball,Ohio State,Big Ten,11.3,3.5,10.2,1.4,2.7,23.6,0.496,0.479,0.555,0,4,3,83076.87,2
+P021,5,basketball,Ohio State,Big Ten,12.3,4.0,11.1,0.6,2.5,15.5,0.518,0.418,0.571,1,4,3,67703.36,2
+P021,6,basketball,Ohio State,Big Ten,12.7,3.7,11.3,1.3,2.2,19.6,0.523,0.418,0.596,1,4,3,55154.26,2
+P021,7,basketball,Ohio State,Big Ten,10.3,3.0,9.4,1.3,2.7,20.4,0.535,0.435,0.582,0,5,3,96948.68,2
+P021,8,basketball,Ohio State,Big Ten,12.8,3.8,10.7,0.7,2.5,20.2,0.544,0.452,0.591,0,6,3,154093.84,2
+P021,9,basketball,Ohio State,Big Ten,9.3,4.1,10.5,1.3,2.4,18.7,0.547,0.482,0.548,0,7,3,110076.49,2
+P021,10,basketball,Ohio State,Big Ten,5.8,3.5,10.3,1.1,2.1,16.5,0.536,0.44,0.568,0,8,3,127485.84,2
+P022,1,basketball,Georgia,SEC,19.3,4.7,7.7,1.5,0.5,24.5,0.473,0.458,0.764,0,1,2,57391.29,2
+P022,2,basketball,Georgia,SEC,14.7,4.5,11.3,1.5,0.3,28.2,0.49,0.429,0.782,0,2,2,124211.97,2
+P022,3,basketball,Georgia,SEC,15.2,4.4,10.1,1.6,0.6,29.0,0.439,0.422,0.773,0,3,2,143013.25,2
+P022,4,basketball,Georgia,SEC,20.4,3.4,8.1,1.9,0.5,29.2,0.421,0.397,0.733,0,4,2,212561.91,3
+P022,5,basketball,Georgia,SEC,11.8,5.4,8.4,2.0,0.3,26.1,0.453,0.448,0.791,0,5,2,300541.48,3
+P022,6,basketball,Georgia,SEC,12.1,5.3,9.4,2.1,0.3,26.6,0.485,0.485,0.749,0,6,2,291939.72,3
+P022,7,basketball,Georgia,SEC,22.8,4.7,8.9,2.3,0.9,26.9,0.481,0.383,0.783,0,7,2,509397.57,4
+P022,8,basketball,Georgia,SEC,18.3,4.2,7.6,1.6,0.9,26.2,0.412,0.425,0.778,0,8,2,504729.84,4
+P022,9,basketball,Georgia,SEC,21.5,5.1,9.3,1.5,0.9,26.8,0.47,0.377,0.744,0,9,2,534414.77,4
+P022,10,basketball,Georgia,SEC,21.8,3.9,9.5,1.4,0.8,28.0,0.425,0.481,0.757,0,10,2,625369.36,4
+P023,1,basketball,Michigan,Big Ten,26.0,2.6,6.4,0.3,2.3,23.7,0.544,0.418,0.663,0,1,1,182144.69,2
+P023,2,basketball,Michigan,Big Ten,26.1,2.9,5.8,0.7,2.2,24.6,0.635,0.466,0.674,0,2,1,330019.01,3
+P023,3,basketball,Michigan,Big Ten,30.7,2.1,5.8,0.1,2.1,18.2,0.593,0.463,0.646,0,3,1,496618.52,3
+P023,4,basketball,Michigan,Big Ten,29.3,1.8,8.6,0.3,1.7,24.7,0.607,0.375,0.69,0,4,1,533449.32,4
+P023,5,basketball,Michigan,Big Ten,26.9,2.5,6.7,0.8,1.9,23.1,0.621,0.462,0.676,0,5,1,1006931.74,5
+P023,6,basketball,Michigan,Big Ten,29.1,1.1,6.8,0.0,2.2,22.7,0.597,0.358,0.697,0,6,1,739005.41,4
+P023,7,basketball,Michigan,Big Ten,15.5,2.3,8.1,0.4,1.7,23.7,0.593,0.395,0.691,0,7,1,1145381.68,5
+P023,8,basketball,Michigan,Big Ten,14.7,2.5,8.0,0.6,2.0,22.1,0.56,0.441,0.673,0,8,1,1250667.36,5
+P023,9,basketball,Michigan,Big Ten,15.1,2.2,6.5,0.1,1.9,21.9,0.567,0.418,0.662,0,9,1,991492.91,4
+P023,10,basketball,Michigan,Big Ten,39.7,1.7,6.1,0.2,1.9,25.2,0.54,0.412,0.674,0,10,1,1777230.96,5
+P024,1,basketball,USC,Big 12,15.6,5.6,2.1,1.5,1.4,21.8,0.496,0.378,0.745,0,1,2,73874.9,2
+P024,2,basketball,USC,Big 12,21.0,5.6,2.2,1.8,2.1,18.2,0.406,0.246,0.708,0,2,2,172077.99,2
+P024,3,basketball,USC,Big 12,20.2,6.3,0.5,1.5,1.5,22.1,0.555,0.393,0.716,0,3,2,178237.86,2
+P024,4,basketball,USC,Big 12,22.5,5.9,2.7,1.2,1.3,16.9,0.519,0.288,0.732,0,4,2,372816.55,3
+P024,5,basketball,USC,Big 12,19.8,6.4,1.5,1.3,1.5,20.7,0.512,0.283,0.735,0,5,2,382671.76,3
+P024,6,basketball,USC,Big 12,16.5,6.4,1.7,1.3,1.7,19.1,0.547,0.332,0.716,1,5,2,208374.81,3
+P024,7,basketball,USC,Big 12,10.8,6.9,2.5,1.3,1.4,18.9,0.5,0.215,0.657,1,5,2,229900.36,3
+P024,8,basketball,USC,Big 12,8.2,6.3,2.0,2.0,1.4,16.1,0.578,0.314,0.721,0,6,2,320823.34,3
+P024,9,basketball,USC,Big 12,12.7,6.6,2.0,1.4,1.7,18.2,0.493,0.282,0.731,0,7,2,444426.43,3
+P024,10,basketball,USC,Big 12,14.7,6.0,2.1,1.9,1.7,17.4,0.529,0.26,0.743,0,8,2,468490.83,3
+P025,1,basketball,Texas,SEC,7.2,6.0,5.6,2.3,0.5,24.8,0.384,0.501,0.766,0,1,1,100805.78,2
+P025,2,basketball,Texas,SEC,4.8,7.2,6.3,1.8,0.4,20.7,0.366,0.44,0.798,0,2,1,195086.52,2
+P025,3,basketball,Texas,SEC,9.3,6.5,7.6,2.2,0.5,26.4,0.385,0.433,0.818,0,3,1,287034.54,3
+P025,4,basketball,Texas,SEC,2.7,6.4,5.7,2.1,1.3,22.8,0.302,0.474,0.735,0,4,1,352169.93,3
+P025,5,basketball,Texas,SEC,4.9,6.2,6.5,2.2,0.9,23.3,0.365,0.493,0.806,0,5,1,460644.86,3
+P025,6,basketball,Texas,SEC,5.8,6.6,6.9,1.7,0.8,23.2,0.337,0.459,0.846,0,6,1,464734.84,3
+P025,7,basketball,Texas,SEC,0.9,7.0,6.7,2.1,0.7,26.7,0.374,0.389,0.798,0,7,1,556948.59,4
+P025,8,basketball,Texas,SEC,4.8,6.7,8.1,2.3,0.6,20.8,0.338,0.44,0.758,0,8,1,772216.31,4
+P025,9,basketball,Texas,SEC,7.2,6.1,7.3,2.1,0.2,22.2,0.363,0.46,0.768,0,9,1,925211.25,4
+P025,10,basketball,Texas,SEC,5.7,6.9,5.8,2.5,0.9,22.7,0.336,0.453,0.757,0,10,1,1249118.04,5
+P026,1,basketball,Oregon,Big Ten,18.2,4.1,11.5,1.7,1.8,24.2,0.404,0.267,0.658,1,1,2,38263.69,1
+P026,2,basketball,Oregon,Big Ten,16.9,3.7,11.9,2.1,2.0,23.1,0.455,0.328,0.718,0,1,2,66846.3,2
+P026,3,basketball,Oregon,Big Ten,18.6,4.3,9.7,2.1,1.8,26.0,0.418,0.192,0.641,0,2,2,168214.72,2
+P026,4,basketball,Oregon,Big Ten,16.3,4.1,8.2,2.1,1.8,23.4,0.459,0.243,0.713,0,3,2,228528.9,3
+P026,5,basketball,Oregon,Big Ten,21.8,4.2,9.7,2.6,2.2,22.1,0.425,0.219,0.691,0,4,2,257936.63,3
+P026,6,basketball,Oregon,Big Ten,17.6,3.4,9.9,1.7,1.6,23.1,0.38,0.285,0.663,0,5,2,403105.46,3
+P026,7,basketball,Oregon,Big Ten,25.4,3.2,10.1,1.5,2.3,23.7,0.401,0.268,0.673,1,5,2,284965.15,3
+P026,8,basketball,Oregon,Big Ten,18.0,3.7,11.1,1.8,1.8,25.1,0.395,0.274,0.711,0,6,2,473503.19,3
+P026,9,basketball,Oregon,Big Ten,13.8,3.8,9.6,2.0,1.6,25.3,0.403,0.155,0.663,0,7,2,388747.5,3
+P026,10,basketball,Oregon,Big Ten,15.4,3.6,11.5,2.2,1.8,23.3,0.39,0.217,0.725,0,8,2,379828.49,3
+P027,1,basketball,LSU,SEC,15.6,5.2,3.6,2.0,0.5,34.7,0.551,0.363,0.595,0,1,1,97094.94,2
+P027,2,basketball,LSU,SEC,18.0,6.2,5.0,1.6,0.3,32.8,0.627,0.236,0.607,0,2,1,278762.03,3
+P027,3,basketball,LSU,SEC,18.4,6.0,4.6,1.8,0.6,34.0,0.551,0.343,0.658,1,2,1,170741.4,2
+P027,4,basketball,LSU,SEC,17.0,6.6,4.7,1.2,1.4,37.2,0.551,0.339,0.599,0,3,1,334948.26,3
+P027,5,basketball,LSU,SEC,14.6,6.1,4.2,1.8,0.6,37.9,0.597,0.308,0.618,1,3,1,189328.75,2
+P027,6,basketball,LSU,SEC,6.7,5.2,5.0,1.5,0.6,35.8,0.576,0.374,0.689,0,4,1,410546.34,3
+P027,7,basketball,LSU,SEC,10.4,5.3,3.8,1.6,1.0,33.9,0.581,0.235,0.649,0,5,1,659817.81,4
+P027,8,basketball,LSU,SEC,18.9,5.9,3.3,1.9,0.5,37.8,0.626,0.356,0.593,0,6,1,847426.47,4
+P027,9,basketball,LSU,SEC,11.8,5.9,4.7,1.5,0.6,38.1,0.609,0.315,0.633,0,7,1,826184.86,4
+P027,10,basketball,LSU,SEC,9.7,4.7,4.0,1.3,0.7,34.8,0.555,0.308,0.639,0,8,1,904669.81,4
+P028,1,basketball,Clemson,ACC,13.2,4.0,9.2,2.3,1.0,15.7,0.522,0.359,0.722,0,1,2,72559.79,2
+P028,2,basketball,Clemson,ACC,11.3,3.0,9.5,2.5,1.4,22.6,0.528,0.225,0.812,0,2,2,99356.94,2
+P028,3,basketball,Clemson,ACC,11.6,3.9,8.6,2.2,1.2,20.9,0.468,0.221,0.748,0,3,2,195014.16,2
+P028,4,basketball,Clemson,ACC,14.5,3.4,7.4,2.1,1.4,16.9,0.44,0.229,0.759,0,4,2,316169.75,3
+P028,5,basketball,Clemson,ACC,10.0,3.4,7.9,1.9,0.7,15.8,0.457,0.204,0.712,0,5,2,305714.58,3
+P028,6,basketball,Clemson,ACC,11.5,3.6,8.8,1.8,1.7,17.0,0.454,0.335,0.727,0,6,2,327186.58,3
+P028,7,basketball,Clemson,ACC,8.9,3.1,9.1,2.4,1.4,18.5,0.539,0.32,0.736,1,6,2,233868.51,3
+P028,8,basketball,Clemson,ACC,9.9,3.6,6.8,1.5,0.9,15.8,0.485,0.283,0.789,0,7,2,297474.7,3
+P028,9,basketball,Clemson,ACC,14.0,4.1,8.8,1.8,1.0,18.9,0.432,0.303,0.756,0,8,2,540871.37,4
+P028,10,basketball,Clemson,ACC,12.2,3.3,10.4,1.5,1.1,16.9,0.501,0.308,0.744,0,9,2,394440.44,3
+P029,1,basketball,Penn State,Big Ten,24.2,5.2,3.5,2.2,1.3,34.6,0.512,0.382,0.764,0,1,4,8004.34,1
+P029,2,basketball,Penn State,Big Ten,28.9,4.9,4.1,1.9,1.5,32.9,0.504,0.418,0.685,0,2,4,20432.98,1
+P029,3,basketball,Penn State,Big Ten,23.6,5.0,4.2,2.0,2.2,37.8,0.513,0.448,0.765,1,2,4,14222.56,1
+P029,4,basketball,Penn State,Big Ten,17.1,4.7,4.7,1.5,1.7,34.6,0.512,0.394,0.729,0,3,4,25501.0,1
+P029,5,basketball,Penn State,Big Ten,17.0,5.8,2.2,1.9,1.4,33.0,0.554,0.433,0.732,1,3,4,14668.15,1
+P029,6,basketball,Penn State,Big Ten,15.4,5.2,4.3,1.6,2.5,32.2,0.468,0.427,0.749,0,4,4,37804.52,1
+P029,7,basketball,Penn State,Big Ten,17.5,4.1,4.3,2.4,2.2,30.5,0.521,0.426,0.736,0,5,4,39527.31,1
+P029,8,basketball,Penn State,Big Ten,28.9,5.2,2.4,2.2,1.5,32.0,0.499,0.462,0.724,0,6,4,61322.92,2
+P029,9,basketball,Penn State,Big Ten,27.2,4.0,3.7,2.1,2.3,37.2,0.528,0.374,0.758,0,7,4,81346.34,2
+P029,10,basketball,Penn State,Big Ten,29.3,5.3,3.8,2.2,2.0,33.5,0.581,0.391,0.741,0,8,4,79155.29,2
+P030,1,basketball,Florida State,ACC,10.0,4.6,6.3,2.2,0.2,28.9,0.618,0.294,0.742,0,1,2,65884.86,2
+P030,2,basketball,Florida State,ACC,5.9,4.3,2.9,2.0,0.0,27.0,0.601,0.211,0.668,0,2,2,107002.23,2
+P030,3,basketball,Florida State,ACC,8.3,3.5,4.2,2.3,0.1,30.6,0.603,0.377,0.671,0,3,2,175687.85,2
+P030,4,basketball,Florida State,ACC,4.0,4.7,4.5,1.8,0.0,27.7,0.585,0.331,0.681,0,4,2,218412.22,3
+P030,5,basketball,Florida State,ACC,7.9,3.8,2.4,1.9,0.2,28.1,0.597,0.313,0.737,0,5,2,294536.22,3
+P030,6,basketball,Florida State,ACC,5.5,4.1,5.3,2.2,0.2,25.5,0.565,0.214,0.754,0,6,2,252645.41,3
+P030,7,basketball,Florida State,ACC,6.8,3.8,3.5,1.8,0.4,29.3,0.593,0.271,0.726,0,7,2,454350.45,3
+P030,8,basketball,Florida State,ACC,4.1,4.1,3.2,1.9,0.5,27.3,0.574,0.314,0.698,0,8,2,423608.88,3
+P030,9,basketball,Florida State,ACC,9.4,3.7,5.4,1.9,0.8,27.7,0.564,0.3,0.724,0,9,2,393259.43,3
+P030,10,basketball,Florida State,ACC,11.3,3.6,4.9,2.1,0.4,27.6,0.597,0.256,0.74,0,10,2,496778.29,3
+P031,1,basketball,Oklahoma,SEC,8.8,1.8,8.0,2.0,2.7,25.5,0.429,0.46,0.768,0,1,4,7672.39,1
+P031,2,basketball,Oklahoma,SEC,7.6,1.4,8.7,1.3,2.6,21.0,0.416,0.457,0.72,1,1,4,5000.0,1
+P031,3,basketball,Oklahoma,SEC,8.1,0.8,8.8,1.4,2.6,19.6,0.422,0.411,0.839,0,2,4,10574.24,1
+P031,4,basketball,Oklahoma,SEC,16.3,0.8,8.8,0.8,3.1,26.6,0.381,0.438,0.728,0,3,4,26352.32,1
+P031,5,basketball,Oklahoma,SEC,5.8,0.8,9.0,1.8,2.8,23.6,0.378,0.411,0.731,0,4,4,21028.35,1
+P031,6,basketball,Oklahoma,SEC,3.5,0.5,9.4,1.3,2.5,23.6,0.414,0.419,0.711,0,5,4,26799.7,1
+P031,7,basketball,Oklahoma,SEC,11.7,1.3,8.8,1.2,2.4,19.9,0.395,0.499,0.75,0,6,4,43381.85,1
+P031,8,basketball,Oklahoma,SEC,14.4,0.5,9.7,1.4,2.4,21.0,0.377,0.396,0.773,0,7,4,64574.84,2
+P031,9,basketball,Oklahoma,SEC,2.8,0.5,9.1,0.9,2.0,21.4,0.33,0.414,0.738,0,8,4,40577.53,1
+P031,10,basketball,Oklahoma,SEC,7.5,1.1,8.3,1.0,2.7,24.8,0.378,0.385,0.745,0,9,4,74411.55,2
+P032,1,basketball,Tennessee,SEC,23.5,0.2,5.2,1.6,2.9,34.1,0.57,0.429,0.561,0,1,2,87578.08,2
+P032,2,basketball,Tennessee,SEC,24.9,0.8,5.8,2.0,2.7,35.7,0.551,0.444,0.636,0,2,2,122261.6,2
+P032,3,basketball,Tennessee,SEC,28.0,1.3,6.1,1.6,3.0,38.3,0.569,0.42,0.604,0,3,2,217718.44,3
+P032,4,basketball,Tennessee,SEC,25.9,0.4,7.9,2.1,2.7,35.2,0.531,0.387,0.655,0,4,2,348220.16,3
+P032,5,basketball,Tennessee,SEC,27.6,0.4,7.2,1.8,3.0,38.5,0.522,0.413,0.615,0,5,2,428756.11,3
+P032,6,basketball,Tennessee,SEC,20.4,0.5,6.2,1.7,2.5,35.8,0.569,0.419,0.64,0,6,2,434899.55,3
+P032,7,basketball,Tennessee,SEC,34.2,1.4,9.0,1.6,2.4,34.4,0.591,0.466,0.627,0,7,2,467487.98,3
+P032,8,basketball,Tennessee,SEC,18.3,0.5,6.9,2.0,2.9,35.7,0.538,0.312,0.641,0,8,2,562352.12,4
+P032,9,basketball,Tennessee,SEC,35.0,0.3,7.7,1.9,3.1,38.7,0.576,0.445,0.631,0,9,2,770117.88,4
+P032,10,basketball,Tennessee,SEC,17.3,0.1,8.2,1.9,2.5,36.9,0.564,0.492,0.6,0,10,2,756283.11,4
+P033,1,basketball,Notre Dame,Independent,7.7,7.7,9.6,2.0,1.0,26.3,0.595,0.416,0.824,0,1,3,25186.26,1
+P033,2,basketball,Notre Dame,Independent,12.0,8.4,7.5,2.7,1.2,22.6,0.62,0.402,0.795,1,1,3,14017.21,1
+P033,3,basketball,Notre Dame,Independent,12.0,7.7,8.5,2.5,1.5,24.3,0.64,0.378,0.78,0,2,3,32583.22,1
+P033,4,basketball,Notre Dame,Independent,8.4,8.3,9.1,2.6,1.3,26.6,0.58,0.287,0.803,0,3,3,45051.16,1
+P033,5,basketball,Notre Dame,Independent,11.4,7.4,11.4,2.8,1.2,23.7,0.585,0.358,0.808,0,4,3,100080.65,2
+P033,6,basketball,Notre Dame,Independent,12.0,8.0,7.8,2.3,2.1,21.8,0.585,0.299,0.8,0,5,3,129359.51,2
+P033,7,basketball,Notre Dame,Independent,7.9,7.3,8.1,3.0,0.7,27.4,0.513,0.356,0.735,0,6,3,148117.68,2
+P033,8,basketball,Notre Dame,Independent,5.5,8.6,9.2,3.1,1.5,25.7,0.527,0.325,0.794,0,7,3,101002.3,2
+P033,9,basketball,Notre Dame,Independent,13.8,7.4,10.4,2.4,1.0,26.3,0.572,0.332,0.783,1,7,3,107685.15,2
+P033,10,basketball,Notre Dame,Independent,6.9,8.8,7.4,2.0,1.0,25.4,0.55,0.364,0.788,0,8,3,196241.7,2
+P034,1,basketball,Miami,ACC,22.5,4.4,8.5,2.2,0.8,23.7,0.666,0.257,0.732,0,1,2,77762.98,2
+P034,2,basketball,Miami,ACC,18.9,4.0,5.3,2.0,0.8,25.2,0.591,0.295,0.727,0,2,2,108031.76,2
+P034,3,basketball,Miami,ACC,20.6,4.3,7.4,2.1,0.7,19.2,0.577,0.243,0.723,0,3,2,191243.41,2
+P034,4,basketball,Miami,ACC,19.6,3.8,6.9,1.7,0.8,22.4,0.579,0.241,0.722,0,4,2,212087.34,3
+P034,5,basketball,Miami,ACC,21.6,3.8,7.1,1.6,1.3,22.1,0.588,0.311,0.689,0,5,2,415864.1,3
+P034,6,basketball,Miami,ACC,29.0,3.6,6.2,2.0,0.6,20.1,0.618,0.242,0.752,0,6,2,405081.24,3
+P034,7,basketball,Miami,ACC,29.1,3.6,5.2,2.4,0.5,25.6,0.57,0.252,0.663,0,7,2,469542.93,3
+P034,8,basketball,Miami,ACC,17.7,3.8,7.3,2.0,1.4,24.3,0.632,0.234,0.724,0,8,2,383743.96,3
+P034,9,basketball,Miami,ACC,21.3,3.8,6.4,1.9,1.0,24.1,0.581,0.286,0.769,0,9,2,756019.53,4
+P034,10,basketball,Miami,ACC,28.6,2.6,6.7,1.9,0.7,22.2,0.515,0.314,0.712,0,10,2,974051.23,4
+P035,1,basketball,UCLA,Big Ten,5.9,8.5,6.0,0.7,1.4,35.7,0.426,0.301,0.65,0,1,3,24043.58,1
+P035,2,basketball,UCLA,Big Ten,5.0,7.9,6.1,0.8,1.1,32.1,0.484,0.282,0.623,0,2,3,37524.56,1
+P035,3,basketball,UCLA,Big Ten,8.3,7.7,6.3,1.1,0.6,35.9,0.434,0.245,0.566,0,3,3,56998.94,2
+P035,4,basketball,UCLA,Big Ten,6.3,7.8,6.0,0.8,1.1,31.3,0.428,0.265,0.587,0,4,3,67685.38,2
+P035,5,basketball,UCLA,Big Ten,8.3,8.0,7.5,0.9,1.5,35.8,0.482,0.269,0.605,1,4,3,57377.72,2
+P035,6,basketball,UCLA,Big Ten,2.8,7.8,7.8,0.9,1.0,35.0,0.484,0.34,0.577,0,5,3,69782.2,2
+P035,7,basketball,UCLA,Big Ten,4.6,6.8,6.6,1.3,0.9,36.5,0.409,0.316,0.596,0,6,3,93968.26,2
+P035,8,basketball,UCLA,Big Ten,0.7,7.9,8.8,0.9,1.6,36.8,0.432,0.354,0.614,0,7,3,104663.44,2
+P035,9,basketball,UCLA,Big Ten,0.0,7.3,6.3,1.0,1.7,34.1,0.424,0.308,0.604,0,8,3,139519.38,2
+P035,10,basketball,UCLA,Big Ten,1.4,7.7,6.1,0.8,0.9,32.7,0.409,0.236,0.531,0,9,3,154662.55,2
+P036,1,basketball,Washington,Big Ten,9.1,5.4,1.4,1.9,1.8,17.7,0.564,0.217,0.822,0,1,3,17146.62,1
+P036,2,basketball,Washington,Big Ten,5.1,5.9,0.4,1.1,1.9,18.1,0.606,0.257,0.848,0,2,3,33936.08,1
+P036,3,basketball,Washington,Big Ten,8.1,5.4,1.5,1.6,2.2,22.3,0.528,0.226,0.876,0,3,3,70654.53,2
+P036,4,basketball,Washington,Big Ten,10.1,5.4,2.4,1.2,2.4,23.0,0.554,0.185,0.871,0,4,3,102939.67,2
+P036,5,basketball,Washington,Big Ten,4.3,5.7,4.0,1.6,1.8,18.0,0.544,0.175,0.847,1,4,3,43419.09,1
+P036,6,basketball,Washington,Big Ten,8.3,5.9,1.9,1.5,2.1,20.4,0.591,0.274,0.901,0,5,3,98097.81,2
+P036,7,basketball,Washington,Big Ten,9.9,5.6,1.4,1.0,2.1,17.7,0.564,0.296,0.865,0,6,3,101569.23,2
+P036,8,basketball,Washington,Big Ten,0.2,6.6,2.0,1.3,2.4,22.1,0.548,0.231,0.863,0,7,3,118151.12,2
+P036,9,basketball,Washington,Big Ten,10.4,5.3,2.0,1.8,1.8,18.1,0.531,0.299,0.874,0,8,3,202528.25,3
+P036,10,basketball,Washington,Big Ten,13.4,6.1,0.8,1.7,2.1,19.7,0.593,0.238,0.834,0,9,3,152959.68,2
+P037,1,basketball,Duke,ACC,18.0,8.1,7.1,1.2,1.7,14.8,0.596,0.303,0.664,0,1,2,50931.25,2
+P037,2,basketball,Duke,ACC,12.5,7.2,8.7,1.0,1.1,16.1,0.629,0.346,0.657,0,2,2,91214.63,2
+P037,3,basketball,Duke,ACC,15.5,7.6,7.6,0.8,2.0,17.1,0.631,0.334,0.683,1,2,2,94153.49,2
+P037,4,basketball,Duke,ACC,12.2,8.1,9.9,0.6,1.8,14.8,0.583,0.337,0.693,0,3,2,213634.74,3
+P037,5,basketball,Duke,ACC,19.4,7.7,9.9,1.3,1.9,17.5,0.579,0.352,0.675,0,4,2,349229.43,3
+P037,6,basketball,Duke,ACC,13.6,6.9,8.3,0.8,1.4,18.2,0.593,0.304,0.706,0,5,2,350129.89,3
+P037,7,basketball,Duke,ACC,15.0,7.8,8.5,0.7,1.4,18.7,0.528,0.274,0.688,0,6,2,391787.95,3
+P037,8,basketball,Duke,ACC,10.9,7.4,8.4,1.0,1.4,16.4,0.608,0.328,0.729,0,7,2,355466.11,3
+P037,9,basketball,Duke,ACC,11.0,7.3,9.4,0.8,1.7,14.7,0.579,0.365,0.732,0,8,2,505858.82,4
+P037,10,basketball,Duke,ACC,26.1,6.8,8.8,1.2,1.6,19.0,0.601,0.366,0.753,1,8,2,560000.23,4
+P038,1,basketball,Kentucky,SEC,23.3,7.4,5.1,1.6,1.3,25.9,0.421,0.458,0.903,0,1,1,128627.81,2
+P038,2,basketball,Kentucky,SEC,24.8,7.2,4.2,1.8,1.6,22.6,0.476,0.338,0.87,0,2,1,362908.26,3
+P038,3,basketball,Kentucky,SEC,29.3,7.0,4.4,2.1,1.4,23.9,0.419,0.435,0.86,0,3,1,463705.1,3
+P038,4,basketball,Kentucky,SEC,17.1,8.2,4.6,1.9,1.6,25.3,0.464,0.402,0.931,1,3,1,313417.86,3
+P038,5,basketball,Kentucky,SEC,18.9,8.0,3.8,1.8,0.7,25.1,0.432,0.391,0.916,1,3,1,336170.39,3
+P038,6,basketball,Kentucky,SEC,26.3,7.8,6.8,2.0,1.1,23.7,0.401,0.448,0.84,0,4,1,796196.96,4
+P038,7,basketball,Kentucky,SEC,32.8,7.2,6.2,1.7,1.3,27.4,0.342,0.402,0.874,0,5,1,988063.45,4
+P038,8,basketball,Kentucky,SEC,22.6,7.7,5.6,2.0,1.5,22.4,0.418,0.45,0.896,0,6,1,968564.22,4
+P038,9,basketball,Kentucky,SEC,23.9,6.6,5.2,1.0,0.5,26.7,0.431,0.393,0.919,0,7,1,1187811.12,5
+P038,10,basketball,Kentucky,SEC,26.2,7.3,3.6,1.6,1.5,24.8,0.494,0.425,0.845,0,8,1,1169291.53,5
+P039,1,basketball,Kansas,Big 12,17.2,4.3,8.6,0.8,0.7,22.2,0.606,0.354,0.717,0,1,1,140781.85,2
+P039,2,basketball,Kansas,Big 12,24.1,3.7,9.0,1.0,0.9,23.0,0.559,0.366,0.648,0,2,1,256926.97,3
+P039,3,basketball,Kansas,Big 12,14.0,3.2,9.3,0.8,0.7,26.9,0.585,0.373,0.667,0,3,1,426897.48,3
+P039,4,basketball,Kansas,Big 12,20.7,4.1,9.4,0.7,1.0,25.3,0.598,0.415,0.68,0,4,1,681750.43,4
+P039,5,basketball,Kansas,Big 12,18.4,3.3,11.4,1.0,0.8,24.6,0.612,0.413,0.697,1,4,1,370545.7,3
+P039,6,basketball,Kansas,Big 12,20.4,4.0,9.1,0.7,1.1,25.2,0.553,0.397,0.693,0,5,1,751875.76,4
+P039,7,basketball,Kansas,Big 12,15.4,4.1,9.8,0.5,0.7,25.3,0.582,0.409,0.745,0,6,1,602168.88,4
+P039,8,basketball,Kansas,Big 12,22.0,3.4,9.7,0.9,0.5,25.1,0.562,0.402,0.672,0,7,1,935736.22,4
+P039,9,basketball,Kansas,Big 12,29.8,3.2,10.3,0.4,0.3,24.8,0.546,0.382,0.728,0,8,1,1037656.5,5
+P039,10,basketball,Kansas,Big 12,24.0,4.2,9.6,1.0,0.5,17.8,0.557,0.44,0.696,0,9,1,1618162.56,5
+P040,1,basketball,Alabama,SEC,15.7,1.3,9.3,1.5,0.5,13.4,0.432,0.46,0.655,1,1,3,15620.06,1
+P040,2,basketball,Alabama,SEC,17.1,1.5,9.0,1.5,1.1,16.8,0.389,0.486,0.615,0,1,3,28117.65,1
+P040,3,basketball,Alabama,SEC,16.4,2.1,10.1,1.7,0.8,18.7,0.401,0.434,0.651,0,2,3,48545.16,1
+P040,4,basketball,Alabama,SEC,15.2,2.4,9.8,1.6,1.4,20.0,0.398,0.446,0.658,0,3,3,63040.08,2
+P040,5,basketball,Alabama,SEC,18.4,1.9,8.3,1.1,1.1,18.8,0.405,0.487,0.673,0,4,3,99680.46,2
+P040,6,basketball,Alabama,SEC,16.7,2.5,7.1,2.1,1.1,18.7,0.391,0.442,0.636,0,5,3,146207.32,2
+P040,7,basketball,Alabama,SEC,15.2,1.8,8.9,1.3,0.6,17.8,0.409,0.446,0.641,0,6,3,106144.08,2
+P040,8,basketball,Alabama,SEC,32.9,3.0,8.5,1.4,1.3,14.1,0.4,0.43,0.674,0,7,3,204265.24,3
+P040,9,basketball,Alabama,SEC,14.1,2.5,8.9,1.1,1.2,18.7,0.395,0.409,0.705,0,8,3,229714.41,3
+P040,10,basketball,Alabama,SEC,22.8,1.7,9.2,1.3,1.0,15.5,0.446,0.413,0.644,0,9,3,230479.94,3
+P041,1,basketball,Ohio State,Big Ten,11.6,5.6,8.9,0.9,1.5,16.7,0.548,0.326,0.945,0,1,2,66763.78,2
+P041,2,basketball,Ohio State,Big Ten,9.6,6.7,8.3,0.6,0.9,16.4,0.477,0.272,0.888,0,2,2,113990.54,2
+P041,3,basketball,Ohio State,Big Ten,11.2,6.7,8.4,0.6,1.2,19.9,0.537,0.218,0.913,0,3,2,130085.46,2
+P041,4,basketball,Ohio State,Big Ten,8.8,7.4,9.8,0.9,1.0,18.4,0.493,0.335,0.906,0,4,2,243789.43,3
+P041,5,basketball,Ohio State,Big Ten,9.6,6.6,9.3,0.6,1.1,15.4,0.503,0.287,0.875,0,5,2,312955.77,3
+P041,6,basketball,Ohio State,Big Ten,7.5,6.3,10.2,0.5,1.6,13.3,0.478,0.292,0.828,0,6,2,370854.14,3
+P041,7,basketball,Ohio State,Big Ten,12.4,6.6,7.9,0.3,1.3,20.7,0.5,0.277,0.901,0,7,2,426303.71,3
+P041,8,basketball,Ohio State,Big Ten,13.0,6.4,9.3,0.7,1.7,14.2,0.509,0.246,0.911,0,8,2,396679.45,3
+P041,9,basketball,Ohio State,Big Ten,7.3,6.1,10.1,1.0,0.9,17.2,0.555,0.304,0.895,0,9,2,345551.13,3
+P041,10,basketball,Ohio State,Big Ten,10.0,5.4,10.8,0.5,1.2,14.2,0.501,0.175,0.845,0,10,2,586914.44,4
+P042,1,basketball,Georgia,SEC,25.0,5.6,5.6,3.0,2.5,23.1,0.371,0.418,0.789,0,1,3,22095.83,1
+P042,2,basketball,Georgia,SEC,25.9,6.0,2.6,2.3,2.9,21.5,0.353,0.41,0.83,0,2,3,52507.03,2
+P042,3,basketball,Georgia,SEC,26.8,6.0,4.3,2.3,2.3,21.3,0.354,0.4,0.888,0,3,3,114372.34,2
+P042,4,basketball,Georgia,SEC,22.7,5.4,5.3,1.9,3.2,20.0,0.412,0.48,0.788,0,4,3,80452.75,2
+P042,5,basketball,Georgia,SEC,29.8,5.5,4.3,2.3,2.9,20.0,0.338,0.325,0.818,0,5,3,193564.24,2
+P042,6,basketball,Georgia,SEC,17.7,6.3,4.6,2.2,2.8,20.1,0.384,0.374,0.841,0,6,3,113326.63,2
+P042,7,basketball,Georgia,SEC,34.8,5.8,5.9,2.4,2.8,20.6,0.366,0.357,0.841,0,7,3,241965.25,3
+P042,8,basketball,Georgia,SEC,16.7,6.7,4.7,1.9,2.4,16.0,0.382,0.46,0.818,0,8,3,164410.82,2
+P042,9,basketball,Georgia,SEC,37.2,5.3,3.8,2.6,2.5,19.3,0.359,0.404,0.843,1,8,3,237490.82,3
+P042,10,basketball,Georgia,SEC,34.2,5.7,3.1,2.4,2.6,18.7,0.379,0.373,0.827,0,9,3,362739.95,3
+P043,1,basketball,Michigan,Big Ten,25.0,6.6,1.2,0.1,0.8,28.1,0.58,0.259,0.76,0,1,3,33183.33,1
+P043,2,basketball,Michigan,Big Ten,28.0,7.2,0.9,0.1,0.7,28.1,0.58,0.397,0.732,0,2,3,62956.34,2
+P043,3,basketball,Michigan,Big Ten,28.9,6.4,1.6,0.4,1.1,26.5,0.561,0.351,0.735,0,3,3,91158.08,2
+P043,4,basketball,Michigan,Big Ten,24.7,7.7,0.5,0.1,0.4,31.3,0.591,0.319,0.752,0,4,3,98609.42,2
+P043,5,basketball,Michigan,Big Ten,36.7,8.7,0.0,0.7,0.5,30.5,0.575,0.299,0.757,0,5,3,212082.63,3
+P043,6,basketball,Michigan,Big Ten,34.2,7.6,0.6,0.4,0.1,29.2,0.582,0.326,0.686,0,6,3,206800.72,3
+P043,7,basketball,Michigan,Big Ten,36.8,7.2,1.6,0.9,0.5,29.9,0.581,0.425,0.721,0,7,3,302491.89,3
+P043,8,basketball,Michigan,Big Ten,33.6,7.4,0.3,0.4,1.3,29.8,0.587,0.377,0.757,0,8,3,327449.09,3
+P043,9,basketball,Michigan,Big Ten,34.0,7.9,0.6,0.2,0.6,28.1,0.56,0.312,0.714,0,9,3,275924.22,3
+P043,10,basketball,Michigan,Big Ten,41.9,7.6,1.5,0.2,1.0,29.7,0.546,0.318,0.784,0,10,3,283226.65,3
+P044,1,basketball,USC,Big 12,18.9,5.8,2.5,2.7,1.1,28.5,0.395,0.3,0.7,0,1,3,26737.12,1
+P044,2,basketball,USC,Big 12,15.7,5.0,4.9,2.1,1.6,32.1,0.377,0.285,0.682,0,2,3,45706.47,1
+P044,3,basketball,USC,Big 12,15.7,4.7,3.2,2.1,1.4,29.4,0.36,0.298,0.665,0,3,3,90913.69,2
+P044,4,basketball,USC,Big 12,17.9,5.3,3.4,2.4,1.2,31.2,0.359,0.286,0.671,0,4,3,128963.59,2
+P044,5,basketball,USC,Big 12,22.7,4.6,2.9,2.0,0.9,31.5,0.39,0.294,0.658,0,5,3,111735.18,2
+P044,6,basketball,USC,Big 12,15.1,5.8,2.5,2.3,1.3,29.2,0.362,0.324,0.668,0,6,3,140630.3,2
+P044,7,basketball,USC,Big 12,18.0,6.0,2.7,2.2,1.3,29.9,0.381,0.259,0.646,0,7,3,173142.73,2
+P044,8,basketball,USC,Big 12,15.3,5.5,3.6,1.9,0.9,30.3,0.281,0.273,0.692,1,7,3,111571.09,2
+P044,9,basketball,USC,Big 12,17.7,6.0,2.8,1.9,1.0,31.8,0.376,0.427,0.606,1,7,3,156104.6,2
+P044,10,basketball,USC,Big 12,31.3,5.1,3.0,2.0,1.2,30.7,0.355,0.289,0.661,0,8,3,274970.86,3
+P045,1,basketball,Texas,SEC,30.2,6.6,3.3,0.4,0.0,36.5,0.363,0.317,0.723,0,1,2,84440.06,2
+P045,2,basketball,Texas,SEC,25.3,6.6,4.0,0.1,0.3,37.1,0.378,0.368,0.684,0,2,2,128835.57,2
+P045,3,basketball,Texas,SEC,28.0,7.3,1.9,0.4,0.6,35.7,0.393,0.359,0.736,0,3,2,286110.08,3
+P045,4,basketball,Texas,SEC,21.8,7.0,1.1,0.1,0.6,36.8,0.409,0.229,0.691,0,4,2,369454.77,3
+P045,5,basketball,Texas,SEC,22.6,6.9,2.4,0.1,0.0,39.5,0.408,0.277,0.694,0,5,2,347849.23,3
+P045,6,basketball,Texas,SEC,33.1,7.8,4.2,0.4,0.1,32.0,0.39,0.333,0.755,0,6,2,472593.29,3
+P045,7,basketball,Texas,SEC,38.6,7.8,2.9,0.3,0.2,34.9,0.393,0.399,0.702,0,7,2,795514.35,4
+P045,8,basketball,Texas,SEC,26.5,8.3,3.3,0.5,0.5,37.0,0.395,0.278,0.736,0,8,2,497923.14,3
+P045,9,basketball,Texas,SEC,44.7,6.8,1.4,0.4,0.3,34.6,0.333,0.397,0.728,0,9,2,1086916.01,5
+P045,10,basketball,Texas,SEC,16.1,7.4,1.5,0.6,0.4,34.7,0.346,0.284,0.704,0,10,2,472195.06,3
+P046,1,basketball,Oregon,Big Ten,18.0,5.8,8.8,0.8,1.7,17.4,0.378,0.382,0.8,1,1,4,5890.58,1
+P046,2,basketball,Oregon,Big Ten,20.3,5.4,12.3,0.8,2.0,18.5,0.379,0.416,0.818,0,1,4,7048.78,1
+P046,3,basketball,Oregon,Big Ten,20.6,5.8,9.4,1.4,1.8,15.2,0.347,0.498,0.832,0,2,4,20579.06,1
+P046,4,basketball,Oregon,Big Ten,16.5,5.7,10.9,1.2,2.2,15.8,0.42,0.418,0.763,0,3,4,19102.05,1
+P046,5,basketball,Oregon,Big Ten,17.1,5.7,10.8,1.0,2.1,18.1,0.417,0.427,0.788,0,4,4,24183.17,1
+P046,6,basketball,Oregon,Big Ten,19.3,5.3,10.0,0.4,1.9,14.3,0.406,0.365,0.844,0,5,4,48972.79,1
+P046,7,basketball,Oregon,Big Ten,21.6,5.3,12.5,1.4,2.4,14.8,0.389,0.386,0.83,0,6,4,49733.21,1
+P046,8,basketball,Oregon,Big Ten,23.1,5.4,11.1,1.1,2.0,15.2,0.445,0.392,0.813,0,7,4,53588.73,2
+P046,9,basketball,Oregon,Big Ten,22.7,5.6,10.6,1.3,1.9,14.9,0.32,0.41,0.809,0,8,4,66398.24,2
+P046,10,basketball,Oregon,Big Ten,31.1,4.6,10.1,1.1,2.1,16.7,0.441,0.461,0.829,0,9,4,83234.84,2
+P047,1,basketball,LSU,SEC,21.4,6.8,1.5,1.1,1.7,35.8,0.419,0.48,0.856,0,1,4,10841.69,1
+P047,2,basketball,LSU,SEC,22.1,5.7,2.6,1.1,2.2,31.9,0.383,0.452,0.861,0,2,4,21068.24,1
+P047,3,basketball,LSU,SEC,16.9,6.2,4.8,1.1,1.4,35.4,0.451,0.444,0.842,0,3,4,24703.1,1
+P047,4,basketball,LSU,SEC,24.9,6.2,4.8,1.2,2.0,32.8,0.342,0.419,0.839,0,4,4,36362.26,1
+P047,5,basketball,LSU,SEC,21.1,6.9,2.9,1.0,2.0,30.6,0.427,0.463,0.85,0,5,4,54824.73,2
+P047,6,basketball,LSU,SEC,29.9,6.1,4.0,1.0,1.9,28.7,0.392,0.537,0.845,1,5,4,44455.62,1
+P047,7,basketball,LSU,SEC,29.6,6.0,1.6,1.3,2.1,33.5,0.388,0.425,0.875,1,5,4,32741.77,1
+P047,8,basketball,LSU,SEC,24.8,5.9,5.1,1.4,1.6,32.1,0.304,0.388,0.828,0,6,4,72788.42,2
+P047,9,basketball,LSU,SEC,27.9,6.0,3.0,1.4,2.1,35.5,0.357,0.446,0.872,0,7,4,59114.84,2
+P047,10,basketball,LSU,SEC,22.9,5.3,3.8,1.4,2.1,30.2,0.375,0.352,0.855,0,8,4,79991.85,2
+P048,1,basketball,Clemson,ACC,23.1,0.5,10.9,2.1,0.9,34.4,0.355,0.452,0.686,0,1,2,73541.96,2
+P048,2,basketball,Clemson,ACC,28.9,0.4,11.4,1.7,0.3,33.7,0.383,0.392,0.755,0,2,2,155189.16,2
+P048,3,basketball,Clemson,ACC,28.6,2.2,8.7,1.6,0.2,33.7,0.362,0.432,0.731,0,3,2,245543.09,3
+P048,4,basketball,Clemson,ACC,28.6,0.5,11.3,2.0,1.5,28.8,0.356,0.491,0.731,0,4,2,342713.36,3
+P048,5,basketball,Clemson,ACC,17.5,1.0,11.7,2.2,0.7,28.3,0.378,0.411,0.74,0,5,2,319462.68,3
+P048,6,basketball,Clemson,ACC,21.3,0.9,9.9,2.5,1.5,31.3,0.305,0.455,0.744,0,6,2,369520.14,3
+P048,7,basketball,Clemson,ACC,19.4,1.1,12.8,1.7,0.8,33.9,0.322,0.384,0.671,0,7,2,415865.91,3
+P048,8,basketball,Clemson,ACC,42.9,0.3,10.1,1.9,0.7,34.4,0.331,0.506,0.707,0,8,2,754944.08,4
+P048,9,basketball,Clemson,ACC,12.0,1.3,9.8,2.0,0.4,32.0,0.34,0.417,0.713,0,9,2,463085.33,3
+P048,10,basketball,Clemson,ACC,15.6,0.9,11.4,1.8,1.1,36.7,0.381,0.393,0.737,0,10,2,616120.89,4
+P049,1,basketball,Penn State,Big Ten,17.4,6.3,13.1,1.5,0.8,22.3,0.415,0.39,0.676,0,1,2,72724.7,2
+P049,2,basketball,Penn State,Big Ten,12.0,7.0,13.0,1.5,0.9,15.1,0.411,0.314,0.732,0,2,2,148681.74,2
+P049,3,basketball,Penn State,Big Ten,20.2,7.1,10.3,1.3,1.5,18.0,0.452,0.352,0.698,0,3,2,200741.02,3
+P049,4,basketball,Penn State,Big Ten,18.5,7.4,12.2,1.7,1.0,19.0,0.44,0.376,0.658,0,4,2,202706.64,3
+P049,5,basketball,Penn State,Big Ten,24.5,7.2,11.1,2.0,1.6,24.6,0.375,0.377,0.679,0,5,2,455620.07,3
+P049,6,basketball,Penn State,Big Ten,20.5,6.7,13.2,1.2,1.1,20.4,0.395,0.374,0.663,0,6,2,473350.69,3
+P049,7,basketball,Penn State,Big Ten,32.0,6.5,14.2,1.4,1.3,17.4,0.455,0.351,0.704,0,7,2,473418.35,3
+P049,8,basketball,Penn State,Big Ten,27.9,7.5,12.0,1.6,1.2,17.9,0.418,0.358,0.642,0,8,2,728445.26,4
+P049,9,basketball,Penn State,Big Ten,32.7,7.6,12.1,1.3,1.8,19.0,0.39,0.348,0.692,0,9,2,891253.55,4
+P049,10,basketball,Penn State,Big Ten,30.6,6.5,12.5,1.5,1.5,18.1,0.431,0.286,0.713,0,10,2,708782.03,4
+P050,1,basketball,Florida State,ACC,12.6,2.4,7.9,0.9,2.5,37.8,0.471,0.522,0.74,0,1,4,6715.36,1
+P050,2,basketball,Florida State,ACC,15.7,2.4,7.0,0.5,2.2,36.5,0.438,0.346,0.726,1,1,4,6203.47,1
+P050,3,basketball,Florida State,ACC,13.8,2.0,4.9,1.2,2.5,39.2,0.496,0.51,0.737,0,2,4,11293.04,1
+P050,4,basketball,Florida State,ACC,15.9,3.1,4.6,0.7,2.5,38.1,0.495,0.395,0.778,0,3,4,24469.9,1
+P050,5,basketball,Florida State,ACC,15.7,3.1,6.4,1.0,2.5,36.6,0.531,0.429,0.74,0,4,4,36490.61,1
+P050,6,basketball,Florida State,ACC,15.1,2.1,6.5,0.5,2.0,40.8,0.427,0.474,0.77,0,5,4,36171.81,1
+P050,7,basketball,Florida State,ACC,12.4,2.4,5.5,1.3,2.3,37.1,0.45,0.41,0.702,0,6,4,33626.16,1
+P050,8,basketball,Florida State,ACC,23.0,2.3,6.7,1.0,2.4,37.8,0.481,0.417,0.797,1,6,4,30987.56,1
+P050,9,basketball,Florida State,ACC,12.9,2.7,6.2,0.8,2.3,35.1,0.47,0.386,0.78,0,7,4,51418.0,2
+P050,10,basketball,Florida State,ACC,19.2,2.0,7.0,0.6,2.0,38.1,0.413,0.404,0.723,0,8,4,83821.06,2

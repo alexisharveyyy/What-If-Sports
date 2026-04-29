@@ -15,21 +15,25 @@ from simulator.engine import WhatIfSimulator
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load model and data on startup."""
-    # Try to load the best saved model
-    model_paths = {
-        "lstm": "models/saved/lstm_best.pt",
-        "transformer": "models/saved/transformer_best.pt",
-    }
+    multitask_path = "models/saved/multitask_transformer_best.pt"
 
     sim = WhatIfSimulator()
-    for model_type, path in model_paths.items():
-        if os.path.exists(path):
-            print(f"Loading {model_type} model from {path}")
-            sim.model_type = model_type
-            sim.load_model(path)
-            break
+    if os.path.exists(multitask_path):
+        try:
+            print(f"Loading multi-task transformer from {multitask_path}")
+            sim.load_model(multitask_path)
+        except Exception as exc:  # noqa: BLE001
+            print(
+                f"WARNING: Failed to load {multitask_path} ({exc}). "
+                "/simulate will return 503 until a compatible checkpoint is saved."
+            )
+            sim.model = None
     else:
-        print("WARNING: No trained model found. /simulate will return 503.")
+        print(
+            "WARNING: No multi-task transformer checkpoint found. "
+            "Run `python train/train_multitask_transformer.py` first; "
+            "/simulate will return 503 in the meantime."
+        )
 
     simulate.simulator = sim
     simulate.comparator = CohortComparator()

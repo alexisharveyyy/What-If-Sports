@@ -1,101 +1,140 @@
-"""Data cleaning and feature engineering pipeline."""
+"""Preprocess the synthetic NIL evaluation dataset.
 
+Reads ``data/raw/nil_evaluations_2025.csv`` (or the smaller sample), fits label
+encoders for the categorical columns, fits a ``StandardScaler`` over the
+numeric features, and persists both objects to ``pipeline/encoders.pkl`` and
+``pipeline/scaler.pkl``. The processed snapshot DataFrame is also written to
+``data/processed/player_snapshots.csv`` for downstream feature engineering.
+"""
+
+from __future__ import annotations
+
+import argparse
 import os
 import pickle
+import sys
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
+_REPO_ROOT_FOR_IMPORTS = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT_FOR_IMPORTS) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT_FOR_IMPORTS))
 
-def load_raw_data(
-    valuations_path: str = "data/raw/on3_valuations.csv",
-    stats_path: str = "data/raw/player_stats.csv",
-    sample_path: str = "data/sample/sample_players.csv",
-) -> pd.DataFrame:
-    """Load and merge raw data. Falls back to sample data if raw doesn't exist."""
-    if os.path.exists(valuations_path) and os.path.exists(stats_path):
-        valuations = pd.read_csv(valuations_path)
-        stats = pd.read_csv(stats_path)
-        df = valuations.merge(stats, on=["player_id", "snapshot_week"], how="left")
-    elif os.path.exists(sample_path):
-        print(f"Raw data not found. Using sample data from {sample_path}")
-        df = pd.read_csv(sample_path)
-    else:
-        raise FileNotFoundError("No data found. Run generate_sample.py first.")
-    return df
+from pipeline.features import (
+    CATEGORICAL_COLS,
+    NUMERIC_FEATURE_COLS,
+    TIER_LABEL_TO_INT,
+)
 
 
-def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Handle missing values and basic cleaning."""
-    # Sort by player and week for proper forward-fill
-    df = df.sort_values(["player_id", "snapshot_week"]).reset_index(drop=True)
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+RAW_PATH = _REPO_ROOT / "data" / "raw" / "nil_evaluations_2025.csv"
+SAMPLE_PATH = _REPO_ROOT / "data" / "sample" / "nil_evaluations_sample.csv"
+PROCESSED_PATH = _REPO_ROOT / "data" / "processed" / "player_snapshots.csv"
+SCALER_PATH = _REPO_ROOT / "pipeline" / "scaler.pkl"
+ENCODERS_PATH = _REPO_ROOT / "pipeline" / "encoders.pkl"
 
-    # Forward-fill within each player's timeline
-    numeric_cols = [
-        "ppg", "apg", "rpg", "spg", "bpg", "mpg",
-        "fg_pct", "three_pt_pct", "ft_pct", "nil_valuation",
-    ]
-    for col in numeric_cols:
+
+def load_nil_dataset(path: str | os.PathLike | None = None) -> pd.DataFrame:
+    """Load the NIL evaluation CSV. Falls back to the sample if raw is absent."""
+    if path is not None:
+        return pd.read_csv(path)
+    if RAW_PATH.exists():
+        return pd.read_csv(RAW_PATH)
+    if SAMPLE_PATH.exists():
+        print(f"Raw dataset missing; using sample at {SAMPLE_PATH}")
+        return pd.read_csv(SAMPLE_PATH)
+    raise FileNotFoundError(
+        "Run pipeline/generate_nil_dataset.py to create the dataset first."
+    )
+
+
+def clean(df: pd.DataFrame) -> pd.DataFrame:
+    """Sort, fill, and coerce dtypes."""
+    df = df.copy()
+    df = df.sort_values(["player_id", "week_number"]).reset_index(drop=True)
+
+    for col in NUMERIC_FEATURE_COLS:
         df[col] = df.groupby("player_id")[col].transform(
-            lambda s: s.ffill().fillna(s.median())
+            lambda s: s.ffill().bfill()
         )
+        if df[col].isna().any():
+            df[col] = df[col].fillna(df[col].median())
 
-    # Fill remaining NaN with column medians
-    for col in numeric_cols:
-        df[col] = df[col].fillna(df[col].median())
-
-    # Ensure injury_flag is int
-    df["injury_flag"] = df["injury_flag"].fillna(0).astype(int)
-    df["games_played"] = df["games_played"].fillna(1).astype(int)
-
+    df["currently_injured"] = df["currently_injured"].astype(bool).astype(int)
+    df["games_played"] = df["games_played"].fillna(0).astype(int)
+    df["program_tier"] = df["program_tier"].astype(int)
+    df["week_number"] = df["week_number"].astype(int)
+    df["nil_tier"] = df["nil_tier"].astype(str)
     return df
 
 
-def encode_categoricals(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
-    """Label-encode categorical columns."""
-    encoders = {}
-    for col in ["conference"]:
+def fit_encoders(df: pd.DataFrame) -> dict[str, LabelEncoder]:
+    """Fit label encoders for the categorical UI fields."""
+    encoders: dict[str, LabelEncoder] = {}
+    for col in CATEGORICAL_COLS:
         le = LabelEncoder()
-        df[col + "_encoded"] = le.fit_transform(df[col].astype(str))
+        le.fit(df[col].astype(str).values)
         encoders[col] = le
-    return df, encoders
+    return encoders
 
 
-def scale_features(df: pd.DataFrame, feature_cols: list[str]) -> tuple[pd.DataFrame, StandardScaler]:
-    """Normalize numeric features with StandardScaler."""
-    scaler = StandardScaler()
-    df[feature_cols] = scaler.fit_transform(df[feature_cols])
-    return df, scaler
-
-
-def preprocess(sample_path: str = "data/sample/sample_players.csv") -> pd.DataFrame:
-    """Run the full preprocessing pipeline."""
-    df = load_raw_data(sample_path=sample_path)
-    df = clean_data(df)
-    df, encoders = encode_categoricals(df)
-
-    feature_cols = [
-        "ppg", "apg", "rpg", "spg", "bpg", "mpg",
-        "fg_pct", "three_pt_pct", "ft_pct",
-        "games_played", "program_tier",
-    ]
-    df, scaler = scale_features(df, feature_cols)
-
-    # Save scaler
-    os.makedirs("pipeline", exist_ok=True)
-    with open("pipeline/scaler.pkl", "wb") as f:
-        pickle.dump(scaler, f)
-    with open("pipeline/encoders.pkl", "wb") as f:
-        pickle.dump(encoders, f)
-
-    # Save processed output
-    os.makedirs("data/processed", exist_ok=True)
-    df.to_csv("data/processed/player_snapshots.csv", index=False)
-    print(f"Preprocessed {len(df)} rows → data/processed/player_snapshots.csv")
-
+def apply_encoders(df: pd.DataFrame,
+                   encoders: dict[str, LabelEncoder]) -> pd.DataFrame:
+    df = df.copy()
+    for col, le in encoders.items():
+        df[f"{col}_encoded"] = le.transform(df[col].astype(str).values)
+    df["nil_tier_int"] = df["nil_tier"].map(TIER_LABEL_TO_INT).astype(int)
     return df
+
+
+def fit_scaler(df: pd.DataFrame) -> StandardScaler:
+    scaler = StandardScaler()
+    scaler.fit(df[NUMERIC_FEATURE_COLS].values)
+    return scaler
+
+
+def apply_scaler(df: pd.DataFrame, scaler: StandardScaler) -> pd.DataFrame:
+    df = df.copy()
+    df[NUMERIC_FEATURE_COLS] = scaler.transform(df[NUMERIC_FEATURE_COLS].values)
+    return df
+
+
+def preprocess(input_path: str | os.PathLike | None = None,
+               write: bool = True) -> tuple[pd.DataFrame, dict, StandardScaler]:
+    df = load_nil_dataset(input_path)
+    df = clean(df)
+    encoders = fit_encoders(df)
+    df = apply_encoders(df, encoders)
+    scaler = fit_scaler(df)
+    df = apply_scaler(df, scaler)
+
+    if write:
+        ENCODERS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with ENCODERS_PATH.open("wb") as f:
+            pickle.dump(encoders, f)
+        with SCALER_PATH.open("wb") as f:
+            pickle.dump(scaler, f)
+        PROCESSED_PATH.parent.mkdir(parents=True, exist_ok=True)
+        df.to_csv(PROCESSED_PATH, index=False)
+        print(f"Processed {len(df):,} rows for {df['player_id'].nunique():,} players")
+        print(f"  encoders -> {ENCODERS_PATH}")
+        print(f"  scaler   -> {SCALER_PATH}")
+        print(f"  snapshot -> {PROCESSED_PATH}")
+
+    return df, encoders, scaler
+
+
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", default=None,
+                        help="Override the input CSV path")
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    preprocess()
+    args = _parse_args()
+    preprocess(input_path=args.input)
