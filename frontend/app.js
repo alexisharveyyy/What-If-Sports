@@ -48,13 +48,45 @@ $('games-played').addEventListener('input', function() {
 function addWeek() {
     const snapshot = getFormValues();
     playerHistory.push(snapshot);
-    $('week-count').textContent = `Weeks added: ${playerHistory.length}`;
+    renderWeekChips();
+}
+
+function removeWeek(index) {
+    playerHistory.splice(index, 1);
+    renderWeekChips();
 }
 
 function clearHistory() {
     playerHistory = [];
-    $('week-count').textContent = 'Weeks added: 0';
+    renderWeekChips();
     $('results').style.display = 'none';
+}
+
+function renderWeekChips() {
+    const container = $('week-chips');
+    const sub = $('week-count');
+    container.innerHTML = '';
+
+    if (playerHistory.length === 0) {
+        container.hidden = true;
+        sub.textContent = 'No weeks tracked yet — start by adjusting stats above';
+        return;
+    }
+
+    container.hidden = false;
+    sub.textContent = `${playerHistory.length} week${playerHistory.length === 1 ? '' : 's'} tracked · click any to remove`;
+
+    playerHistory.forEach((snap, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'week-chip';
+        chip.innerHTML = `
+            <span class="chip-week">Wk ${idx + 1}</span>
+            <span class="chip-stat">${(snap.ppg || 0).toFixed(1)} ppg</span>
+            <button type="button" class="chip-remove" aria-label="Remove week ${idx + 1}" title="Remove">×</button>
+        `;
+        chip.querySelector('.chip-remove').addEventListener('click', () => removeWeek(idx));
+        container.appendChild(chip);
+    });
 }
 
 // --- Scenarios ---
@@ -182,9 +214,6 @@ function renderResults(data) {
 
     // Timeline
     renderTimeline(data.timeline);
-
-    // Cohort
-    renderCohort(data.cohort_comparison);
 }
 
 function animateCount(el, target, formatter, duration = 900) {
@@ -236,8 +265,8 @@ function renderTierGauge(probs) {
         font: { color: '#f1f5f9' },
         yaxis: { title: 'Probability (%)', range: [0, 100], gridcolor: '#334155' },
         xaxis: { tickfont: { size: 11 } },
-        margin: { t: 20, b: 60, l: 50, r: 20 },
-        height: 250,
+        margin: { t: 20, b: 90, l: 50, r: 20 },
+        height: 290,
     };
 
     Plotly.newPlot('tier-gauge', [trace], layout, { displayModeBar: false });
@@ -291,55 +320,3 @@ function renderTimeline(timeline) {
     Plotly.newPlot('timeline-chart', [bandTrace, lineTrace], layout, { displayModeBar: false });
 }
 
-function renderCohort(cohort) {
-    animateCount($('cohort-median'), cohort.cohort_median_nil || 0, formatCurrency);
-
-    const pct = (cohort.percentile_rank || 0);
-    animateCount($('percentile'), pct, v => Math.round(v) + ordinalSuffix(Math.round(v)));
-
-    const residual = cohort.residual || 0;
-    const resEl = $('residual');
-    animateCount(resEl, residual, v => (v >= 0 ? '+' : '') + formatCurrency(v));
-    resEl.style.color = residual >= 0 ? 'var(--accent-green)' : 'var(--accent-red)';
-
-    const resCard = resEl.closest('.big-number');
-    if (resCard) {
-        resCard.classList.toggle('is-positive', residual > 0);
-        resCard.classList.toggle('is-negative', residual < 0);
-    }
-
-    const tbody = $('cohort-body');
-    tbody.innerHTML = '';
-    (cohort.similar_players || []).forEach(p => {
-        const sim = (p.similarity || 0) * 100;
-        const simClass = sim >= 80 ? '' : sim >= 60 ? 'mid' : 'low';
-        const nilValue = p.nil_valuation_usd ?? p.nil_valuation ?? 0;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td class="player-id" title="${p.player_id || ''}">${formatPlayerId(p.player_id)}</td>
-            <td>${p.school || '-'}</td>
-            <td class="numeric">${formatCurrency(nilValue)}</td>
-            <td class="numeric">${(p.ppg || 0).toFixed(1)}</td>
-            <td><span class="similarity-pill ${simClass}">${sim.toFixed(0)}%</span></td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-function formatPlayerId(id) {
-    if (!id) return '-';
-    if (typeof id !== 'string') return String(id);
-    if (id.length <= 12) return id;
-    return id.slice(0, 8) + '…' + id.slice(-4);
-}
-
-function ordinalSuffix(n) {
-    const v = n % 100;
-    if (v >= 11 && v <= 13) return 'th';
-    switch (n % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-    }
-}

@@ -70,6 +70,9 @@ class TrainConfig:
     num_workers: int = 0
     save_dir: Path = _REPO_ROOT / "models" / "saved"
     input_csv: Path | None = None
+    checkpoint_name: str = "multitask_transformer_best.pt"
+    report_name: str = "training_report.json"
+    write_plots: bool = True
 
 
 def set_seed(seed: int) -> None:
@@ -393,8 +396,8 @@ def train(cfg: TrainConfig) -> dict:
     scaler = GradScaler(device.type) if cfg.use_amp and device.type == "cuda" else None
 
     cfg.save_dir.mkdir(parents=True, exist_ok=True)
-    best_path = cfg.save_dir / "multitask_transformer_best.pt"
-    report_path = cfg.save_dir / "training_report.json"
+    best_path = cfg.save_dir / cfg.checkpoint_name
+    report_path = cfg.save_dir / cfg.report_name
 
     best_val = math.inf
     epochs_since_improve = 0
@@ -466,8 +469,9 @@ def train(cfg: TrainConfig) -> dict:
         "residual": pred_val_arr - true_val_arr,
     }).merge(test_player_meta, on="player_id", how="left")
 
-    _save_plots(test_metrics, residual_df, cfg.save_dir)
-    _attention_visualization(model, test_loader, device, cfg.save_dir)
+    if cfg.write_plots:
+        _save_plots(test_metrics, residual_df, cfg.save_dir)
+        _attention_visualization(model, test_loader, device, cfg.save_dir)
 
     report = {
         "config": cfg.__dict__,

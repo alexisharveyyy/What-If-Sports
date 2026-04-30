@@ -1,0 +1,32 @@
+[
+  {
+    "feature": "program_tier",
+    "gain": 6832990453760.0,
+    "normalized": 100.0
+  },
+  {
+    "feature": "currently_injured",
+    "gain": 132385603584.0,
+    "normalized": 1.94
+  },
+  {
+    "feature": "performance_score",
+    "gain": 97077862400.0,
+    "normalized": 1.42
+  },
+  {
+    "feature": "engagement_rate",
+    "gain": 49052024832.0,
+    "normalized": 0.72
+  },
+  {
+    "feature": "market_size_score",
+    "gain": 35418460160.0,
+    "normalized": 0.52
+  },
+  {
+    "feature": "social_media_followers",
+    "gain": 26343512064.0,
+    "normalized": 0.39
+  }
+]

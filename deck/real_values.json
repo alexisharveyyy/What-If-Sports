@@ -1,0 +1,96 @@
+{
+  "seed": 42,
+  "dataset": {
+    "total_player_weeks": 140374,
+    "unique_players": 10000,
+    "split_sizes": {
+      "train": 6997,
+      "val": 1497,
+      "test": 1506
+    },
+    "tier_distribution": {
+      "developmental": 14033,
+      "low": 42114,
+      "mid": 56149,
+      "high": 21057,
+      "elite": 7021
+    }
+  },
+  "baselines": {
+    "logistic_regression": {
+      "accuracy": 0.7895086321381142,
+      "macro_f1": 0.7075115511129455
+    },
+    "random_forest": {
+      "accuracy": 0.7835325365205843,
+      "macro_f1": 0.678122097533764,
+      "mae": 51938.84533970782,
+      "rmse": 82373.57509992766,
+      "r2": 0.9220932809794455
+    },
+    "xgboost": {
+      "accuracy": 0.7828685258964143,
+      "macro_f1": 0.7103304380823449,
+      "mae": 52543.910075116204,
+      "rmse": 84165.74113670751,
+      "r2": 0.9186664387958482
+    }
+  },
+  "bilstm_attention": {
+    "mae": 63656.828125,
+    "rmse": 107129.109375,
+    "r2": 0.8682307600975037,
+    "accuracy": 0.7702523240371846,
+    "macro_f1": 0.6378505861053668,
+    "ece_before": 0.01955395572847263,
+    "ece_after": 0.021297879705074442,
+    "volatile_cohort_mae": 76364.9140625,
+    "delta_vs_xgboost": {
+      "mae_pct": 21.149773654067406,
+      "rmse_pct": 27.283509808336248,
+      "r2_abs": -0.05043567869834453,
+      "f1_abs": -0.07247985197697804
+    }
+  },
+  "transformer_reg_only": {
+    "mae": 61955.3828125,
+    "rmse": 103489.71875,
+    "r2": 0.8770316243171692
+  },
+  "transformer_cls_only": {
+    "accuracy": 0.7695883134130146,
+    "macro_f1": 0.6036280966314644,
+    "ece_before": 0.026739334442700987
+  },
+  "transformer_multitask": {
+    "mae": 64129.37109375,
+    "rmse": 104948.03125,
+    "r2": 0.8735415935516357,
+    "accuracy": 0.7715803452855245,
+    "macro_f1": 0.6078980799075007,
+    "ece_before": 0.029247747909816938,
+    "ece_after": 0.020817732945539718
+  },
+  "calibration": {
+    "bilstm_attention": {
+      "ece_before": 0.01955395572847263,
+      "ece_after": 0.021297879705074442,
+      "reduction_pct": -8.918522680617883,
+      "temperature": 0.9303029775619507
+    },
+    "transformer_multitask": {
+      "ece_before": 0.029247747909816938,
+      "ece_after": 0.020817732945539718,
+      "reduction_pct": 28.822783177256888,
+      "temperature": 0.8775563836097717
+    }
+  },
+  "volatile_cohort": {
+    "definition": "test players with weekly nil_valuation_usd CV >= 75th percentile",
+    "cv_threshold": 0.21217823301493843,
+    "volatile_player_count": 377,
+    "xgb_mae": 60237.133220739386,
+    "bilstm_mae": 76364.9140625,
+    "delta_pct": 26.773818705249887
+  }
+}

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=6">
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 <body>
@@ -125,24 +125,37 @@
                             <button type="button" onclick="adjustStat('ft-pct', 0.01)">+</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="games-played">Games Played: <span id="games-display">8</span></label>
-                        <input type="range" id="games-played" min="0" max="40" value="8">
+                </div>
+
+                <div class="season-context">
+                    <div class="season-context-row">
+                        <div class="form-group season-games">
+                            <label for="games-played">Games Played This Week: <span id="games-display">8</span></label>
+                            <input type="range" id="games-played" min="0" max="40" value="8">
+                        </div>
+                        <div class="form-group season-injury">
+                            <label for="injury-flag" class="check-label">
+                                <input type="checkbox" id="injury-flag">
+                                <span>Currently Injured</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="injury-flag">
-                            <input type="checkbox" id="injury-flag"> Currently Injured
-                        </label>
+
+                    <div class="season-history">
+                        <div class="season-history-head">
+                            <div>
+                                <div class="season-history-title">Season History</div>
+                                <div class="season-history-sub" id="week-count">No weeks tracked yet — start by adjusting stats above</div>
+                            </div>
+                            <button type="button" id="add-week-btn" onclick="addWeek()">+ Add Week</button>
+                        </div>
+                        <div id="week-chips" class="week-chips" hidden></div>
                     </div>
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" id="add-week-btn" onclick="addWeek()">Add Week</button>
                     <button type="button" id="simulate-btn" onclick="runSimulation()">Simulate</button>
                     <button type="button" id="clear-btn" onclick="clearHistory()">Clear History</button>
-                </div>
-                <div id="history-display">
-                    <span id="week-count">Weeks added: 0</span>
                 </div>
             </form>
         </section>
@@ -180,45 +193,13 @@
                 <div id="timeline-chart"></div>
             </section>
 
-            <!-- Cohort Comparison -->
-            <section id="cohort-section" class="panel">
-                <h2>Cohort Comparison</h2>
-                <div class="cohort-summary">
-                    <div class="big-number">
-                        <span class="label">Cohort Median NIL</span>
-                        <span id="cohort-median" class="value">$0</span>
-                    </div>
-                    <div class="big-number">
-                        <span class="label">Percentile Rank</span>
-                        <span id="percentile" class="value">-</span>
-                    </div>
-                    <div class="big-number">
-                        <span class="label">Residual</span>
-                        <span id="residual" class="value">$0</span>
-                    </div>
-                </div>
-                <div class="cohort-table-wrap">
-                    <table id="cohort-table">
-                        <thead>
-                            <tr>
-                                <th>Player</th>
-                                <th>School</th>
-                                <th>NIL Value</th>
-                                <th>PPG</th>
-                                <th>Similarity</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cohort-body"></tbody>
-                    </table>
-                </div>
-            </section>
         </div>
     </main>
 
     <footer>
-        <p>What-If Sports NIL Simulator &mdash; Educational / Research Use</p>
+        <p>What-If Sports</p>
     </footer>
 
-    <script src="app.js?v=3"></script>
+    <script src="app.js?v=6"></script>
 </body>
 </html>
