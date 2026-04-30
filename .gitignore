@@ -83,3 +83,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+models/saved/*.pkl
+models/saved/*.pt
+models/saved/*.pkl
+models/saved/*.pt
