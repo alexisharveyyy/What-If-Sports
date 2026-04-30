@@ -26,6 +26,14 @@ class NILLSTMModel(nn.Module):
         dropout: Dropout rate.
         num_tiers: Number of NIL tier classes.
         alpha: Multi-task loss weight.
+
+    Added improvements:
+        - Supports either LSTM or GRU through the ``rnn_type`` argument.
+        - Adds LayerNorm after the recurrent encoder to stabilize training.
+        - Uses mean + max pooling over all timesteps instead of only the last
+          timestep, so the model can use information from the full athlete
+          history.
+        - Adds a deeper projection layer for a stronger shared representation.
     """
 
     def __init__(
@@ -36,9 +44,17 @@ class NILLSTMModel(nn.Module):
         dropout: float = 0.3,
         num_tiers: int = 5,
         alpha: float = 0.5,
+        rnn_type: str = "lstm",
     ):
         super().__init__()
-        self.lstm = nn.LSTM(
+
+        rnn_type = rnn_type.lower()
+        if rnn_type not in {"lstm", "gru"}:
+            raise ValueError("rnn_type must be either 'lstm' or 'gru'.")
+
+        rnn_cls = nn.LSTM if rnn_type == "lstm" else nn.GRU
+
+        self.rnn = rnn_cls(
             input_size=n_features,
             hidden_size=hidden_dim,
             num_layers=num_layers,
@@ -47,10 +63,16 @@ class NILLSTMModel(nn.Module):
             dropout=dropout if num_layers > 1 else 0.0,
         )
 
+        self.norm = nn.LayerNorm(hidden_dim * 2)
         self.dropout = nn.Dropout(dropout)
 
-        # Bidirectional doubles the hidden dim
-        self.projection = nn.Linear(hidden_dim * 2, hidden_dim)
+        # Mean pooling + max pooling doubles the bidirectional output size.
+        self.projection = nn.Sequential(
+            nn.Linear(hidden_dim * 4, hidden_dim),
+            nn.ReLU(),
+            nn.LayerNorm(hidden_dim),
+            nn.Dropout(dropout),
+        )
 
         self.head = MultiTaskHead(
             input_dim=hidden_dim,
@@ -68,16 +90,23 @@ class NILLSTMModel(nn.Module):
 
         Returns:
             (tier_logits, value_pred) tuple.
+
+        Added behavior:
+            Instead of using only the last timestep, this forward pass combines
+            mean pooling and max pooling across the full sequence. This helps
+            the model capture both long-term trends and standout moments in an
+            athlete's performance or popularity history.
         """
-        # x: (batch, seq_len, n_features)
-        lstm_out, _ = self.lstm(x)  # (batch, seq_len, hidden_dim*2)
+        rnn_out, _ = self.rnn(x)
+        rnn_out = self.norm(rnn_out)
 
-        # Use last timestep output
-        last_hidden = lstm_out[:, -1, :]  # (batch, hidden_dim*2)
-        last_hidden = self.dropout(last_hidden)
+        mean_pool = rnn_out.mean(dim=1)
+        max_pool = rnn_out.max(dim=1).values
 
-        shared_repr = self.projection(last_hidden)  # (batch, hidden_dim)
-        shared_repr = torch.relu(shared_repr)
+        pooled = torch.cat([mean_pool, max_pool], dim=1)
+        pooled = self.dropout(pooled)
+
+        shared_repr = self.projection(pooled)
 
         return self.head(shared_repr)
 
