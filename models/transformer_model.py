@@ -13,6 +13,38 @@ Added improvements:
     - Improves attention interpretability handling.
     - Adds residual projection for better gradient flow.
 """
+
+from __future__ import annotations
+
+import math
+
+import torch
+import torch.nn as nn
+
+from models.multitask_head import MultiTaskHead
+
+
+class SinusoidalPositionalEncoding(nn.Module):
+    """Classic sinusoidal positional encoding from "Attention Is All You Need"."""
+
+    def __init__(self, d_model: int, max_len: int = 64) -> None:
+        super().__init__()
+        pe = torch.zeros(max_len, d_model)
+        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
+        div_term = torch.exp(
+            torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)
+        )
+        pe[:, 0::2] = torch.sin(position * div_term)
+        if d_model % 2 == 1:
+            pe[:, 1::2] = torch.cos(position * div_term[:-1])
+        else:
+            pe[:, 1::2] = torch.cos(position * div_term)
+        self.register_buffer("pe", pe.unsqueeze(0))
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return x + self.pe[:, : x.size(1)]
+
+
 class NILTransformerEncoder(nn.Module):
     """Shared encoder over weekly player sequences.
 
@@ -132,3 +164,65 @@ class NILTransformerEncoder(nn.Module):
         combined = torch.cat([cls_repr, mean_repr], dim=1)
 
         return self.projection(combined)
+
+    def _collect_attention(
+        self,
+        x: torch.Tensor,
+        key_padding_mask: torch.Tensor | None,
+    ) -> torch.Tensor:
+        """Re-run the final encoder layer with attention weights returned.
+
+        Returns the CLS row of the final layer's attention, averaged over
+        heads, shape ``(batch, 1 + seq_len)``.
+        """
+        layers = list(self.encoder.layers)
+        h = x
+        for layer in layers[:-1]:
+            h = layer(h, src_key_padding_mask=key_padding_mask)
+        last = layers[-1]
+        normed = last.norm1(h) if last.norm_first else h
+        _, attn = last.self_attn(
+            normed, normed, normed,
+            key_padding_mask=key_padding_mask,
+            need_weights=True,
+            average_attn_weights=True,
+        )
+        return attn[:, 0, :].detach()
+
+
+class NILTransformerModel(nn.Module):
+    """Backward-compatible wrapper that pairs the shared encoder with the
+    legacy ``MultiTaskHead`` used by ``train/train.py``.
+    """
+
+    def __init__(
+        self,
+        n_features: int,
+        d_model: int = 128,
+        nhead: int = 4,
+        num_layers: int = 2,
+        dim_feedforward: int = 256,
+        dropout: float = 0.3,
+        num_tiers: int = 5,
+        alpha: float = 0.5,
+        max_seq_len: int = 20,
+    ) -> None:
+        super().__init__()
+        self.encoder = NILTransformerEncoder(
+            n_features=n_features,
+            d_model=d_model,
+            nhead=nhead,
+            num_layers=num_layers,
+            dim_feedforward=dim_feedforward,
+            dropout=dropout,
+            max_seq_len=max_seq_len,
+        )
+        self.head = MultiTaskHead(
+            input_dim=d_model,
+            num_tiers=num_tiers,
+            alpha=alpha,
+        )
+
+    def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        repr_ = self.encoder(x)
+        return self.head(repr_)

@@ -16,9 +16,9 @@ Dataset: **140,374** player-weeks across **10,000** unique players (train 6,997 
 | Model | Accuracy | Macro F1 | MAE | RMSE | R² | ECE before | ECE after |
 |---|---|---|---|---|---|---|---|
 | BiLSTM + Attention | 0.7703 | 0.6379 | $63,657 | $107,129 | 0.8682 | 0.020 | 0.021 |
-| Transformer (reg-only) | — | — | $61,955 | $103,490 | 0.8770 | — | — |
-| Transformer (cls-only) | 0.7696 | 0.6036 | — | — | — | 0.027 | — |
-| Transformer (multi-task) | 0.7716 | 0.6079 | $64,129 | $104,948 | 0.8735 | 0.029 | 0.021 |
+| Transformer (reg-only) | — | — | $61,711 | $105,813 | 0.8714 | — | — |
+| Transformer (cls-only) | 0.7729 | 0.6070 | — | — | — | 0.033 | — |
+| Transformer (multi-task) | 0.7676 | 0.6012 | $81,851 | $130,620 | 0.8041 | 0.039 | 0.019 |
 
 ## Volatile cohort (top-CV quartile)
 
@@ -32,7 +32,7 @@ Dataset: **140,374** player-weeks across **10,000** unique players (train 6,997 
 
 | Model | T | ECE before | ECE after | Reduction |
 |---|---|---|---|---|
-| Transformer (multi-task) | 0.878 | 0.029 | 0.021 | 28.82% |
+| Transformer (multi-task) | 0.834 | 0.039 | 0.019 | 51.85% |
 | BiLSTM + Attention | 0.930 | 0.020 | 0.021 | -8.92% |
 
 ## Feature importance (XGBoost regressor, top-6 by gain)
@@ -48,7 +48,7 @@ Dataset: **140,374** player-weeks across **10,000** unique players (train 6,997 
 
 ## Sanity check
 
-- Multi-task transformer MAE ($64,129) is **higher** than XGBoost ($52,544). The transformer should usually win — investigate before presenting.
+- Multi-task transformer MAE ($81,851) is **higher** than XGBoost ($52,544). The transformer should usually win — investigate before presenting.
 - BiLSTM ECE rose after temperature scaling (0.020 -> 0.021).
 - BiLSTM **lost** to XGBoost on volatile players (+26.77% vs. expectation of negative).
 - Tiers with <7% of player-weeks may inflate macro F1 noise: elite
