@@ -56,6 +56,37 @@ uvicorn app.main:app --reload --port 8000
 pytest tests/ -v
 ```
 
+### Scenario robustness stress test
+
+`tests/robustness_stress_test.py` stress-tests the baseline XGBoost classifier and regressor by perturbing numeric features with Gaussian noise, then reports tier flip rate, valuation percent-change statistics, and a simple `stable: True/False` flag against fixed thresholds.
+
+**Prerequisites:** run preprocessing (if you have not already) and train baselines so `models/saved/baseline_xgb_clf.pkl`, `baseline_xgb_reg.pkl`, and `baseline_feature_cols.pkl` exist:
+
+```bash
+python pipeline/preprocess.py
+python pipeline/features.py
+python models/baseline.py
+```
+
+**Run the stress test** from the repository root:
+
+```bash
+python tests/robustness_stress_test.py
+```
+
+Optional flags: `--sample-size` (default 100), `--perturb-runs` (default 50), `--noise-scale` (default 0.05), `--seed` (default 42).
+
+```bash
+python tests/robustness_stress_test.py --sample-size 150 --perturb-runs 80 --noise-scale 0.07 --seed 42
+```
+
+On Windows, if the console fails to print paths with accented characters, enable UTF-8 first:
+
+```powershell
+$env:PYTHONUTF8=1
+python tests/robustness_stress_test.py
+```
+
 ## API Endpoints
 
 | Method | Endpoint | Description |
