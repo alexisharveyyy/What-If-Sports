@@ -1,13 +1,4 @@
-"""PyTorch LSTM/GRU recurrent models for NIL prediction.
-
-Two architectures live in this module:
-    - ``NILLSTMModel``: original bidirectional LSTM with last-step pooling and
-      the legacy ``MultiTaskHead``. Kept for backward compatibility with old
-      checkpoints.
-    - ``BiLSTMWithAttention``: bidirectional LSTM + Bahdanau additive attention
-      that returns a pooled context vector. Designed to plug into the new
-      ``MultiTaskNILModel`` wrapper alongside the transformer encoder.
-"""
+"""PyTorch BiLSTM with Temporal Attention model for NIL prediction."""
 
 import torch
 import torch.nn as nn
@@ -16,24 +7,78 @@ import torch.nn.functional as F
 from models.multitask_head import MultiTaskHead
 
 
-class NILLSTMModel(nn.Module):
-    """Bidirectional LSTM model for NIL time series prediction.
+class TemporalAttention(nn.Module):
+    """Learned attention over BiLSTM hidden states across all timesteps.
+
+    Instead of discarding all but the last hidden state, this computes a
+    weighted sum over every timestep so the model can learn which past
+    weeks (e.g. a breakout performance 3 weeks ago) matter most for the
+    current NIL forecast.
 
     Args:
-        n_features: Number of input features per timestep.
-        hidden_dim: LSTM hidden size.
-        num_layers: Number of LSTM layers.
-        dropout: Dropout rate.
-        num_tiers: Number of NIL tier classes.
-        alpha: Multi-task loss weight.
+        hidden_dim: Size of the BiLSTM output at each timestep
+                    (hidden_size * 2 because bidirectional).
+    """
 
-    Added improvements:
-        - Supports either LSTM or GRU through the ``rnn_type`` argument.
-        - Adds LayerNorm after the recurrent encoder to stabilize training.
-        - Uses mean + max pooling over all timesteps instead of only the last
-          timestep, so the model can use information from the full athlete
-          history.
-        - Adds a deeper projection layer for a stronger shared representation.
+    def __init__(self, hidden_dim: int):
+        super().__init__()
+        # Single-layer MLP that scores each timestep
+        self.attention = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.Tanh(),
+            nn.Linear(hidden_dim // 2, 1),
+        )
+
+    def forward(self, lstm_out: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        """Compute attention-weighted context vector.
+
+        Args:
+            lstm_out: BiLSTM outputs of shape (batch, seq_len, hidden_dim).
+
+        Returns:
+            context: Weighted sum over timesteps, shape (batch, hidden_dim).
+            weights: Attention weights for interpretability, shape (batch, seq_len).
+        """
+        # Score each timestep: (batch, seq_len, 1)
+        scores = self.attention(lstm_out)
+
+        # Normalise across the time dimension
+        weights = F.softmax(scores, dim=1)          # (batch, seq_len, 1)
+
+        # Weighted sum: (batch, hidden_dim)
+        context = (weights * lstm_out).sum(dim=1)
+
+        return context, weights.squeeze(-1)          # weights: (batch, seq_len)
+
+
+class NILLSTMModel(nn.Module):
+    """Bidirectional LSTM + Temporal Attention model for NIL time series prediction.
+
+    Architecture
+    ------------
+    Input (batch, seq_len, n_features)
+        │
+        ▼
+    BiLSTM  (hidden_dim per direction → hidden_dim*2 total)
+        │
+        ▼
+    TemporalAttention  (learns which past weeks matter most)
+        │
+        ▼
+    Linear projection  (hidden_dim*2 → hidden_dim)  + ReLU
+        │
+        ▼
+    MultiTaskHead
+        ├── tier_head  → tier_logits  (batch, num_tiers)
+        └── value_head → value_pred   (batch,)
+
+    Args:
+        n_features:  Number of input features per timestep.
+        hidden_dim:  LSTM hidden size per direction.
+        num_layers:  Number of stacked LSTM layers.
+        dropout:     Dropout rate (applied after attention and inside LSTM).
+        num_tiers:   Number of NIL tier classes.
+        alpha:       Multi-task loss weighting (classification share).
     """
 
     def __init__(
@@ -44,17 +89,10 @@ class NILLSTMModel(nn.Module):
         dropout: float = 0.3,
         num_tiers: int = 5,
         alpha: float = 0.5,
-        rnn_type: str = "lstm",
     ):
         super().__init__()
 
-        rnn_type = rnn_type.lower()
-        if rnn_type not in {"lstm", "gru"}:
-            raise ValueError("rnn_type must be either 'lstm' or 'gru'.")
-
-        rnn_cls = nn.LSTM if rnn_type == "lstm" else nn.GRU
-
-        self.rnn = rnn_cls(
+        self.lstm = nn.LSTM(
             input_size=n_features,
             hidden_size=hidden_dim,
             num_layers=num_layers,
@@ -63,16 +101,13 @@ class NILLSTMModel(nn.Module):
             dropout=dropout if num_layers > 1 else 0.0,
         )
 
-        self.norm = nn.LayerNorm(hidden_dim * 2)
+        # Temporal attention over all BiLSTM timestep outputs
+        self.attention = TemporalAttention(hidden_dim=hidden_dim * 2)
+
         self.dropout = nn.Dropout(dropout)
 
-        # Mean pooling + max pooling doubles the bidirectional output size.
-        self.projection = nn.Sequential(
-            nn.Linear(hidden_dim * 4, hidden_dim),
-            nn.ReLU(),
-            nn.LayerNorm(hidden_dim),
-            nn.Dropout(dropout),
-        )
+        # Project from hidden_dim*2 (bidirectional) → hidden_dim
+        self.projection = nn.Linear(hidden_dim * 2, hidden_dim)
 
         self.head = MultiTaskHead(
             input_dim=hidden_dim,
@@ -89,97 +124,33 @@ class NILLSTMModel(nn.Module):
             x: Input tensor of shape (batch, seq_len, n_features).
 
         Returns:
-            (tier_logits, value_pred) tuple.
-
-        Added behavior:
-            Instead of using only the last timestep, this forward pass combines
-            mean pooling and max pooling across the full sequence. This helps
-            the model capture both long-term trends and standout moments in an
-            athlete's performance or popularity history.
+            tier_logits: Shape (batch, num_tiers).
+            value_pred:  Shape (batch,).
         """
-        rnn_out, _ = self.rnn(x)
-        rnn_out = self.norm(rnn_out)
+        # BiLSTM over full sequence
+        lstm_out, _ = self.lstm(x)          # (batch, seq_len, hidden_dim*2)
 
-        mean_pool = rnn_out.mean(dim=1)
-        max_pool = rnn_out.max(dim=1).values
+        # Attention-weighted context instead of last-step only
+        context, _ = self.attention(lstm_out)   # (batch, hidden_dim*2)
+        context = self.dropout(context)
 
-        pooled = torch.cat([mean_pool, max_pool], dim=1)
-        pooled = self.dropout(pooled)
-
-        shared_repr = self.projection(pooled)
+        # Project down to hidden_dim for the task heads
+        shared_repr = F.relu(self.projection(context))  # (batch, hidden_dim)
 
         return self.head(shared_repr)
 
+    def get_attention_weights(self, x: torch.Tensor) -> torch.Tensor:
+        """Return per-timestep attention weights for a given input.
 
-class BiLSTMWithAttention(nn.Module):
-    """Bidirectional LSTM encoder with additive (Bahdanau-style) attention.
+        Useful for visualising which snapshot weeks drove the prediction.
 
-    Forward signature mirrors ``NILTransformerEncoder`` so the same
-    ``MultiTaskNILModel`` wrapper can host either backbone. Each timestep's
-    bidirectional hidden state is scored by a small MLP, masked against the
-    padding mask, and softmax-normalized into a probability distribution over
-    weeks. The pooled context vector is returned along with optional attention
-    capture for interpretability.
-    """
+        Args:
+            x: Input tensor of shape (batch, seq_len, n_features).
 
-    def __init__(
-        self,
-        n_features: int,
-        hidden_dim: int = 128,
-        num_layers: int = 2,
-        dropout: float = 0.3,
-        attention_dim: int = 128,
-    ) -> None:
-        super().__init__()
-        self.n_features = n_features
-        self.hidden_dim = hidden_dim
-        self.d_model = hidden_dim
-
-        self.input_norm = nn.LayerNorm(n_features)
-        self.lstm = nn.LSTM(
-            input_size=n_features,
-            hidden_size=hidden_dim,
-            num_layers=num_layers,
-            batch_first=True,
-            bidirectional=True,
-            dropout=dropout if num_layers > 1 else 0.0,
-        )
-
-        bi_hidden = hidden_dim * 2
-        self.lstm_norm = nn.LayerNorm(bi_hidden)
-        self.attention_proj = nn.Linear(bi_hidden, attention_dim)
-        self.attention_score = nn.Linear(attention_dim, 1, bias=False)
-        self.context_proj = nn.Linear(bi_hidden, hidden_dim)
-        self.dropout = nn.Dropout(dropout)
-        self.last_attention: torch.Tensor | None = None
-
-    def forward(
-        self,
-        x: torch.Tensor,
-        mask: torch.Tensor | None = None,
-        return_attention: bool = False,
-    ) -> torch.Tensor:
-        """Encode ``(batch, seq_len, n_features)`` into ``(batch, hidden_dim)``.
-
-        ``mask`` is a boolean tensor where ``True`` marks valid positions; it
-        prevents attention from attending to padded weeks.
+        Returns:
+            weights: Shape (batch, seq_len).
         """
-        x = self.input_norm(x)
-        hidden_states, _ = self.lstm(x)  # (B, S, 2H)
-        hidden_states = self.lstm_norm(hidden_states)
-
-        scored = self.attention_score(
-            torch.tanh(self.attention_proj(hidden_states))
-        ).squeeze(-1)  # (B, S)
-
-        if mask is not None:
-            scored = scored.masked_fill(~mask.bool(), float("-inf"))
-
-        attn_weights = F.softmax(scored, dim=-1)  # (B, S)
-        if return_attention:
-            self.last_attention = attn_weights.detach()
-
-        context = torch.bmm(attn_weights.unsqueeze(1), hidden_states).squeeze(1)
-        pooled = self.context_proj(context)
-        return self.dropout(pooled)
-
+        with torch.no_grad():
+            lstm_out, _ = self.lstm(x)
+            _, weights = self.attention(lstm_out)
+        return weights
